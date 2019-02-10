@@ -78,4 +78,13 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/chunkai1312/blog.git
+
+# Search
+## https://github.com/PaicHyperionDev/hexo-generator-search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
