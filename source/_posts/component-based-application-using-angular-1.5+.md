@@ -5,6 +5,8 @@ tags:
   - Angular
   - Redux
   - F2E
+categories:
+  - 工作筆記
 ---
 
 `angular.component()` 是在 Angular 1.5 版本中新增的方法，它是基於 `angular.directive()`，更簡單地說，即是 **controller + template** 。有了 `angular.component()` 這個新利器，我們可以很容易地將 Angular 寫成像 React 一樣的元件化應用程式 (component-based application)。

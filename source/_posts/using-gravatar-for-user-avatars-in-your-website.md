@@ -4,6 +4,8 @@ date: 2017-02-01 21:32:55
 tags: 
   - Gravatar
   - NodeJS
+categories:
+  - 工作筆記
 ---
 
 [Gravatar](http://gravatar.com) (Globally Recognized Avatar) 是一個提供跨站台頭像服務的平台，只要您在 [Gravatar](http://gravatar.com) 上註冊並上傳圖片，就可以在所有支援 Gravatar 的網站中顯示你的專屬大頭照。

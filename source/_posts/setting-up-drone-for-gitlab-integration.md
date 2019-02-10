@@ -8,6 +8,8 @@ tags:
   - NodeJS
   - Git
   - CI
+categories:
+  - 工作筆記
 ---
 
 Drone 是一個以 Go 編寫、基於 Docker 的 CI/CD 平台。本篇文章簡單介紹 Drone 如何安裝與 GitLab 整合。

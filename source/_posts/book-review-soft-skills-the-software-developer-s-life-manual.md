@@ -7,6 +7,8 @@ tags:
   - Software Development
   - Software Engineering
   - Software Engineer
+categories:
+  - 閱讀筆記
 ---
 
 這是一本不是在講技術的軟體相關書籍，而是作者結合自身經驗，聚焦在如何成為「全方位的軟體開發人員」這件事情上。

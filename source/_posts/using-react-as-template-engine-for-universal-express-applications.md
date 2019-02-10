@@ -6,6 +6,8 @@ tags:
   - Express
   - NodeJS
   - Universal JavaScript
+categories:
+  - 工作筆記
 ---
 
 使用 [Express](https://expressjs.com) 建構頁面時，可能會搭配各式的 [template engines](https://github.com/expressjs/express/wiki?&_ga=1.57492066.918787517.1490850939#template-engines) 來協助渲染視圖 (views) 。 在 React 社區中有 [express-react-views](https://github.com/reactjs/express-react-views) 使用 React 作為 template engine 的伺服端渲染 (server-side rendering) 例子。不過該方案僅用在伺服端輸出靜態頁面，不支援 client side mounting 。相較之下，Paypal 的 [react-engine](https://github.com/paypal/react-engine) 提供一個 universal 的解決方案，並可搭配 [react-router](https://github.com/reactjs/react-router) 一起使用。

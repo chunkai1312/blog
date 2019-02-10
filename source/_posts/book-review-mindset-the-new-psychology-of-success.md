@@ -5,6 +5,8 @@ tags:
   - Book Review
   - Mindset
   - Psychology
+categories:
+  - 閱讀筆記
 ---
 
 致勝心態，心態致勝。也許一個簡單的信念，就能對我們的人生產生深刻的影響。

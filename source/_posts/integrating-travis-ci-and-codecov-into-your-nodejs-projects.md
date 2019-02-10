@@ -8,6 +8,8 @@ tags:
   - NodeJS
   - Code Coverage
   - CI
+categories:
+  - 工作筆記
 ---
 
 最近試著將自己的在 GitHub 上 open source projects 整合 Travis CI 與 Codecob 服務，在此記錄一下實踐的過程。

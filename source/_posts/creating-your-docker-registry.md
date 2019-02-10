@@ -5,6 +5,8 @@ tags:
   - Docker
   - Docker Registry
   - DevOps
+categories:
+  - 工作筆記
 ---
 
 [Docker Hub](https://hub.docker.com) 是 [Docker](https://www.docker.com) 官方維護的公共倉庫。但是如果映像檔 (image) 不便公開，可能就不適合使用公共倉庫，這時候我們就需要 [Docker Registry](https://docs.docker.com/registry/) 來建立自己的私有倉庫。

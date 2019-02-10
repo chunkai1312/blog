@@ -5,6 +5,8 @@ tags:
   - Third-Party JavaScript
   - Node.js
   - JavaScript
+categories:
+  - 工作筆記
 ---
 
 由於 [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) 的安全性考量，在瀏覽器上運行的客戶端 JavaScript 通常會存在跨網域存取資料的限制。當我們在開發第三方 JavaScript (Third-party JavaScript) 應用時，最好能在本地開發環境模擬跨網域 (cross-domain)，避免將來在正式環境上發生無法預期的錯誤。

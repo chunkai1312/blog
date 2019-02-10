@@ -4,6 +4,8 @@ date: 2017-03-03 04:39:33
 tags: 
   - Uptime Robot
   - DevOps
+categories:
+  - 工作筆記
 ---
 
 [Uptime Robot](https://uptimerobot.com) 提供網站監控的服務，能夠在網站無法正常連線時發出通知，協助維運人員及時處理狀況。

@@ -8,6 +8,8 @@ tags:
   - NodeJS
   - Git
   - CI
+categories:
+  - 工作筆記
 ---
 
 本篇文章將介紹如何在 GitLab 上使用 GitLab CI 為 Node.js 應用程式進行持續整合。首先，必須建置好 GitLab 環境，並在一台主機上安裝好 Docker，作為 CI Server 。

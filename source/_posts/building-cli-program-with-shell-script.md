@@ -4,6 +4,8 @@ date: 2017-05-30 15:12:48
 tags:
   - Shell
   - Bash
+categories:
+  - 工作筆記
 ---
 
 最近開始需要撰寫一些 shell script 來執行 DevOps 自動化的工作。這篇主要記錄如何使用 shell script 來建立一個簡單的命令列程式。
