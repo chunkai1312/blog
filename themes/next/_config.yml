@@ -60,7 +60,7 @@ rss:
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  #since: 2015
+  since: 2016
 
   # Icon between year and copyright info.
   icon:
@@ -139,7 +139,7 @@ exturl: false
 menu:
   home: / || home
   #about: /about/ || user
-  #tags: /tags/ || tags
+  tags: /tags/ || tags
   #categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
@@ -157,10 +157,10 @@ menu_settings:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-#scheme: Gemini
+scheme: Gemini
 
 
 # ---------------------------------------------------------------
@@ -175,13 +175,13 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
-#social:
-  #GitHub: https://github.com/yourname || github
-  #E-Mail: mailto:yourname@gmail.com || envelope
+social:
+  GitHub: https://github.com/chunkai1312 || github
+  E-Mail: mailto:chunkai1312@gmail.com || envelope
   #Weibo: https://weibo.com/yourname || weibo
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
-  #FB Page: https://www.facebook.com/yourname || facebook
+  FB Page: https://www.facebook.com/chunkai1312 || facebook
   #VK Group: https://vk.com/yourname || vk
   #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
   #YouTube: https://youtube.com/yourname || youtube
@@ -518,8 +518,8 @@ pangu: false
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: ckwang
   count: true
   lazyload: false
 
@@ -618,7 +618,7 @@ needmoreshare2:
 #google_site_verification:
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-90351388-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster
