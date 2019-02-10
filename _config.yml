@@ -81,10 +81,11 @@ deploy:
   type: git
   repo: https://github.com/chunkai1312/blog.git
 
-# Search
-## https://github.com/PaicHyperionDev/hexo-generator-search
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
+# Feed
+## https://github.com/hexojs/hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
