@@ -138,7 +138,7 @@ exturl: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  #about: /about/ || user
+  about: https://resume.ckwang.net || user
   tags: /tags/ || tags
   #categories: /categories/ || th
   archives: /archives/ || archive
@@ -176,21 +176,15 @@ site_state: true
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
+  E-mail: mailto:chunkai1312@gmail.com || envelope
   GitHub: https://github.com/chunkai1312 || github
-  E-Mail: mailto:chunkai1312@gmail.com || envelope
-  #Weibo: https://weibo.com/yourname || weibo
-  #Google: https://plus.google.com/yourname || google
-  #Twitter: https://twitter.com/yourname || twitter
-  FB Page: https://www.facebook.com/chunkai1312 || facebook
-  #VK Group: https://vk.com/yourname || vk
-  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
-  #YouTube: https://youtube.com/yourname || youtube
-  #Instagram: https://instagram.com/yourname || instagram
-  #Skype: skype:yourname?call|chat || skype
+  Facebook: https://www.facebook.com/chunkai1312 || facebook
+  LinkedIn: https://www.linkedin.com/in/chunkai1312/ || linkedin
+  Slideshare: https://www.slideshare.net/chunkai1312 || slideshare
 
 social_icons:
   enable: true
-  icons_only: false
+  icons_only: true
   transition: false
 
 # Follow me on GitHub banner in right-top corner.
@@ -212,9 +206,9 @@ avatar:
   # in theme directory(source/images): /images/avatar.gif
   # in site  directory(source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
-  url: #/images/avatar.gif
+  url: https://s.gravatar.com/avatar/a770595a74d872ac85e9ae1b12bb67a3?s=200
   # If true, the avatar would be dispalyed in circle.
-  rounded: false
+  rounded: true
   # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
   opacity: 1
   # If true, the avatar would be rotated with the cursor.
