@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
-timezone:
+title: C. K. Wang's Blog
+subtitle: My Life, My Style, My Code.
+description: Just write something.
+keywords: blog
+author: Chun-Kai Wang
+language: zh-TW
+timezone: Asia/Taipei
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://blog.ckwang.net
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
