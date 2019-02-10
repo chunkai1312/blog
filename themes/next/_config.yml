@@ -191,7 +191,7 @@ social_icons:
 # Usage: `permalink || title`
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the title and aria-label name.
-#github_banner: https://github.com/yourname || Follow me on GitHub
+#github_banner: https://github.com/chunkai1312 || Follow me on GitHub
 
 # Blog rolls
 links_icon: link
@@ -371,10 +371,10 @@ custom_logo:
 # Code Highlight theme
 # Available values: normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night
 
 # Enable "cheers" for archive page.
-cheers_enabled: true
+cheers_enabled: false
 
 
 # ---------------------------------------------------------------
