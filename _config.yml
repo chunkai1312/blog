@@ -89,3 +89,8 @@ feed:
   limit: 20
   hub:
   content:
+
+# Sitemap
+## https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
