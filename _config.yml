@@ -13,7 +13,7 @@ timezone: Asia/Taipei
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://blog.ckwang.net
+url: https://chunkai.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -80,7 +80,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/chunkai1312/blog.git
+  repo: https://github.com/chunkai1312/chunkai1312.github.io.git
 
 # Feed
 ## https://github.com/hexojs/hexo-generator-feed
