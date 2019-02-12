@@ -138,7 +138,7 @@ exturl: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  about: https://resume.ckwang.net || user
+  about: https://resume.chunkai.me || user
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
