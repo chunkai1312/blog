@@ -1,21 +1,21 @@
 ---
-title: 《我用死薪水輕鬆理財賺千萬》讀後感
-date: 2018-12-20 23:50:00
+title: 《我用死薪水輕鬆理財賺千萬》：你應該知道的九項理財投資法則
 tags:
   - Book Review
   - Invest
 categories:
   - [閱讀筆記]
   - [投資理財]
+date: 2018-12-20 23:50:00
 ---
 
 這本書的原來英文書名是 [Millionaire Teacher: The Nine Rules of Wealth You Should Have Learned in School](https://www.amazon.com/Millionaire-Teacher-Wealth-Should-Learned/dp/0470830069)。主要就是說明我們應該在學校裡學到的九個理財投資法則。
 
-<!-- more -->
-
 ![](/2018/12/20/book-review-millionaire-teacher/cover.jpg)
 
-## 九個理財投資法則 (Nine Rules of Wealth Checklist)
+<!-- more -->
+
+## 九項理財投資法則 (Nine Rules of Wealth Checklist)
 
 1. 如果想要變成真正的有錢人，就該向他們得花錢方式看齊。
 2. 在還清信用卡債與任何高利率借款之後，盡早投資。

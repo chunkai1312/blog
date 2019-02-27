@@ -1,5 +1,5 @@
 ---
-title: 《Soft Skills 軟實力：軟體開發人員的生存手冊》讀後感
+title: 《Soft Skills 軟實力：軟體開發人員的生存手冊》：成為全方位的軟體開發人員
 date: 2017-11-29 00:00:00
 tags:
   - Book Review
@@ -13,9 +13,9 @@ categories:
 
 這是一本不是在講技術的軟體相關書籍，而是作者結合自身經驗，聚焦在如何成為「全方位的軟體開發人員」這件事情上。
 
-<!-- more -->
-
 ![](/2017/11/29/book-review-soft-skills-the-software-developer-s-life-manual/soft_skills.jpg)
+
+<!-- more -->
 
 這本書的是 "Soft Skills: The software developer's life manual" 的中譯本，其實簡中版本出來一段時間了，我也一直列在待讀書單。趁著最近看到出了繁中版本，大概花了一週的晚上把它讀完。書中安排的七個 sections，依序講講自己的心得摘要。
 
