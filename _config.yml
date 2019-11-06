@@ -13,7 +13,7 @@ timezone: Asia/Taipei
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://chunkai.me
+url: https://blog.chunkai.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -80,7 +80,8 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/chunkai1312/chunkai1312.github.io.git
+  repo: https://github.com/chunkai1312/blog
+  branch: gh-pages
 
 # Feed
 ## https://github.com/hexojs/hexo-generator-feed
@@ -97,6 +98,7 @@ sitemap:
   path: sitemap.xml
 
 # RESTful json data
+## https://github.com/yscoder/hexo-generator-restful
 restful:
   # site 可配置為陣列選擇性生成某些屬性
   # site: ['title', 'subtitle', 'description', 'author', 'since', email', 'favicon', 'avatar']
