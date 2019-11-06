@@ -95,3 +95,29 @@ feed:
 ## https://github.com/hexojs/hexo-generator-sitemap
 sitemap:
   path: sitemap.xml
+
+# RESTful json data
+restful:
+  # site 可配置為陣列選擇性生成某些屬性
+  # site: ['title', 'subtitle', 'description', 'author', 'since', email', 'favicon', 'avatar']
+  site: true        # hexo.config mix theme.config
+  posts_size: 10    # 文章列表分頁，0 表示不分頁
+  posts_props:      # 文章列表項的需要生成的屬性
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    excerpt: false
+    cover: true      # 封面圖，取文章第一張圖片
+    content: false
+    keywords: false
+    categories: true
+    tags: true
+  categories: true         # 分類數據
+  use_category_slug: false # Use slug for filename of category data
+  tags: true               # 標籤數據
+  use_tag_slug: false      # Use slug for filename of tag data
+  post: true               # 文章數據
+  pages: false             # 額外的 Hexo 頁面數據, 如 About

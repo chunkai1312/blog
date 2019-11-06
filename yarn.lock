@@ -1034,6 +1034,14 @@ hexo-generator-index@^0.2.1:
     hexo-pagination "0.0.2"
     object-assign "^4.0.1"
 
+hexo-generator-restful@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/hexo-generator-restful/-/hexo-generator-restful-0.2.3.tgz#7c3eb595777bf29ec34185b1737b78b37c167dbf"
+  integrity sha512-2j10QDfEG4drdc/6BM1WYxq/GPMsj+0Lh48Hg8linEOhCctBftIscxxBa7z4lzlgtBc16nOAOpgeaADseIlncQ==
+  dependencies:
+    hexo-pagination "^0.1.0"
+    lodash.pick "^4.4.0"
+
 hexo-generator-searchdb@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/hexo-generator-searchdb/-/hexo-generator-searchdb-1.0.8.tgz#04245256e1413a66313932dbf1c0a7e568559301"
@@ -1075,6 +1083,13 @@ hexo-pagination@0.0.2:
   resolved "https://registry.yarnpkg.com/hexo-pagination/-/hexo-pagination-0.0.2.tgz#8cf470c7db0de5b18a3926a76deb194015df7f2b"
   dependencies:
     utils-merge "^1.0.0"
+
+hexo-pagination@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/hexo-pagination/-/hexo-pagination-0.1.0.tgz#54f0be12e6ae51d1c0a6f0023674ba77ac514ce3"
+  integrity sha1-VPC+EuauUdHApvACNnS6d6xRTOM=
+  dependencies:
+    object-assign "^4.1.0"
 
 hexo-renderer-ejs@^0.3.1:
   version "0.3.1"
@@ -1458,7 +1473,7 @@ lodash.merge@^4.4.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
 
-lodash.pick@^4.2.1:
+lodash.pick@^4.2.1, lodash.pick@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
 
