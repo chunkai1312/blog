@@ -110,7 +110,7 @@ scroll_top_arrow:  # 向頂部滾動的箭頭
 # Index Page
 #---------------------------
 index:
-  banner_img: /img/default.png  # 首頁 Banner 頭圖，以下相同
+  banner_img: /img/default.jpg  # 首頁 Banner 頭圖，以下相同
   banner_img_height: 100  # 頭圖高度，螢幕幾趴，available: 0 - 100
   slogan:  # 首頁副標題的獨立設定
     enable: true  # 為 false 則不顯示任何內容
@@ -129,7 +129,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/default.png
+  banner_img: /img/default.jpg
   banner_img_height: 70  # available: 0 - 100
   meta:  # 文章標題下方的信息
     date:  # 文章日期
@@ -217,7 +217,7 @@ valine:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/default.png
+  banner_img: /img/default.jpg
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -226,7 +226,7 @@ archive:
 # Categories Page
 #---------------------------
 category:
-  banner_img: /img/default.png
+  banner_img: /img/default.jpg
   banner_img_height: 80  # available: 0 - 100
 
 
@@ -235,7 +235,7 @@ category:
 # Tags Page
 #---------------------------
 tag:
-  banner_img: /img/default.png
+  banner_img: /img/default.jpg
   banner_img_height: 80  # available: 0 - 100
   tagcloud: # 標籤雲
     min_font: 15
@@ -251,9 +251,9 @@ tag:
 #---------------------------
 about:  # 以下僅為頁面頂部的基本信息，更多內容請在 ./pages/about.md 中編輯，支援 markdown 和 HTML
   md_path: ./pages/about.md  # 關於頁文檔的相對路徑，可以按相對文檔設定主題之外的路徑，從而避免更新沖突
-  banner_img: /img/default.png
+  banner_img: /img/default.jpg
   banner_img_height: 80  # available: 0 - 100
-  avatar: /img/avatar.png # 頭像
+  avatar: https://s.gravatar.com/avatar/a770595a74d872ac85e9ae1b12bb67a3?s=300 # 頭像
   name: 王雋凱 (Chun-Kai Wang)
   introduce: A full-stack engineer, focus on JavaScript/Node.js, Web Development and DevOps. # 支援 HTML
   icons: # 更多圖示可從 https://fontawesome.com/icons 查找，並以 "圖示名: url" 的格式添加在下方
@@ -267,6 +267,6 @@ about:  # 以下僅為頁面頂部的基本信息，更多內容請在 ./pages/a
 # 404 Page
 #---------------------------
 page404:
-  banner_img: /img/default.png
+  banner_img: /img/default.jpg
   banner_img_height: 80  # available: 0 - 100
   subtitle: 'Page not found'
