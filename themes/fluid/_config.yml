@@ -254,11 +254,11 @@ about:  # 以下僅為頁面頂部的基本信息，更多內容請在 ./pages/a
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
   avatar: /img/avatar.png # 頭像
-  name: myname
-  introduce: info / info / info # 支援 HTML
+  name: 王雋凱 (Chun-Kai Wang)
+  introduce: A full-stack engineer, focus on JavaScript/Node.js, Web Development and DevOps. # 支援 HTML
   icons: # 更多圖示可從 https://fontawesome.com/icons 查找，並以 "圖示名: url" 的格式添加在下方
-    "fab fa-github": https://github.com
-    "fab fa-twitter": https://twitter.com
+    "fab fa-github": https://github.com/chunkai1312
+    "fab fa-facebook": https://fb.me/kevin.chunkai.wang
     "fab fa-weixin":  # 微信圖示，這個是特殊圖示，點選不會跳轉而是懸浮二維碼，所以鏈接需要對應二維碼圖片地址
 
 
