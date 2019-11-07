@@ -3,7 +3,7 @@
 # Author: Fluid-dev organization
 # Github: https://github.com/fluid-dev/hexo-theme-fluid
 #
-# 本配置的详细指南请见：https://fluid-dev.github.io/hexo-fluid-docs/guide/
+# 本配置的詳細指南請見：https://fluid-dev.github.io/hexo-fluid-docs/guide/
 #---------------------------
 
 
@@ -11,30 +11,30 @@
 # 全局
 # Site
 #---------------------------
-favicon: /img/favicon.png # 网站标签页的 icon
+favicon: /img/favicon.png # 網站標籤頁的 icon
 
-apple_touch_icon: /img/apple-touch-icon.png # 用于苹果设备的 icon
+apple_touch_icon: /img/apple-touch-icon.png # 用於蘋果設備的 icon
 
-title_join_string: ' ~ '  # 浏览器标签页中的标题分隔符，效果： 文章名 ~ 站点名
+title_join_string: ' ~ '  # 瀏覽器標籤頁中的標題分隔號，效果： 文章名 ~ 站點名
 
-highlight: # 代码高亮
+highlight: # 代碼高亮
   enable: true
-  theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主题可从 https://jmblog.github.io/color-themes-for-google-code-prettify/ 获取，保存为 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值后加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
+  theme: tomorrow-night-eighties # available: github-v2 | tomorrow | tomorrow-night | tomorrow-night-eighties，更多主題可從 https://jmblog.github.io/color-themes-for-google-code-prettify/ 獲取，保存為 `*.min.css` 到 `source/lib/prettify/`，在其中 .prettyprint{ background: ***; ...} 的background 值後加上 !important，例如：.prettyprint{background:#fafbfc!important; ...}
 
 fun_features: # 一些好玩的功能
-  typing: # 为 subtitle 添加打字机效果
+  typing: # 為 subtitle 添加打字機效果
     enable: true
-    typeSpeed: 70 # 打印速度
-    cursorChar: "_" # 游标字符
-    loop: false # 是否循环播放效果
-  anchorjs: # 为文章内容中的标题添加锚图标
+    typeSpeed: 70 # 列印速度
+    cursorChar: "_" # 遊標字符
+    loop: false # 是否循環播放效果
+  anchorjs: # 為文章內容中的標題添加錨圖示
     enable: true
     element: h1,h2,h3,h4,h5,h6
     placement: right # icon放置的位置： left | right
-    visible: false # true：一直可见，false：鼠标悬停时出现
-    icon: "" # 例如：§ | # | ❡ 等，留空则为默认效果
+    visible: false # true：一直可見，false：滑鼠懸停時出現
+    icon: "" # 例如：§ | # | ❡ 等，留空則為預設效果
 
-color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdesignrankings.com/resources/lolcolors/
+color:  # 主體顔色配置，可以從這裏尋找啓發： https://www.webdesignrankings.com/resources/lolcolors/
   body_bg_color: "#eee"
   navbar_bg_color: "#2f4154"
   navbar_text_color: "white"
@@ -42,132 +42,132 @@ color:  # 主体颜色配置，可以从这里寻找启发： https://www.webdes
   link_color: "#3c4858"
   link_hover_color: "#1abc9c"
 
-web_analytics:  # 网页访问统计
+web_analytics:  # 網頁訪問統計
   enable: true
-  baidu:  # 百度统计的Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串
-  google:  # Google统计的Tracking ID，参见 https://analytics.google.com/analytics/web/
-  tencent:  # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage
-  woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
-  cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
+  baidu:  # 百度統計的Key，參見 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代碼獲取中 hm.js? 後邊的字符串
+  google:  # Google統計的Tracking ID，參見 https://analytics.google.com/analytics/web/
+  tencent:  # 騰訊統計的H5 App id，參見 https://mta.qq.com/h5/manage/ctr_app_manage
+  woyaola:  # 51.la站點統計ID，參見 https://www.51.la/user/site/index
+  cnzz:  # 友盟/cnzz站點統計web_id，參見 https://web.umeng.com/main.php?c=site&a=show
 
-lazyload: # 对页面中的图片进行懒加载处理，可见范围外的图片不会加载
+lazyload: # 對頁面中的圖片進行懶加載處理，可見範圍外的圖片不會加載
   enable: true
-  onlypost: false  # 仅在文章页使用懒加载
+  onlypost: false  # 僅在文章頁使用懶加載
 
-smooth_scroll: # 平滑滚动效果
+smooth_scroll: # 平滑滾動效果
   enable: true
 
 
 #---------------------------
-# 页头
+# 頁頭
 # Header
 #---------------------------
 navbar:
-  blog_title:  # 导航栏左侧的标题，为空则按 hexo config.title 显示
-  menu:  # 可自行增减，若想减去某个入口，可以将值留空
+  blog_title:  # 導航欄左側的標題，為空則按 hexo config.title 顯示
+  menu:  # 可自行增減，若想減去某個入口，可以將值留空
     Home: /
     Archives: /archives/
     Categories: /categories/
     Tags: /tags/
     About: /about/
 
-search: # 搜索栏
+search: # 搜索欄
   enable: true
   path: /local-search.xml
   field: post
   content: true
 
-scroll_down_arrow:  # 向下滚动的箭头
+scroll_down_arrow:  # 向下滾動的箭頭
   enable: true
-  banner_height_limit: 90  # 头图高度不小于指定比例，才显示箭头
-  scroll_after_turning_page: true  # 翻页后自动滚动
+  banner_height_limit: 90  # 頭圖高度不小於指定比例，才顯示箭頭
+  scroll_after_turning_page: true  # 翻頁後自動滾動
 
-banner_scroll: false  # 头图是否跟随页面滚动
+banner_scroll: false  # 頭圖是否跟隨頁面滾動
 
 
 #---------------------------
-# 页脚
+# 頁腳
 # Footer
 #---------------------------
 footer:
-  statistics:  # 统计网站 PV、UV，使用的是不蒜子，显示在页脚
+  statistics:  # 統計網站 PV、UV，使用的是不蒜子，顯示在頁腳
     enable: true
-    pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
-    uv_format: "总访客数 {} 人"
+    pv_format: "總訪問量 {} 次"  # 顯示的文本，{}是數字的佔位符（必須包含)，下同
+    uv_format: "總訪客數 {} 人"
 
   beian:  # The footer of China's website policy, other areas keep disable
     enable: false
-    icp_text: 京ICP证123456号 # ICP证号
-    police_text: 京公网安备12345678号 # 公安备案号，不填则只显示ICP
-    police_code: 12345678 # 公安备案的编号，用于URL跳转查询
+    icp_text: 京ICP證123456號 # ICP證號
+    police_text: 京公網安備12345678號 # 公安備案號，不填則隻顯示ICP
+    police_code: 12345678 # 公安備案的編號，用於URL跳轉查詢
 
-scroll_top_arrow:  # 向顶部滚动的箭头
+scroll_top_arrow:  # 向頂部滾動的箭頭
   enable: true
 
 
 #---------------------------
-# 首页
+# 首頁
 # Index Page
 #---------------------------
 index:
-  banner_img: /img/default.png  # 首页 Banner 头图，以下相同
-  banner_img_height: 100  # 头图高度，屏幕百分比，available: 0 - 100
-  slogan:  # 首页副标题的独立设置
-    enable: true  # 为 false 则不显示任何内容
-    text:  # 为空则按 hexo config.subtitle 显示
+  banner_img: /img/default.png  # 首頁 Banner 頭圖，以下相同
+  banner_img_height: 100  # 頭圖高度，螢幕幾趴，available: 0 - 100
+  slogan:  # 首頁副標題的獨立設定
+    enable: true  # 為 false 則不顯示任何內容
+    text:  # 為空則按 hexo config.subtitle 顯示
   auto_excerpt:
     enable: true
   post_url_target: _self  # available: _blank | _self
-  post_meta: # 是否显示文章信息（时间、分类、标签）
+  post_meta: # 是否顯示文章信息（時間、分類、標籤）
     date: true
     category: true
     tag: true
 
 
 #---------------------------
-# 文章页
+# 文章頁
 # Post Page
 #---------------------------
 post:
   banner_img: /img/default.png
   banner_img_height: 70  # available: 0 - 100
-  meta:  # 文章标题下方的信息
+  meta:  # 文章標題下方的信息
     date:  # 文章日期
       enable: true
-      format: "dddd, MMMM Do YYYY, h:mm a"  # 格式参照 ISO-8601 日期格式化
-    wordcount:  # 字数统计
+      format: "dddd, MMMM Do YYYY, h:mm a"  # 格式參照 ISO-8601 日期格式化
+    wordcount:  # 字數統計
       enable: true
-      format: "{} 字"  # 显示的文本，{}是数字的占位符（必须包含)，下同
-    min2read:  # 阅读时间
+      format: "{} 字"  # 顯示的文本，{}是數字的佔位符（必須包含)，下同
+    min2read:  # 閱讀時間
       enable: true
-      format: "{} 分钟"
-    views:  # 阅读次数，统计基于不蒜子
+      format: "{} 分鍾"
+    views:  # 閱讀次數，統計基於不蒜子
       enable: true
       format: "{} 次"
-  toc:  # 右侧导航条
+  toc:  # 右側導航條
     enable: true
-  copyright:  # 版权声明
+  copyright:  # 版權宣告
     enable: true
-    content: '本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！'
-  custom:  # 文章底部自定义内容
+    content: '本部落格所有文章除特別宣告外，均採用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0協議</a> 。轉載請註明出處！'
+  custom:  # 文章底部自定義內容
     enable: false
-    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
-  comments:  # 评论
-    enable: false  # 开启评论
-    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances
-  image_zoom:  # 文章图片可点击放大
+    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定義區域，支援 HTML，可自行插入贊賞碼、公衆號二維碼等內容
+  comments:  # 評論
+    enable: false  # 開啓評論
+    type: disqus  # 指定使用的評論模塊  available: disqus | valine | gitalk | utterances
+  image_zoom:  # 文章圖片可點選放大
     enable: true
-  math:  # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见 https://fluid-dev.github.io/hexo-fluid-docs/guide/#数学公式
+  math:  # 數學公式，開啓之前需要更換 Markdown 渲染器，否則複雜公式會有兼容問題，具體請見 https://fluid-dev.github.io/hexo-fluid-docs/guide/#數學公式
     enable: false
-    specific: false  # 开启后，只有在文章 Front-matter 里指定 `math: true` 才会在文章页启动公式转换，以便在页面不包含公式时提高加载速度
+    specific: false  # 開啓後，隻有在文章 Front-matter 裏指定 `math: true` 才會在文章頁啓動公式轉換，以便在頁面不包含公式時提高加載速度
     engine: mathjax  # 公式引擎  available: mathjax | katex
 
 #---------------------------
-# 评论
+# 評論
 # Comments
 #---------------------------
 
-# 开启评论在上方的 post.comments 配置
+# 開啓評論在上方的 post.comments 配置
 
 # utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
@@ -207,13 +207,13 @@ valine:
   appkey:  # your leancloud application appkey
   notify: false # mail notifier, See: https://github.com/xCss/Valine/wiki
   verify: false # Verification code
-  placeholder: 说点什么 # comment box placeholder
+  placeholder: 說點什麼 # comment box placeholder
   avatar: retro # gravatar style https://valine.js.org/avatar.html
   pageSize: 10 # pagination size
 
 
 #---------------------------
-# 归档页
+# 歸檔頁
 # Archive Page
 #---------------------------
 archive:
@@ -222,7 +222,7 @@ archive:
 
 
 #---------------------------
-# 分类归档页
+# 分類歸檔頁
 # Categories Page
 #---------------------------
 category:
@@ -231,39 +231,39 @@ category:
 
 
 #---------------------------
-# 标签归档页
+# 標籤歸檔頁
 # Tags Page
 #---------------------------
 tag:
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
-  tagcloud: # 标签云
+  tagcloud: # 標籤雲
     min_font: 15
     max_font: 30
-    unit: px  # 字号单位
+    unit: px  # 字號單位
     start_color: "#BBBBEE"
     end_color: "#337ab7"
 
 
 #---------------------------
-# 关于页
+# 關於頁
 # About Page
 #---------------------------
-about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
-  md_path: ./pages/about.md  # 关于页文档的相对路径，可以按相对文档设置主题之外的路径，从而避免更新冲突
+about:  # 以下僅為頁面頂部的基本信息，更多內容請在 ./pages/about.md 中編輯，支援 markdown 和 HTML
+  md_path: ./pages/about.md  # 關於頁文檔的相對路徑，可以按相對文檔設定主題之外的路徑，從而避免更新沖突
   banner_img: /img/default.png
   banner_img_height: 80  # available: 0 - 100
-  avatar: /img/avatar.png # 头像
+  avatar: /img/avatar.png # 頭像
   name: myname
-  introduce: info / info / info # 支持 HTML
-  icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
+  introduce: info / info / info # 支援 HTML
+  icons: # 更多圖示可從 https://fontawesome.com/icons 查找，並以 "圖示名: url" 的格式添加在下方
     "fab fa-github": https://github.com
     "fab fa-twitter": https://twitter.com
-    "fab fa-weixin":  # 微信图标，这个是特殊图标，点击不会跳转而是悬浮二维码，所以链接需要对应二维码图片地址
+    "fab fa-weixin":  # 微信圖示，這個是特殊圖示，點選不會跳轉而是懸浮二維碼，所以鏈接需要對應二維碼圖片地址
 
 
 #---------------------------
-# 404页
+# 404頁
 # 404 Page
 #---------------------------
 page404:
