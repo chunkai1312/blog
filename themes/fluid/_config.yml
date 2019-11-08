@@ -153,8 +153,8 @@ post:
     enable: false
     content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定義區域，支援 HTML，可自行插入贊賞碼、公衆號二維碼等內容
   comments:  # 評論
-    enable: false  # 開啓評論
-    type: disqus  # 指定使用的評論模塊  available: disqus | valine | gitalk | utterances
+    enable: true  # 開啓評論
+    type: utterances  # 指定使用的評論模塊  available: disqus | valine | gitalk | utterances
   image_zoom:  # 文章圖片可點選放大
     enable: true
   math:  # 數學公式，開啓之前需要更換 Markdown 渲染器，否則複雜公式會有兼容問題，具體請見 https://fluid-dev.github.io/hexo-fluid-docs/guide/#數學公式
@@ -172,8 +172,8 @@ post:
 # utterances
 # You can install utterances with https://utteranc.es/ and generate your configuration
 utterances:
-  repo:
-  issue_term:
+  repo: chunkai1312/blog
+  issue_term: title
   label: utterances
   theme: github-light
   crossorigin: anonymous
