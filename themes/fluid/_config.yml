@@ -15,7 +15,7 @@ favicon: /img/favicon.png # 網站標籤頁的 icon
 
 apple_touch_icon: /img/apple-touch-icon.png # 用於蘋果設備的 icon
 
-title_join_string: ' ~ '  # 瀏覽器標籤頁中的標題分隔號，效果： 文章名 ~ 站點名
+title_join_string: ' | '  # 瀏覽器標籤頁中的標題分隔號，效果： 文章名 ~ 站點名
 
 highlight: # 代碼高亮
   enable: true

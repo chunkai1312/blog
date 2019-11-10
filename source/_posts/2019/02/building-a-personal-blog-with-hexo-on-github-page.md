@@ -1,16 +1,14 @@
 ---
 title: 使用 Hexo 及 GitHub Page 建立個人部落格
-tags:
-  - Hexo
-  - GitHub Pages
-  - Blog
-categories:
-  - 生活札記
+tags: [Hexo, GitHub Pages, Blog]
+categories: [技術分享]
+index_img: /2019/02/12/building-a-personal-blog-with-hexo-on-github-page/cover.png
 date: 2019-02-12 02:43:55
 ---
 
+![cover](/2019/02/12/building-a-personal-blog-with-hexo-on-github-page/cover.png)
 
-事實上有段時間也嘗試用 [Meduim](https://medium.com/) 寫部落格。不過自己還是比較習慣直接用 [Markdown](https://markdown.tw/) 語法寫部落格。另外還有一點就是 Medium 上的文章曝光度比較高，一些寫於工作上的隨筆記錄不是那麼適合大眾化，加上 Hexo 的自訂性與自由度都更高一點，比較符合我的使用需求。
+> 事實上有段時間也嘗試用 [Meduim](https://medium.com/) 寫部落格。不過自己還是比較習慣直接用 [Markdown](https://markdown.tw/) 語法寫部落格。另外還有一點就是 Medium 上的文章曝光度比較高，一些寫於工作上的隨筆記錄不是那麼適合大眾化，加上 Hexo 的自訂性與自由度都更高一點，比較符合我的使用需求。
 
 <!-- more -->
 

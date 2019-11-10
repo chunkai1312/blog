@@ -1,17 +1,14 @@
 ---
 title: 《心態致勝》：談心態如何影響人類行為
+tags: [Book Review, Mindset, Psychology]
+categories: [閱讀筆記]
+index_img: /2017/12/10/book-review-mindset-the-new-psychology-of-success/cover.jpg
 date: 2017-12-10 00:00:00
-tags:
-  - Book Review
-  - Mindset
-  - Psychology
-categories:
-  - 閱讀筆記
 ---
 
-致勝心態，心態致勝。也許一個簡單的信念，就能對我們的人生產生深刻的影響。
+![cover](/2017/12/10/book-review-mindset-the-new-psychology-of-success/cover.jpg)
 
-![](/2017/12/10/book-review-mindset-the-new-psychology-of-success/mindset.jpg)
+> 致勝心態，心態致勝。也許一個簡單的信念，就能對我們的人生產生深刻的影響。
 
 <!-- more -->
 

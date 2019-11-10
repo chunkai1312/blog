@@ -1,15 +1,14 @@
 ---
 title: 在本地端模擬多個網域名稱以用於第三方 JavaScript 開發
+tags: [Third-Party JavaScript, Node.js, JavaScript]
+categories: [技術分享]
+index_img: /2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/cover.jpg
 date: 2017-04-03 20:00:00
-tags:
-  - Third-Party JavaScript
-  - Node.js
-  - JavaScript
-categories:
-  - 工作筆記
 ---
 
-由於 [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) 的安全性考量，在瀏覽器上運行的客戶端 JavaScript 通常會存在跨網域存取資料的限制。當我們在開發第三方 JavaScript (Third-party JavaScript) 應用時，最好能在本地開發環境模擬跨網域 (cross-domain)，避免將來在正式環境上發生無法預期的錯誤。
+![cover](/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/cover.jpg)
+
+> 由於 [Same Origin Policy](https://en.wikipedia.org/wiki/Same-origin_policy) 的安全性考量，在瀏覽器上運行的客戶端 JavaScript 通常會存在跨網域存取資料的限制。當我們在開發第三方 JavaScript (Third-party JavaScript) 應用時，最好能在本地開發環境模擬跨網域 (cross-domain)，避免將來在正式環境上發生無法預期的錯誤。
 
 <!-- more -->
 
@@ -184,7 +183,7 @@ describe('Simulating multiple domains at local', () => {
 
 ### Starting the Server and Opening Your Browser
 
-執行 `npm start` 啟動 web server ，打開瀏覽器並在網址列上輸入 `http://widget.dev:8080` 進入測試頁面。
+執行 `npm start` 啟動 web server ，打開瀏覽器並在網址列上輸入 `http://publisher.dev:8080` 進入測試頁面。
 
 ![](/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/publisher_test_page.png)
 

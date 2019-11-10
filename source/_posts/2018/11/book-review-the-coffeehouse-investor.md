@@ -1,17 +1,14 @@
 ---
 title: 《不看盤，我才賺到大錢》：咖啡館投資哲學
+tags: [Book Review, Invest]
+categories: [閱讀筆記]
+index_img: /2018/11/01/book-review-the-coffeehouse-investor/cover.jpg
 date: 2018-11-01 01:48:52
-tags:
-  - Book Review
-  - Invest
-categories:
-  - [閱讀筆記]
-  - [投資理財]
 ---
 
-這本書是 [The Coffeehouse Investor](https://www.amazon.com/Coffeehouse-Investor-Wealth-Ignore-Street/dp/159184584X) 的中文譯本。原作者指的是咖啡館投資哲學，講的是如何建立財富、忽視華爾街，投資人應該過著屬於自己的生活。
+![cover](/2018/11/01/book-review-the-coffeehouse-investor/cover.jpg)
 
-![](/2018/11/01/book-review-the-new-coffeehouse-investor/cover.jpg)
+> 這本書是 [The Coffeehouse Investor](https://www.amazon.com/Coffeehouse-Investor-Wealth-Ignore-Street/dp/159184584X) 的中文譯本。原作者指的是咖啡館投資哲學，講的是如何建立財富、忽視華爾街，投資人應該過著屬於自己的生活。
 
 <!-- more -->
 

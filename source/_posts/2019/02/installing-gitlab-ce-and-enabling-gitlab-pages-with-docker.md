@@ -1,16 +1,14 @@
 ---
 title: 使用 Docker 安裝 GitLab CE 並啟用 GitLab Pages
-tags:
-  - GitLab
-  - GitLab Pages
-  - Docker
-  - Traefik
-categories:
-  - 工作筆記
+tags: [GitLab, GitLab Pages, Docker, Traefik]
+categories: [技術分享]
+index_img: /2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg
 date: 2019-02-12 22:39:25
 ---
 
-GitLab CE v8.16 版以後，支援 GitLab Pages 功能。就像 [GitHub Pages](https://pages.github.com/) 一樣，你可以為 GitLab 上的 project 建立靜態網站。
+![cover](/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg)
+
+> GitLab CE v8.16 版以後，支援 GitLab Pages 功能。就像 [GitHub Pages](https://pages.github.com/) 一樣，你可以為 GitLab 上的 project 建立靜態網站。
 
 <!-- more -->
 

@@ -1,18 +1,14 @@
 ---
 title: 使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合
+tags: [GitLab CI, GitLab, Docker, NodeJS, Git, CI]
+categories: [技術分享]
+index_img: /2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/cover.jpg
 date: 2017-01-07 19:02:44
-tags:
-  - GitLab CI
-  - GitLab
-  - Docker
-  - NodeJS
-  - Git
-  - CI
-categories:
-  - 工作筆記
 ---
 
-本篇文章將介紹如何在 GitLab 上使用 GitLab CI 為 Node.js 應用程式進行持續整合。首先，必須建置好 GitLab 環境，並在一台主機上安裝好 Docker，作為 CI Server 。
+![cover](/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/cover.jpg)
+
+> 本篇文章將介紹如何在 GitLab 上使用 GitLab CI 為 Node.js 應用程式進行持續整合。首先，必須建置好 GitLab 環境，並在一台主機上安裝好 Docker，作為 CI Server 。
 
 <!-- more -->
 

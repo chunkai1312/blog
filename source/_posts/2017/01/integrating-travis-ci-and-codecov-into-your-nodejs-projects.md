@@ -1,18 +1,14 @@
 ---
 title: 將 Travis CI 和 Codecov 整合至 Node.js 專案
+tags: [Travis CI, Codecov, NodeJS, GitHub, Code Coverage, CI]
+categories: [技術分享]
+index_img: /2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg
 date: 2017-01-15 00:00:00
-tags:
-  - Travis CI
-  - Codecov
-  - GitHub
-  - NodeJS
-  - Code Coverage
-  - CI
-categories:
-  - 工作筆記
 ---
 
-最近試著將自己的在 GitHub 上 open source projects 整合 Travis CI 與 Codecob 服務，在此記錄一下實踐的過程。
+![cover](/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg)
+
+> 最近試著將自己的在 GitHub 上 open source projects 整合 Travis CI 與 Codecob 服務，在此記錄一下實踐的過程。
 
 <!-- more -->
 

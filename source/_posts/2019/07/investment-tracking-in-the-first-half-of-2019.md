@@ -1,10 +1,13 @@
 ---
 title: 2019 年上半年投資追蹤紀錄
+tags: [投資理財]
+index_img: /2019/07/02/investment-tracking-in-the-first-half-of-2019/cover.jpg
 date: 2019-07-02 22:52:12
-tags: Investment
 ---
 
-先說結論，2019 年上半年年化報酬率 **14.7%**。
+![cover](/2019/07/02/investment-tracking-in-the-first-half-of-2019/cover.jpg)
+
+> 先說結論，2019 年上半年年化報酬率 **14.7%**。
 
 <!-- more -->
 

@@ -1,16 +1,14 @@
 ---
 title: 使用 Passport 和 Node.js 的 POP3 身份認證策略
+tags: [NodeJS, Passport, POP3, Authentication]
+categories: [技術分享]
+index_img: /2017/10/16/using-pop3-authentication-strategy-for-passport-and-nodejs/cover.jpg
 date: 2017-10-16 12:00:00
-tags:
-  - NodeJS
-  - Passport
-  - POP3
-  - Authentication
-categories:
-  - 工作筆記
 ---
 
-通常學校或公司組織都會給予學生或在職員工一組 email 信箱，筆者以前在學校協助系上及實驗室寫內部系統的時候，經常會使用到 POP3 認證。使用 POP3 認證的好處是不需要讓使用者另外設定或記憶一組密碼，也易於與既有內部系統做整合。
+![cover](/2017/10/16/using-pop3-authentication-strategy-for-passport-and-nodejs/cover.jpg)
+
+> 通常學校或公司組織都會給予學生或在職員工一組 email 信箱，筆者以前在學校協助系上及實驗室寫內部系統的時候，經常會使用到 POP3 認證。使用 POP3 認證的好處是不需要讓使用者另外設定或記憶一組密碼，也易於與既有內部系統做整合。
 
 <!-- more -->
 
