@@ -49,7 +49,7 @@ $ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 
 完成後，會在 `package.json` 檔案下加入：
 
-```json package.json
+```json
 ...
   "config": {
     "commitizen": {
@@ -60,7 +60,7 @@ $ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 
 然後，你可以在 `package.json` 檔案加入一條 npm script 用來運行 commitizen：
 
-```json package.json
+```json
 ...
   "scripts": {
     "commit": "git-cz"
@@ -83,7 +83,7 @@ $ npm install --save-dev @commitlint/config-conventional @commitlint/cli
 
 然後在 `package.json` 檔案下加入：
 
-```json package.json
+```json
 ...
   "commitlint": {
     "extends": ["@commitlint/config-conventional"]
@@ -104,7 +104,7 @@ $ npm install --save-dev husky
 
 安裝完成後，在 `package.json` 檔案下加入：
 
-```json package.json
+```json
 ...
   "husky": {
     "hooks": {
@@ -115,7 +115,7 @@ $ npm install --save-dev husky
 
 或者，建立 `.huskyrc` 配置檔案：
 
-```json .huskyrc
+```json
 {
   "hooks": {
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
