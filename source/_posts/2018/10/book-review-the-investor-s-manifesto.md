@@ -1,6 +1,6 @@
 ---
 title: 《投資人宣言》：建構無懼風浪的終身投資計畫
-tags: [Book Review, Invest]
+tags: [Book Review, Investment]
 categories: [閱讀筆記]
 index_img: /2018/10/30/book-review-the-investor-s-manifesto/cover.jpg
 date: 2018-10-30 00:00:00

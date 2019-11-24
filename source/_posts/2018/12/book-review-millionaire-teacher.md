@@ -1,6 +1,6 @@
 ---
 title: 《我用死薪水輕鬆理財賺千萬》：你應該知道的九項理財投資法則
-tags: [Book Review, Invest]
+tags: [Book Review, Investment]
 categories: [閱讀筆記]
 index_img: /2018/12/20/book-review-millionaire-teacher/cover.jpg
 date: 2018-12-20 23:50:00

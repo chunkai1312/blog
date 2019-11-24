@@ -10,6 +10,8 @@ date: 2019-11-15 21:51:46
 
 > 本文透過實現一個簡易的 i18n (internationalization) 功能來演示 React Context API 的基本應用。
 
+<!-- more -->
+
 ## React Context API
 
 React Context 提供 component tree 傳遞資料的方法，而不必在每個級別傳遞 props。這很適合用在對於 React 應用程式中是屬於全域的資料，例如當前認證的用戶、主題或語言偏好。

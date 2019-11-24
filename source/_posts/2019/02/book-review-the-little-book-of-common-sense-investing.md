@@ -1,6 +1,6 @@
 ---
 title: 《約翰伯格投資常識》：指數化投資從單純與簡約中取勝
-tags: [Book Review, Invest]
+tags: [Book Review, Investment]
 categories: [閱讀筆記]
 index_img: /2019/02/03/book-review-the-little-book-of-common-sense-investing/cover.jpg
 date: 2019-02-03 21:41:17

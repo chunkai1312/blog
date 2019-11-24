@@ -1,6 +1,6 @@
 ---
 title: 《不看盤，我才賺到大錢》：咖啡館投資哲學
-tags: [Book Review, Invest]
+tags: [Book Review, Investment]
 categories: [閱讀筆記]
 index_img: /2018/11/01/book-review-the-coffeehouse-investor/cover.jpg
 date: 2018-11-01 01:48:52
