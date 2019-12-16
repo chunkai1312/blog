@@ -63,19 +63,19 @@ Docker 容器化與隔離性的特質，使得它很適合應用在微服務架�
 這裡僅列比較個人覺得比較重要的幾項：
 
 - [fqb](https://github.com/chunkai1312/fqb) - Facebook Graph API query builder for JavaScript
-  - 這是一個方便建構 Facebook Query 字串的小工具，因為開發公司產品的一些功能需要不斷與 Facebook Graph API 打交道，所以用 JavaScript 寫了這個小工具，並把它發佈到 [NPM]((https://www.npmjs.com/package/fqb)) 上，方便日後再利用。 
+  這是一個方便建構 Facebook Query 字串的小工具，因為開發公司產品的一些功能需要不斷與 Facebook Graph API 打交道，所以用 JavaScript 寫了這個小工具，並把它發佈到 [NPM]((https://www.npmjs.com/package/fqb)) 上，方便日後再利用。 
 
 - [api-seed](https://github.com/chunkai1312/api-seed)
-  - 用於建構 RESTful API 的 starter project，主要使用 Node.js 的 Express 框架搭配 MonogoDB。
+  用於建構 RESTful API 的 starter project，主要使用 Node.js 的 Express 框架搭配 MonogoDB。
 
 - [worker-seed](https://github.com/chunkai1312/worker-seed)
-  - 用於建構 job queue worker 的 starter project，主要基於 Node.js 與 Redis，需要定時任務可以搭配 [node-cron](https://github.com/kelektiv/node-cron) 或 [node-schedule](https://github.com/node-schedule/node-schedule) 等 library 使用。
+  用於建構 job queue worker 的 starter project，主要基於 Node.js 與 Redis，需要定時任務可以搭配 [node-cron](https://github.com/kelektiv/node-cron) 或 [node-schedule](https://github.com/node-schedule/node-schedule) 等 library 使用。
 
 - [react-redux-boilerplate](https://github.com/chunkai1312/react-redux-boilerplate)
-  - 其實 React 生態圈已經有很多各式各樣的 boilerplate（也可能稱之為 starter 或 seed project），但不一定令人滿意，或需稍加修改，於是就自己親手寫了一個符合自己需求的樣板。在實踐的過程中，最重要的收穫是掌握了各式工具的應用（Wepack, Babel, ESLint, etc）。
+  其實 React 生態圈已經有很多各式各樣的 boilerplate（也可能稱之為 starter 或 seed project），但不一定令人滿意，或需稍加修改，於是就自己親手寫了一個符合自己需求的樣板。在實踐的過程中，最重要的收穫是掌握了各式工具的應用（Wepack, Babel, ESLint, etc）。
 
 - [angular-redux-boilerplate](https://github.com/chunkai1312/angular-redux-boilerplate)
-  - 這是一個使用 Angular 1.5+ 結合 Redux 的樣板。相較於 React，使用 Angular 結合 Redux 的例子並不多，但是使用 Angular 的 legacy project 相信是不少的。基於系統穩定等理由，也許沒辦法立即轉換到新框架，但是使用 Angular 1.5 的 angular.component() 重構是一個不錯的方法，結合 Redux 可以讓資料流更清楚可預測。最近在整理公司既有的專案，於是隨手造了這個 boilerplate。
+  這是一個使用 Angular 1.5+ 結合 Redux 的樣板。相較於 React，使用 Angular 結合 Redux 的例子並不多，但是使用 Angular 的 legacy project 相信是不少的。基於系統穩定等理由，也許沒辦法立即轉換到新框架，但是使用 Angular 1.5 的 angular.component() 重構是一個不錯的方法，結合 Redux 可以讓資料流更清楚可預測。最近在整理公司既有的專案，於是隨手造了這個 boilerplate。
 
 
 ## About 2017

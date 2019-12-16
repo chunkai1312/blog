@@ -58,7 +58,7 @@ $ docker-compose up
 
 要啟用 GitLab Pages 功能，需要寫入以下配置參數：
 
-```yml docker-compose.yml
+```yml
 ...
     envrironment:
       - GITLAB_PAGES_ENABLED=true
@@ -69,7 +69,7 @@ $ docker-compose up
 
 GitLab Pages 預設跑在 docker 容器的 `8081` port。以下透過 docker-compose 設定對應到宿主機器的 `18080` port：
 
-```yml docker-compose.yml
+```yml
 ...
     ports:
     - "10080:80"
@@ -84,7 +84,7 @@ GitLab Pages 預設跑在 docker 容器的 `8081` port。以下透過 docker-com
 
 假設底下是一份用於啟動 Traefik 服務的 `docker-compose.yml` 檔案：
 
-```yml docker-compose.yml
+```yml
 version: '2'
 
 services:
@@ -121,7 +121,7 @@ $ docker-compose up
 
 然後我們修改原來 GitLab 的 `docker-compose.yml` 檔案，在 gitlab 服務下加入：
 
-```yml docker-compose.yml
+```yml
 ...
     labels:
       - "traefik.backend=gitlab"

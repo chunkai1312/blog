@@ -68,13 +68,13 @@ $ git clone https://github.com/theme-next/hexo-theme-next themes/next
 
 然後可以啟用 NexT 佈景主題：
 
-```yml <folder>/_config.yml
+```yml
 theme: next
 ```
 
 NexT 預設提供 4 個樣式可選：
 
-```yml <folder>/themes/next/_config.yml
+```yml
 # Schemes
 #scheme: Muse
 #scheme: Mist
@@ -114,7 +114,7 @@ $ hexo serve --draft
 
 標籤頁：
 
-```markdown <folder>/source/tags/index.md
+```markdown
 ---
 type: categories
 comments: false
@@ -123,7 +123,7 @@ comments: false
 
 分類頁：
 
-```markdown <folder>/source/categories/index.md
+```markdown
 ---
 type: categories
 comments: false
@@ -140,7 +140,7 @@ $ npm install hexo-deployer-git --save
 
 修改部署設定：
 
-```yml <folder>/_config.yml
+```yml
 deploy:
   type: git
   repo: <repository url>
