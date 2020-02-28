@@ -1,5 +1,5 @@
 search:
-  title: 搜索
+  title: 搜尋
   keyword: 關鍵詞
   status:
     success: v 
@@ -13,6 +13,9 @@ paginator:
 
 post:
   toc: 目錄
+
+home:
+  title: 首頁
 
 archive:
   title: 歸檔
@@ -33,3 +36,7 @@ about:
 page404:
   title: 頁面走丟啦~
   subtitle: 頁面走丟啦~
+
+links:
+  title: 友連
+  subtitle: 友情連結

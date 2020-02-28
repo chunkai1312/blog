@@ -5,11 +5,11 @@
 #---------------------------
 
 #---------------------------
-# 這裏是配置 JS CSS 靜態資源的 URL 前綴，可以自定義成 CDN 地址，
-# 請註意，您最好使用與內部版本相同的版本，以避免潛在的問題，
-# 在站點上啓用 https 時，請使用 CDN 地址的 https 協議，
-# 同樣，這裏的配置也支援覆蓋功能
-# ** 如果你不知道如何設定，請不要做任何改動 **
+# 这里是配置 JS CSS 静态资源的 URL 前缀，可以自定义成 CDN 地址，
+# 请注意，您最好使用与内部版本相同的版本，以避免潜在的问题，
+# 在站点上启用 https 时，请使用 CDN 地址的 https 协议，
+# 同样，这里的配置也支持覆盖功能
+# ** 如果你不知道如何设置，请不要做任何改动 **
 #
 # Here is the url prefix to configure JS and CSS static assets. Set CDN addresses you want to customize.
 # Be aware that you would better use the same version as internal ones to avoid potential problems.
@@ -19,7 +19,7 @@
 #---------------------------
 
 #---------------------------
-# 內部靜態
+# 内部静态
 # Internal static
 #---------------------------
 
@@ -29,7 +29,7 @@ internal_img: /img
 
 
 #---------------------------
-# 第三方庫
+# 第三方库
 # Third-party library
 #---------------------------
 
@@ -49,7 +49,7 @@ mdbootstrap: /lib/mdbootstrap
 popper: /lib/popper
 
 prettify: /lib/prettify
-# 高亮主題的路徑，只支援 min.css，文件名需要與 _config.highlight.theme 對應
+# 高亮主题的路径，只支持 min.css，文件名需要与 _config.highlight.theme 对应
 # the path of highlight theme, only support `min.css` file，filename need to be the same as _config.highlight.theme
 prettify_theme: /lib/prettify
 
@@ -59,7 +59,7 @@ typed: /lib/typed
 
 fancybox: /lib/fancybox
 
-smooth_scroll: /lib/smooth-scroll
+smooth_scroll: /lib/smoothscroll
 
 mathjax: https://cdn.staticfile.org/mathjax/2.7.6/
 

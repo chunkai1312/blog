@@ -16,10 +16,10 @@
 <% } %>
 
 <% if (theme.smooth_scroll.enable) { %>
-  <%- js_ex(theme.static_prefix.smooth_scroll, "smooth-scroll.min.js") %>
+  <%- js_ex(theme.static_prefix.smooth_scroll, "SmoothScroll.min.js") %>
 <% } %>
 
-<% if (theme.footer.statistics.enable) { %>
+<% if (theme.footer.statistics.enable || theme.post.meta.views.enable) { %>
   <%- js_async("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js") %>
 <% } %>
 
@@ -31,3 +31,5 @@
 <%- partial('_partial/plugins/local-search.ejs') %>
 <%- partial('_partial/plugins/fancybox.ejs') %>
 <%- partial('_partial/plugins/math.ejs') %>
+<%- partial('_partial/plugins/mouse-click.ejs') %>
+<%- partial('_partial/plugins/daovoice.ejs') %>

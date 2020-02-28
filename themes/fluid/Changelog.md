@@ -1,3 +1,32 @@
+### 2020/2/12
+
+- 重写头图视差滚动效果
+
+### 2019/12/19
+
+- 增加强制 HTTPS 功能
+- 修复搜索功能 BUG
+
+### 2019/12/14
+
+- 感谢 [@KiritoXF](https://github.com/KiritoXF) 贡献主题日语配置
+- 感谢 [@ss-xiong](https://github.com/ss-xiong) 贡献公安备案图标
+
+### 2019/12/08
+
+- 感谢 [@juukee](https://github.com/juukee) 贡献以下功能代码
+- 增加畅言评论插件
+- 增加来必力（Livere）评论插件
+- 增加 daovoice 在线聊天功能
+- 增加鼠标点击动效
+
+### 2019/12/05
+
+- TOC 增加滚动
+- 修复分类标签没有翻页
+- 暂时隐藏分类标签的计数
+- 修复多个已知 BUG
+
 ### 2019/11/03
 
 - 感谢 [@julydate](https://github.com/julydate)
