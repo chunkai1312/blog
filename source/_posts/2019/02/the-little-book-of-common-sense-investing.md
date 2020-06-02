@@ -2,11 +2,11 @@
 title: 《約翰伯格投資常識》：指數化投資從單純與簡約中取勝
 tags: [Book Review, Investment]
 categories: [閱讀筆記]
-index_img: /2019/02/03/book-review-the-little-book-of-common-sense-investing/cover.jpg
+index_img: /2019/02/03/the-little-book-of-common-sense-investing/cover.jpg
 date: 2019-02-03 21:41:17
 ---
 
-![cover](/2019/02/03/book-review-the-little-book-of-common-sense-investing/cover.jpg)
+![cover](./cover.jpg)
 
 > 這本書是《The Little Book of Common Sense Investing》十週年紀念版的中文版。《The Little Book of Common Sense Investing》 是約翰．柏格（John Bogle）在 2007 年的著作。就我所知，這本書的中譯本有兩個版本，最早的版本是 2008 年商周出版的《[買對基金賺大錢](https://www.books.com.tw/products/0010400326)》。後來 2015 年又有新的中文版本叫做《[一本書學識投資](https://www.books.com.tw/products/0010671662)》。
 
