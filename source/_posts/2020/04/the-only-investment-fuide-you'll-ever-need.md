@@ -1,6 +1,6 @@
 ---
 title: 《你唯一需要的投資指南》：掌握大局，從小錢開始
-tags: [Book Review, Investment]
+tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2020/04/05/the-only-investment-fuide-you'll-ever-need/cover.jpg
 date: 2020-04-05 23:30:25

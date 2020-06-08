@@ -1,6 +1,6 @@
 ---
 title: 《長線獲利之道：散戶投資正典》：堅守長期投資策略
-tags: [Book Review, Investment]
+tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2020/05/24/stocks-for-the-long-run/cover.jpg
 date: 2020-05-24 22:20:30

@@ -1,6 +1,6 @@
 ---
 title: 《資產配置投資策略》：資產類別的選擇
-tags: [Book Review, Investment]
+tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2020/05/30/all-about-asset-allocation-part-2/cover.jpg
 date: 2020-05-30 00:00:00

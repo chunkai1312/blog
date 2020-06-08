@@ -1,6 +1,6 @@
 ---
 title: 《資產配置投資策略》：資產配置的基本概念
-tags: [Book Review, Investment]
+tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2020/05/29/all-about-asset-allocation-part-1/cover.jpg
 date: 2020-05-29 00:00:00

@@ -1,12 +1,12 @@
 ---
 title: 《Soft Skills 軟實力：軟體開發人員的生存手冊》：成為全方位的軟體開發人員
-tags: [Book Review, Soft Skills, Software Development, Software Engineering, Software Engineer]
+tags: [Soft Skills, Software Development, Software Engineering, Software Engineer]
 categories: [閱讀筆記]
-index_img: /2017/11/29/book-review-soft-skills-the-software-developer-s-life-manual/cover.jpg
+index_img: /2017/11/29/soft-skills-the-software-developer-s-life-manual/cover.jpg
 date: 2017-11-29 00:00:00
 ---
 
-![cover](/2017/11/29/book-review-soft-skills-the-software-developer-s-life-manual/cover.jpg)
+![cover](/2017/11/29/soft-skills-the-software-developer-s-life-manual/cover.jpg)
 
 > 這是一本不是在講技術的軟體相關書籍，而是作者結合自身經驗，聚焦在如何成為「全方位的軟體開發人員」這件事情上。
 

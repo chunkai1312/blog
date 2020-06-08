@@ -1,12 +1,12 @@
 ---
 title: 《心態致勝》：談心態如何影響人類行為
-tags: [Book Review, Mindset, Psychology]
+tags: [Mindset, Psychology]
 categories: [閱讀筆記]
-index_img: /2017/12/10/book-review-mindset-the-new-psychology-of-success/cover.jpg
+index_img: /2017/12/10/mindset-the-new-psychology-of-success/cover.jpg
 date: 2017-12-10 00:00:00
 ---
 
-![cover](/2017/12/10/book-review-mindset-the-new-psychology-of-success/cover.jpg)
+![cover](/2017/12/10/mindset-the-new-psychology-of-success/cover.jpg)
 
 > 致勝心態，心態致勝。也許一個簡單的信念，就能對我們的人生產生深刻的影響。
 
@@ -14,7 +14,7 @@ date: 2017-12-10 00:00:00
 
 本書作者，卡蘿‧杜維克博士 (Carol S. Dweck, Ph.D.) 經過長年的研究，將人的心態 (mindest) 歸納為兩種。 具有「成長心態」(growth mindset) 的人相信能力是可以經由努力和累積經驗而改變成長。 相較之下，「定型心態」(fixed mindset) 則認為人的天生就具有一定的天賦和智慧，而這些才智和能力是無法改變的。我們對風險、學習、智力、測試、失敗、努力和其他事物等的看法構成了我們的信念，而這些信念最終會影響我們的表現和成功。
 
-![](/2017/12/10/book-review-mindset-the-new-psychology-of-success/two_mindsets.jpg)
+![](/2017/12/10/mindset-the-new-psychology-of-success/two_mindsets.jpg)
 
 兩種心態對同一件事的回應是不一樣的，例如：「不入虎穴、焉得虎子」；「一次不成功、再接再厲」；「羅馬不是一天造成的」。對於定型心態者卻可能變成「不入虎穴，就不會丟了小命」；「一次不成功，也許你根本沒本事」；「如果羅馬不是一天造成的，或許就不應該建造羅馬」。成長心態的人，勇於接受挑戰、從失敗中學習，並繼續努力；定型心態的人，因為害怕失敗，面對問題往往選擇逃避，容易放棄努力與學習的機會。
 
