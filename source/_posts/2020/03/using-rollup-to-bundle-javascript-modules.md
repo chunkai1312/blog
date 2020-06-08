@@ -8,7 +8,7 @@ date: 2020-03-11 00:00:00
 
 > Rollup 是一個 JavaScript 的 module bundler，並提供豐富的插件 (plugins) 將程式碼進行處理，適合用來建構函式庫或應用程式。
 
-![](./cover.jpg)
+![cover](/2020/03/11/using-rollup-to-bundle-javascript-modules/cover.jpg)
 
 <!-- more -->
 

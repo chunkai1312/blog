@@ -8,7 +8,7 @@ date: 2020-01-21 00:00:00
 
 > DSP 通常會提供廣告追蹤碼（tracking pixels），用來追蹤客戶與廣告互動之後的動作，當客戶透過廣告完成具有價值的動作時，這些動作即稱為轉換（conversion）。例如網站註冊、商品購買、下載應用程式等。
 
-![](./cover.jpg)
+![cover](/2020/01/21/conversion-tracking/cover.jpg)
 
 <!-- more -->
 

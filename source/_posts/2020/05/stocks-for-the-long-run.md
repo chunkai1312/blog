@@ -8,7 +8,7 @@ date: 2020-05-24 22:20:30
 
 > 《長線獲利之道：散戶投資正典》是 [Stocks for the Long Run](https://www.amazon.com/Stocks-Long-Run-Definitive-Investment/dp/0071800514) 第五版。這本書不僅是在論述股票長期投資，你也可以再從中學習到許多經濟理論、金融與貨幣市場及美國經濟發展史等。
 
-![](./cover.jpg)
+![cover](/2020/05/24/stocks-for-the-long-run/cover.jpg)
 
 <!-- more -->
 
