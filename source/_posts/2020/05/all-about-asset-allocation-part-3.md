@@ -1,6 +1,6 @@
 ---
 title: 《資產配置投資策略》：投資組合管理
-tags: [Investment]
+tags: [資產配置, 投資組合]
 categories: [閱讀筆記]
 index_img: /2020/05/31/all-about-asset-allocation-part-3/cover.jpg
 date: 2020-05-31 00:00:00

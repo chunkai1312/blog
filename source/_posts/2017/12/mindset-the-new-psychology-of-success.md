@@ -1,6 +1,6 @@
 ---
 title: 《心態致勝》：談心態如何影響人類行為
-tags: [Mindset, Psychology]
+tags: [Mindset, Psychology, 心理學]
 categories: [閱讀筆記]
 index_img: /2017/12/10/mindset-the-new-psychology-of-success/cover.jpg
 date: 2017-12-10 00:00:00

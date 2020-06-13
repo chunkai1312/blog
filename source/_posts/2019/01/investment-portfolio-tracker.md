@@ -1,6 +1,6 @@
 ---
 title: Investment Portfolio Tracker：使用 Google 試算表管理投資組合
-tags: [Investment, Portfolio]
+tags: [資產配置, 投資組合]
 categories: [投資理財]
 index_img: /2019/01/06/investment-portfolio-tracker/cover.jpg
 date: 2019-01-06 02:00:00
