@@ -1,8 +1,8 @@
 ---
 title: 《個資風暴：劍橋分析事件》：數據權是人權
-tags: [Movie Review]
-categories: [電影評論]
-index_img: /2019/11/24/movie-review-the-great-hack/cover.jpg
+tags: [劍橋分析事件]
+categories: 電影賞析
+index_img: /2019/11/24/the-great-hack/cover.jpg
 date: 2019-11-24 11:50:48
 ---
 
@@ -10,7 +10,7 @@ date: 2019-11-24 11:50:48
 
 <!-- more -->
 
-![cover](/2019/11/24/movie-review-the-great-hack/cover.jpg)
+![cover](/2019/11/24/the-great-hack/cover.jpg)
 
 ## 劍橋分析事件
 
