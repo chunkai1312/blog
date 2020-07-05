@@ -1,11 +1,7 @@
 ---
 title: 《約翰墨菲視覺分析》：運用技術分析，看圖書故事
-tags:
-  - 視覺分析
-  - 技術分析
-  - 圖形分析
-categories:
-  - 閱讀筆記
+tags: [視覺分析, 技術分析, 圖形分析]
+categories: 閱讀筆記
 index_img: /2020/06/21/the-visual-investor/cover.jpg
 date: 2020-06-21 22:54:53
 ---
