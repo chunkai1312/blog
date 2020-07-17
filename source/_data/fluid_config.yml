@@ -234,7 +234,7 @@ post:  # 部分配置同时控制自定义页面，注意备注
     options: { theme: 'default' }  # 接口选项，具体可见：http://mermaid-js.github.io/mermaid/#/mermaidAPI
   comments:  # 评论
     enable: true  # 开启评论
-    type: gitalk  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere  推荐 utterances
+    type: disqus  # 指定使用的评论模块  available: disqus | valine | gitalk | utterances | changyan | livere  推荐 utterances
 
 
 #---------------------------
@@ -256,7 +256,7 @@ utterances:
 # Disqus
 # 国内用户不要用，已被墙
 disqus:
-  shortname: # your shortname
+  shortname: chunkai-blog # your shortname
   # The following are Disqusjs configurations, please ignore if DisqusJS is not required
   # 以下为 Disqusjs 支持, 如不需要 DisqusJS 请忽略
   # https://github.com/SukkaW/DisqusJS
