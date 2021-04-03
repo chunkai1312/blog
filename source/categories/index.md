@@ -1,4 +1,0 @@
----
-type: categories
-comments: false
----
