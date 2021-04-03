@@ -424,7 +424,7 @@
   </url>
   
   <url>
-    <loc>https://chunkai.blog/tags/Drone/</loc>
+    <loc>https://chunkai.blog/tags/GitLab-CI/</loc>
     <lastmod>2021-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -460,62 +460,6 @@
   
   <url>
     <loc>https://chunkai.blog/tags/CI/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Investment/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Firstrade/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E7%BE%8E%E5%9C%8B%E5%88%B8%E5%95%86/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E5%8F%B0%E6%96%B0%E9%8A%80%E8%A1%8C/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E7%B6%B2%E8%B7%AF%E9%8A%80%E8%A1%8C/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E5%9C%8B%E9%9A%9B%E5%8C%AF%E6%AC%BE/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Gravatar/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/GitLab-CI/</loc>
     <lastmod>2021-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -564,77 +508,7 @@
   </url>
   
   <url>
-    <loc>https://chunkai.blog/tags/Uptime-Robot/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/DevOps/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Shell/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Bash/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Docker-Registry/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Bash-it/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/React/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Universal-JavaScript/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Third-Party-JavaScript/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Node-js/</loc>
-    <lastmod>2021-04-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/JavaScript/</loc>
+    <loc>https://chunkai.blog/tags/Gravatar/</loc>
     <lastmod>2021-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -711,6 +585,20 @@
   </url>
   
   <url>
+    <loc>https://chunkai.blog/tags/Drone/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Investment/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/tags/Mindset/</loc>
     <lastmod>2021-04-03</lastmod>
     <changefreq>daily</changefreq>
@@ -732,6 +620,41 @@
   </url>
   
   <url>
+    <loc>https://chunkai.blog/tags/Firstrade/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E7%BE%8E%E5%9C%8B%E5%88%B8%E5%95%86/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E5%8F%B0%E6%96%B0%E9%8A%80%E8%A1%8C/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E7%B6%B2%E8%B7%AF%E9%8A%80%E8%A1%8C/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E5%9C%8B%E9%9A%9B%E5%8C%AF%E6%AC%BE/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/tags/%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2021-04-03</lastmod>
     <changefreq>daily</changefreq>
@@ -740,6 +663,20 @@
   
   <url>
     <loc>https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E7%B5%84%E5%90%88/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Uptime-Robot/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/DevOps/</loc>
     <lastmod>2021-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -817,6 +754,69 @@
   
   <url>
     <loc>https://chunkai.blog/tags/Slides/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Third-Party-JavaScript/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Node-js/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/JavaScript/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Shell/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Bash/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Bash-it/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Docker-Registry/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/React/</loc>
+    <lastmod>2021-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Universal-JavaScript/</loc>
     <lastmod>2021-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

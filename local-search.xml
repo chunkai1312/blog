@@ -1107,8 +1107,6 @@
     
     <tags>
       
-      <tag>Drone</tag>
-      
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
@@ -1118,6 +1116,8 @@
       <tag>Git</tag>
       
       <tag>CI</tag>
+      
+      <tag>Drone</tag>
       
     </tags>
     
@@ -1525,6 +1525,8 @@
     
     <tags>
       
+      <tag>GitLab CI</tag>
+      
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
@@ -1534,8 +1536,6 @@
       <tag>Git</tag>
       
       <tag>CI</tag>
-      
-      <tag>GitLab CI</tag>
       
     </tags>
     
