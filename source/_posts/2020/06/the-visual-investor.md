@@ -8,7 +8,7 @@ date: 2020-06-21 22:54:53
 
 > 《約翰墨菲視覺分析》是 [The Visual Investor](https://www.amazon.com/Visual-Investor-Spot-Market-Trends/dp/0470382058) 第二版的中文本，這是一本探討技術分析的書籍。作者 John Murphy 是知名網站 StockCharts.com 的技術分析大師，經典投資著作有《金融市場技術分析》、《市場互動技術分析》等書。
 
-![cover](/2020/06/21/the-visual-investor/cover.jpg)
+![](/2020/06/21/the-visual-investor/cover.jpg)
 
 <!-- more -->
 

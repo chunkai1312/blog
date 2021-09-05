@@ -5,7 +5,7 @@ index_img: /2016/12/31/2016-year-in-review/cover.jpg
 date: 2016-12-31 20:20:44
 ---
 
-![cover](/2016/12/31/2016-year-in-review/cover.jpg)
+![](/2016/12/31/2016-year-in-review/cover.jpg)
 
 > 又到了歲末年終的時刻。今年是我正式邁入職場工作完整的一年，覺得是應該寫些什麼，來留下一點記錄。
 

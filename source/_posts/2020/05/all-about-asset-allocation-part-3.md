@@ -8,7 +8,7 @@ date: 2020-05-31 00:00:00
 
 > 《資產配置投資策略》是 [All About Asset Allocation](https://www.amazon.com/All-About-Asset-Allocation-Second-ebook/dp/B003ZUXQBW) 第二版。作者用淺白的例子傳達讀者資產配置與分散投資的重要性，我認為這是一本理論與實務兼具的書籍，此為第三部分「投資組合管理」之個人閱讀摘要整理。
 
-![cover](/2020/05/31/all-about-asset-allocation-part-3/cover.jpg)
+![](/2020/05/31/all-about-asset-allocation-part-3/cover.jpg)
 
 <!-- more -->
 

@@ -6,7 +6,7 @@ index_img: /2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projec
 date: 2017-01-15 00:00:00
 ---
 
-![cover](/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg)
+![](/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg)
 
 > 最近試著將自己的在 GitHub 上 open source projects 整合 Travis CI 與 Codecob 服務，在此記錄一下實踐的過程。
 

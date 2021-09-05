@@ -8,7 +8,7 @@ date: 2020-04-05 23:30:25
 
 > 《你唯一需要的投資指南》是 [The Only Investment Guide You’ll Ever Need](https://www.amazon.com/Only-Investment-Guide-Youll-Ever-ebook/dp/B011H55NBM) 的中文譯本。該書是 Andrew Tobias 於 1978 年出版，相當具有歷史的一本理財書籍。
 
-![cover](/2020/04/05/the-only-investment-fuide-you'll-ever-need/cover.jpg)
+![](/2020/04/05/the-only-investment-fuide-you'll-ever-need/cover.jpg)
 
 <!-- more -->
 

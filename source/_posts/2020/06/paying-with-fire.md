@@ -8,7 +8,7 @@ date: 2020-06-07 16:49:47
 
 > 所謂 FIRE，代表的是「Financial Independence, Retire Early」。FIRE 原則是一種生活方式，它的目標正如同字面所定義的：實現財務獨立並提前退休。
 
-![cover](/2020/06/07/paying-with-fire/cover.jpg)
+![](/2020/06/07/paying-with-fire/cover.jpg)
 
 <!-- more -->
 

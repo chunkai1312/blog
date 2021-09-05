@@ -8,7 +8,7 @@ date: 2020-07-06 01:46:43
 
 > 《股票交易精鍊手冊》介紹的是張力交易法 (Tensile Trading)，作者 Gatis N. Roze 與 Grayson D. Roze 是一對父子，也是全職的股票投資人。他們以自身的投資經驗描繪出十個階段的路線圖，提供投資人建構屬於自己的投資系統。
 
-![cover](/2020/07/06/tensile-trading/cover.jpg)
+![](/2020/07/06/tensile-trading/cover.jpg)
 
 <!-- more -->
 

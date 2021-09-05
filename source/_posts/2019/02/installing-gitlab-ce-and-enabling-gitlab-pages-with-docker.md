@@ -6,7 +6,7 @@ index_img: /2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docke
 date: 2019-02-12 22:39:25
 ---
 
-![cover](/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg)
+![](/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg)
 
 > GitLab CE v8.16 版以後，支援 GitLab Pages 功能。就像 [GitHub Pages](https://pages.github.com/) 一樣，你可以為 GitLab 上的 project 建立靜態網站。
 

@@ -6,7 +6,7 @@ index_img: /2017/03/03/monitoring-your-websites-with-uptime-robot/cover.jpg
 date: 2017-03-03 04:39:33
 ---
 
-![cover](/2017/03/03/monitoring-your-websites-with-uptime-robot/cover.jpg)
+![](/2017/03/03/monitoring-your-websites-with-uptime-robot/cover.jpg)
 
 > [Uptime Robot](https://uptimerobot.com) 提供網站監控的服務，能夠在網站無法正常連線時發出通知，協助維運人員及時處理狀況。
 

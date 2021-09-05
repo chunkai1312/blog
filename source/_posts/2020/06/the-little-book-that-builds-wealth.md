@@ -8,7 +8,7 @@ date: 2020-06-29 01:38:42
 
 > 《護城河投資優勢》 是 [The Little Book that Builds Wealth](https://www.amazon.com/Little-Book-That-Builds-Wealth/dp/047022651X) 中文版。說明何謂企業的經濟護城河及其重要性，協助投資人辨識具有結構性優勢的長期優質企業。
 
-![cover](/2020/06/29/the-little-book-that-builds-wealth/cover.jpg)
+![](/2020/06/29/the-little-book-that-builds-wealth/cover.jpg)
 
 <!-- more -->
 

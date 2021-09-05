@@ -8,7 +8,7 @@ date: 2020-07-12 02:50:07
 
 > 《經濟指標教你加減碼》 是 [Profiting in Bull or Bear Markets](https://www.amazon.com/Profiting-Bull-Markets-George-Dagnino/dp/0071367063) 中文版。作者 George Dagnino 將商業循環分為四個階段，根據經濟指標判斷當前景氣所在的位置，進一步作為投資決策的參考。
 
-![cover](/2020/07/12/profiting-in-bull-or-bear-markets/cover.jpg)
+![](/2020/07/12/profiting-in-bull-or-bear-markets/cover.jpg)
 
 <!-- more -->
 

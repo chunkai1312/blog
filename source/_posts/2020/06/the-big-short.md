@@ -8,7 +8,7 @@ date: 2020-06-25 23:55:16
 
 > 電影《大賣空》是真人真事改編自 Michael Lewis 的同名書籍 The Big Short，故事背景是 2007 至 2008 年的美國次級房貸風暴引起的環球金融危機，一群投機客大膽與銀行體系對賭，就此獲利的驚人事蹟。
 
-![cover](/2020/06/25/the-big-short/cover.jpg)
+![](/2020/06/25/the-big-short/cover.jpg)
 
 <!-- more -->
 

@@ -9,7 +9,7 @@ date: 2020-07-17 01:15:44
 
 >《投資前最重要的事》是 [A Wealth of Common Sense](https://www.amazon.com/Wealth-Common-Sense-Simplicity-Complexity/dp/B01NBTM7HM) 中文版。作者 Ben Carlson 是知名財經部落格「致富的常識」（A Wealth of Common Sense）創辦人兼主筆，也是彭博社（Blommgerg）專欄作者。
 
-![cover](/2020/07/17/a-wealth-of-common-sense/cover.jpg)
+![](/2020/07/17/a-wealth-of-common-sense/cover.jpg)
 
  <!-- more -->
 

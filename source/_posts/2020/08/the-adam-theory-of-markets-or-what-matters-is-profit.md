@@ -8,7 +8,7 @@ date: 2020-08-10 00:19:58
 
 > 《亞當理論》是相對強弱指標 RSI (Relative Strength Index) 發明人 Welles Wilder 所發表的投資理論。亞當，象徵著人類的起源，簡單而純粹；而亞當理論的精神是，與其試圖猜測未來，還不如順勢而行，決不逆水行舟。
 
-![cover](/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/cover.jpg)
+![](/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/cover.jpg)
 
 <!-- more -->
 

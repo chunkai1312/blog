@@ -8,7 +8,7 @@ date: 2020-09-28 16:03:36
 
 > 以往習慣用 `db.copyDatabase()`，來備份 MongoDB 資料庫，不過從 MongoDB 4.2 版開始，官方已經移除 **copydb** 命令，包含 `db.copyDatabase()` 在內，僅支援 MongoDB 4.0 或更早的版本。MongoDB 4.2+ 版本則必須使用 `mongodump` 及 `mongorestore` 來 Copy/Clone 資料庫。
 
-![cover](/2020/09/28/mongodump-and-mongorestore/cover.jpg)
+![](/2020/09/28/mongodump-and-mongorestore/cover.jpg)
 
 <!-- more -->
 

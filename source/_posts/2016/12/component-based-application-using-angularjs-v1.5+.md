@@ -6,7 +6,7 @@ index_img: /2016/12/24/component-based-application-using-angularjs-v1.5+/cover.j
 date: 2016-12-24 02:02:30
 ---
 
-![cover](/2016/12/24/component-based-application-using-angularjs-v1.5+/cover.jpg)
+![](/2016/12/24/component-based-application-using-angularjs-v1.5+/cover.jpg)
 
 > `angular.component()` 是在 Angular 1.5 版本中新增的方法，它是基於 `angular.directive()`，更簡單地說，即是 **controller + template** 。有了 `angular.component()` 這個新利器，我們可以很容易地將 Angular 寫成像 React 一樣的元件化應用程式 (component-based application)。
 

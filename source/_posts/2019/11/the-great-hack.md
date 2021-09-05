@@ -10,7 +10,7 @@ date: 2019-11-24 11:50:48
 
 <!-- more -->
 
-![cover](/2019/11/24/the-great-hack/cover.jpg)
+![](/2019/11/24/the-great-hack/cover.jpg)
 
 ## 劍橋分析事件
 

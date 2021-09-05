@@ -8,7 +8,7 @@ date: 2020-01-31 00:00:00
 
 > 由於線上申請開戶容易，加上 2018 年 8 月 Firstrade 宣布免交易佣金後，Firstrade 一直是台灣投資人進入美股投資入門的選項之一。恰逢 2019 年 9 月，Firstrade 發生資安疑慮的事件，以及嘉信理財、TD Ameritrade 宣布交易免佣金之後，故決定將美股證券轉移至 TD Ameritrade。
 
-![cover](/2020/01/31/transferring-to-td-ameritrade-from-firstrade/cover.jpg)
+![](/2020/01/31/transferring-to-td-ameritrade-from-firstrade/cover.jpg)
 
 <!-- more -->
 

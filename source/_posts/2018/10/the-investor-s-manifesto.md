@@ -6,7 +6,7 @@ index_img: /2018/10/30/the-investor-s-manifesto/cover.jpg
 date: 2018-10-30 00:00:00
 ---
 
-![cover](/2018/10/30/the-investor-s-manifesto/cover.jpg)
+![](/2018/10/30/the-investor-s-manifesto/cover.jpg)
 
 > 面對全球性金融危機，投資人如何處變不驚安泰自若？面對劇烈的市場波動，如何建無懼風浪的終身投資計畫？本書作者給的解答是：做好資產配置並且分散投資。
 

@@ -6,7 +6,7 @@ index_img: /2017/01/21/using-slack-incoming-webhook-as-alert-notification-for-ex
 date: 2017-01-21 21:11:40
 ---
 
-![cover](/2017/01/21/using-slack-incoming-webhook-as-alert-notification-for-express-application/cover.jpg)
+![](/2017/01/21/using-slack-incoming-webhook-as-alert-notification-for-express-application/cover.jpg)
 
 > 有時候我們可能需要檢查應用程式的錯誤日誌，來確認錯誤的發生原因。[Slack](https://slack.com) 作為團隊內部的溝通工具非常方便，其 [Incoming Webhooks](https://punwave.slack.com/apps/A0F7XDUAZ-incoming-webhooks) 提供 API 可以直接向 Slack Channel 發送訊息。本文將介紹如何使用 [Slack Incoming Webhooks API](https://api.slack.com/incoming-webhooks) 為 Express 應用程式提供即時的錯誤警告通知服務。
 

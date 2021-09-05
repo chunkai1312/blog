@@ -6,7 +6,7 @@ index_img: /2019/02/27/using-marp-to-create-slides-with-markdown/cover.jpg
 date: 2019-02-27 18:25:53
 ---
 
-![cover](/2019/02/27/using-marp-to-create-slides-with-markdown/cover.jpg)
+![](/2019/02/27/using-marp-to-create-slides-with-markdown/cover.jpg)
 
 > [Marp](https://yhatt.github.io/marp/) 是一套開源、使用 [Electron](https://electronjs.org/) 開發的桌面應用程式。提供所見即所得（What You See Is What You Get）編輯器，可以用 Markdown 語法產生 PDF 格式的投影片。
 

@@ -6,7 +6,7 @@ index_img: /2018/06/18/setting-up-drone-for-gitlab-integration/cover.png
 date: 2018-06-18 12:02:48 
 ---
 
-![cover](/2018/06/18/setting-up-drone-for-gitlab-integration/cover.png)
+![](/2018/06/18/setting-up-drone-for-gitlab-integration/cover.png)
 
 > Drone 是一個以 Go 編寫、基於 Docker 的 CI/CD 平台。本篇文章簡單介紹 Drone 如何安裝與 GitLab 整合。
 

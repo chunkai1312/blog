@@ -6,7 +6,7 @@ index_img: /2019/12/11/redbird-reverse-proxy/cover.jpg
 date: 2019-12-11 11:20:57
 ---
 
-![cover](/2019/12/11/redbird-reverse-proxy/cover.jpg)
+![](/2019/12/11/redbird-reverse-proxy/cover.jpg)
 
 > [Redbird](https://github.com/OptimalBits/redbird) 一個以 Node.js 開發的輕量級反向代理 (Reverse Proxy) 伺服器，並支援 [LetsEncrypt ](https://letsencrypt.org) 及 [Docker](https://www.docker.com)。可以很方便地對應用程式進行反向路由，適合在一台主機的處理來自不同網域的應用程式、處理 SSL 等。
 

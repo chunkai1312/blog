@@ -8,7 +8,7 @@ date: 2020-06-08 21:00:00
 
 > 在美國股市可以代表美國航太與國防產業的 ETFs，主要有三檔，分別是 iShares 發行的 ITA、另一檔是 SPDR 發行的 XAR、以及 invesco 發行的 PPA。
 
-![cover](/2020/06/08/aerospace-and-defense-etfs/cover.jpg)
+![](/2020/06/08/aerospace-and-defense-etfs/cover.jpg)
 
 <!-- more -->
 

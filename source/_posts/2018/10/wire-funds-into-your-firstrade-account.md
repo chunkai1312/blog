@@ -6,7 +6,7 @@ index_img: /2018/10/10/wire-funds-into-your-firstrade-account/cover.jpg
 date: 2018-10-10 21:00:17
 ---
 
-![cover](/2018/10/10/wire-funds-into-your-firstrade-account/cover.jpg)
+![](/2018/10/10/wire-funds-into-your-firstrade-account/cover.jpg)
 
 > 因筆者主要使用台新銀行，本文台新銀行網銀為例，說明如何國際匯款至您的 Firstrade 帳戶。
 

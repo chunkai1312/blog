@@ -6,7 +6,7 @@ index_img: /2017/05/27/making-your-terminal-more-productive-using-bash-it/cover.
 date: 2017-05-27 21:50:35
 ---
 
-![cover](/2017/05/27/making-your-terminal-more-productive-using-bash-it/cover.jpg)
+![](/2017/05/27/making-your-terminal-more-productive-using-bash-it/cover.jpg)
 
 > Bash 是絕大多數 Unix-like OS 預設的 Shell ，在 zsh 上有 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 這樣的神器，Bash 也有 [Bash-it](https://github.com/Bash-it/bash-it) 可以讓您的 terminal 更容易使用。
 

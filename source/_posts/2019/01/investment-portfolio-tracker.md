@@ -6,7 +6,7 @@ index_img: /2019/01/06/investment-portfolio-tracker/cover.jpg
 date: 2019-01-06 02:00:00
 ---
 
-![cover](/2019/01/06/investment-portfolio-tracker/cover.jpg)
+![](/2019/01/06/investment-portfolio-tracker/cover.jpg)
 
 > 去年下半年開始決定實施指數化投資後，從今年開始將會是完整的投資年度並執行長期投資計畫。身為一個投資人，應會需要一套適合自己用來與計算投資報酬、追蹤投資組合的工具。
 

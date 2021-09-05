@@ -6,7 +6,7 @@ index_img: /2017/02/01/using-gravatar-for-user-avatars-in-your-website/cover.jpg
 date: 2017-02-01 21:32:55
 ---
 
-![cover](/2017/02/01/using-gravatar-for-user-avatars-in-your-website/cover.jpg)
+![](/2017/02/01/using-gravatar-for-user-avatars-in-your-website/cover.jpg)
 
 > [Gravatar](http://gravatar.com) (Globally Recognized Avatar) 是一個提供跨站台頭像服務的平台，只要您在 [Gravatar](http://gravatar.com) 上註冊並上傳圖片，就可以在所有支援 Gravatar 的網站中顯示你的專屬大頭照。
 

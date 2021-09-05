@@ -8,7 +8,7 @@ date: 2020-08-14 22:11:44
 
 > [NestJS](https://nestjs.com) 是一個漸進式 (progressive) 的 NodeJS 框架，用於建構高效能、可靠性和可擴展的伺服端 (server-side) 應用程式。
 
-![cover](/2020/08/14/nestjs-fundamentals/cover.jpg)
+![](/2020/08/14/nestjs-fundamentals/cover.jpg)
 
 <!-- more -->
 

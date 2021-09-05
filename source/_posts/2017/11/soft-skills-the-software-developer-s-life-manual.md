@@ -6,7 +6,7 @@ index_img: /2017/11/29/soft-skills-the-software-developer-s-life-manual/cover.jp
 date: 2017-11-29 00:00:00
 ---
 
-![cover](/2017/11/29/soft-skills-the-software-developer-s-life-manual/cover.jpg)
+![](/2017/11/29/soft-skills-the-software-developer-s-life-manual/cover.jpg)
 
 > 這是一本不是在講技術的軟體相關書籍，而是作者結合自身經驗，聚焦在如何成為「全方位的軟體開發人員」這件事情上。
 

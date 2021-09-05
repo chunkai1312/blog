@@ -5,7 +5,7 @@ index_img: /2020/12/31/2020-year-in-review/cover.jpg
 date: 2020-12-31 22:55:48
 ---
 
-![cover](/2020/12/31/2020-year-in-review/cover.jpg)
+![](/2020/12/31/2020-year-in-review/cover.jpg)
 
 > 2020 年肯定是載入史冊的一年，在即將邁入新年的同時，又到了年終回顧的時刻。
 

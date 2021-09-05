@@ -6,7 +6,7 @@ index_img: /2017/12/04/conference-review-taai-2017/cover.png
 date: 2017-12-04 22:33:04
 ---
 
-![cover](/2017/12/04/conference-review-taai-2017/cover.png)
+![](/2017/12/04/conference-review-taai-2017/cover.png)
 
 > TAAI 2017 (The 2017 Conference on Technologies and Applications of Artificial Intelligence) 是一個年度的國際學術研討會，由來自全球從事人工智慧應用及技術的相關研究領域的人員共同參與。
 

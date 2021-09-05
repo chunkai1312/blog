@@ -6,7 +6,7 @@ index_img: /2019/11/15/using-react-context-api-to-support-for-i18n/cover.jpg
 date: 2019-11-15 21:51:46
 ---
 
-![cover](/2019/11/15/using-react-context-api-to-support-for-i18n/cover.jpg)
+![](/2019/11/15/using-react-context-api-to-support-for-i18n/cover.jpg)
 
 > 本文透過實現一個簡易的 i18n (internationalization) 功能來演示 React Context API 的基本應用。
 

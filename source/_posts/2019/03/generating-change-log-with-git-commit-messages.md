@@ -6,7 +6,7 @@ index_img: /2019/03/04/generating-change-log-with-git-commit-messages/cover.jpg
 date: 2019-03-04 23:17:43
 ---
 
-![cover](/2019/03/04/generating-change-log-with-git-commit-messages/cover.jpg)
+![](/2019/03/04/generating-change-log-with-git-commit-messages/cover.jpg)
 
 > [Conventional Commits](https://www.conventionalcommits.org) 是一種編寫 git commit messages 的規範約定，它提供了一組用於建立提交歷史的簡單規則，可以透過自動化工具來追蹤版本變動紀錄（Change Log），這個約定與 [Semantic Versioning](http://semver.org/) 相吻合，可以在提交訊息中描述新功能（features）、bug 修復（fixes）和破壞性變更（breaking changes）。有一個共同約定的版本控制提交歷史，這在開源專案和團隊開發中尤為重要。
 

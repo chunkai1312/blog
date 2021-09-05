@@ -8,7 +8,7 @@ date: 2020-06-14 00:06:14
 
 > 《智慧型資產配置》為 [The Intelligent Asset Allocator](https://www.amazon.com/gp/product/B005XM6NRY) 中文版，是 William Bernstein 的第一本著作。《智慧型資產配置》，說明資產配置及現代投資組合理論，並用簡單易懂的數學方法解釋了風險與報酬之間的關係。
 
-![cover](/2020/06/14/the-intelligent-asset-allocator/cover.jpg)
+![](/2020/06/14/the-intelligent-asset-allocator/cover.jpg)
 
 <!-- more -->
 

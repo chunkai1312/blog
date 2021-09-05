@@ -8,7 +8,7 @@ date: 2020-01-10 00:00:00
 
 > 程式化廣告（Programmatic Advertising）是指廣告主（Advertiser）通過數位平台從受眾的匹配的角度由程式自動化完成展示類廣告的採買和投放，並即時反饋投放分析的一種廣告投放方式，實現整個數位廣告的自動化。
 
-![cover](/2020/01/10/programmatic-advertising/cover.jpg)
+![](/2020/01/10/programmatic-advertising/cover.jpg)
 
 <!-- more -->
 

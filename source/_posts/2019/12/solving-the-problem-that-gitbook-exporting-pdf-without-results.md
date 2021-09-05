@@ -6,7 +6,7 @@ index_img: /2019/12/16/solving-the-problem-that-gitbook-exporting-pdf-without-re
 date: 2019-12-16 11:31:34
 ---
 
-![cover](/2019/12/16/solving-the-problem-that-gitbook-exporting-pdf-without-results/cover.png)
+![](/2019/12/16/solving-the-problem-that-gitbook-exporting-pdf-without-results/cover.png)
 
 > 先前嘗試使用 [Gitbook](https://github.com/GitbookIO/gitbook) 匯出 PDF 檔案時，發生沒有結果，也沒有回報任何錯誤的問題，經查發現是 Calibre 版本問題所致，在此記錄。
 

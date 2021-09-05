@@ -6,7 +6,7 @@ index_img: /2019/02/10/removing-nintendo-account-two-step-verification/cover.jpg
 date: 2019-02-10 14:49:36
 ---
 
-![cover](/2019/02/10/removing-nintendo-account-two-step-verification/cover.jpg)
+![](/2019/02/10/removing-nintendo-account-two-step-verification/cover.jpg)
 
 > 這篇主要是紀錄我如何解除 Nintendo Account 兩步驟驗證的過程。會有這個問題主要是因為在去年換了手機，當時有啟用 Nintendo Account 基於 [Google Authenticator](https://support.google.com/a/answer/175197) 的兩步驟驗證。但是原來的手機已經回復原廠設定、又沒有保存備用碼的情況下，就無法通過兩步驟驗證登入存取我的 Nintendo Account。
 
