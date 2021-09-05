@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/</loc>
+    
+    <lastmod>2021-09-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/2019/02/03/the-little-book-of-common-sense-investing/</loc>
     
     <lastmod>2021-09-05</lastmod>
@@ -59,13 +66,6 @@
   
   <url>
     <loc>https://chunkai.blog/2020/03/11/using-rollup-to-bundle-javascript-modules/</loc>
-    
-    <lastmod>2021-09-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/</loc>
     
     <lastmod>2021-09-05</lastmod>
     
@@ -417,14 +417,21 @@
 
   
   <url>
-    <loc>https://chunkai.blog/tags/AngularJS/</loc>
+    <loc>https://chunkai.blog/tags/Slack/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://chunkai.blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/</loc>
+    <loc>https://chunkai.blog/tags/NodeJS/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Express/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -446,13 +453,6 @@
   
   <url>
     <loc>https://chunkai.blog/tags/Docker/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/NodeJS/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -495,20 +495,6 @@
   
   <url>
     <loc>https://chunkai.blog/tags/Code-Coverage/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Slack/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Express/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -620,27 +606,6 @@
   </url>
   
   <url>
-    <loc>https://chunkai.blog/tags/TAAI/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/AI/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Artificial-Intelligence/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chunkai.blog/tags/Soft-Skills/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -669,6 +634,27 @@
   </url>
   
   <url>
+    <loc>https://chunkai.blog/tags/TAAI/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/AI/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Artificial-Intelligence/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/tags/Mindset/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -690,196 +676,14 @@
   </url>
   
   <url>
-    <loc>https://chunkai.blog/tags/Drone/</loc>
+    <loc>https://chunkai.blog/tags/AngularJS/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://chunkai.blog/tags/Investment/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Firstrade/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E7%BE%8E%E5%9C%8B%E5%88%B8%E5%95%86/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E5%8F%B0%E6%96%B0%E9%8A%80%E8%A1%8C/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E7%B6%B2%E8%B7%AF%E9%8A%80%E8%A1%8C/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E5%9C%8B%E9%9A%9B%E5%8C%AF%E6%AC%BE/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E7%B5%84%E5%90%88/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Hexo/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/GitHub-Pages/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Blog/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/GitLab-Pages/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Traefik/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Nintendo/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Nintendo-Account/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Nintendo-Switch/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Marp/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Markdown/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Slides/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Conventional-Commits/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Semantic-Versioning/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/%E5%8A%8D%E6%A9%8B%E5%88%86%E6%9E%90%E4%BA%8B%E4%BB%B6/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/F2E/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Reverse-Proxy/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Gitbook/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/PDF/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/tags/Calibre/</loc>
+    <loc>https://chunkai.blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -921,6 +725,13 @@
   </url>
   
   <url>
+    <loc>https://chunkai.blog/tags/Firstrade/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/tags/TD-Ameritrade/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -950,6 +761,20 @@
   
   <url>
     <loc>https://chunkai.blog/tags/%E7%90%86%E8%B2%A1/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E7%B5%84%E5%90%88/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1187,6 +1012,202 @@
   </url>
   
   <url>
+    <loc>https://chunkai.blog/tags/Drone/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Investment/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E7%BE%8E%E5%9C%8B%E5%88%B8%E5%95%86/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E5%8F%B0%E6%96%B0%E9%8A%80%E8%A1%8C/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E7%B6%B2%E8%B7%AF%E9%8A%80%E8%A1%8C/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E5%9C%8B%E9%9A%9B%E5%8C%AF%E6%AC%BE/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E6%96%B0%E5%8F%B0%E5%B9%A3/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E7%BE%8E%E5%85%83/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E5%8C%AF%E7%8E%87/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Conventional-Commits/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Semantic-Versioning/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Hexo/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/GitHub-Pages/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Blog/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/GitLab-Pages/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Traefik/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Nintendo/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Nintendo-Account/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Nintendo-Switch/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Marp/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Markdown/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Slides/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/%E5%8A%8D%E6%A9%8B%E5%88%86%E6%9E%90%E4%BA%8B%E4%BB%B6/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/F2E/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Reverse-Proxy/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Gitbook/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/PDF/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/Calibre/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/tags/%E7%B6%93%E6%BF%9F%E6%8C%87%E6%A8%99/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -1217,13 +1238,6 @@
 
   
   <url>
-    <loc>https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chunkai.blog/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -1245,6 +1259,20 @@
   </url>
   
   <url>
+    <loc>https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/categories/%E6%95%B8%E4%BD%8D%E5%BB%A3%E5%91%8A/</loc>
+    <lastmod>2021-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/categories/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -1253,13 +1281,6 @@
   
   <url>
     <loc>https://chunkai.blog/categories/%E9%9B%BB%E5%BD%B1%E8%B3%9E%E6%9E%90/</loc>
-    <lastmod>2021-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chunkai.blog/categories/%E6%95%B8%E4%BD%8D%E5%BB%A3%E5%91%8A/</loc>
     <lastmod>2021-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
