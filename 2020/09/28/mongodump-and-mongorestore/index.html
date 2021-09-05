@@ -237,7 +237,7 @@
               <blockquote>
 <p>以往習慣用 <code>db.copyDatabase()</code>，來備份 MongoDB 資料庫，不過從 MongoDB 4.2 版開始，官方已經移除 <strong>copydb</strong> 命令，包含 <code>db.copyDatabase()</code> 在內，僅支援 MongoDB 4.0 或更早的版本。MongoDB 4.2+ 版本則必須使用 <code>mongodump</code> 及 <code>mongorestore</code> 來 Copy/Clone 資料庫。</p>
 </blockquote>
-<p><img src="/2020/09/28/mongodump-and-mongorestore/cover.jpg" srcset="/img/loading.gif" lazyload alt="cover"></p>
+<p><img src="/2020/09/28/mongodump-and-mongorestore/cover.jpg" srcset="/img/loading.gif" lazyload></p>
 <span id="more"></span>
 
 <h2 id="備份資料庫"><a href="#備份資料庫" class="headerlink" title="備份資料庫"></a>備份資料庫</h2><p>假設在本地端有一個 <code>test</code> 資料庫運行在預設 27017 port，可以使用 <a target="_blank" rel="noopener" href="https://docs.mongodb.com/database-tools/mongodump/#bin.mongodump">mongodump</a> 指令打包備份：</p>

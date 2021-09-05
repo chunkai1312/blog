@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2021-04-03T08:33:16.343Z</updated>
+  <updated>2021-09-05T09:21:29.982Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -17,14 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>取得美元兌新台幣歷史匯率</title>
+    <link href="https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/"/>
+    <id>https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/</id>
+    <published>2021-09-05T08:12:22.000Z</published>
+    <updated>2021-09-05T09:21:29.982Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;美元兌新台幣歷史匯率除了可以透過中央銀行網站查訊，也可以從臺灣期貨交易所取得參考匯率。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/09/05/fetching-usd-to-twd-exchange-rate-history/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>回顧 2020 年</title>
     <link href="https://chunkai.blog/2020/12/31/2020-year-in-review/"/>
     <id>https://chunkai.blog/2020/12/31/2020-year-in-review/</id>
     <published>2020-12-31T14:55:48.000Z</published>
-    <updated>2021-04-03T08:33:16.343Z</updated>
+    <updated>2021-09-05T09:21:26.953Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2020/12/31/2020-year-in-review/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2020/12/31/2020-year-in-review/cover.jpg&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;2020 年肯定是載入史冊的一年，在即將邁入新年的同時，又到了年終回顧的時刻。&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
@@ -41,13 +59,13 @@
     <link href="https://chunkai.blog/2020/09/28/mongodump-and-mongorestore/"/>
     <id>https://chunkai.blog/2020/09/28/mongodump-and-mongorestore/</id>
     <published>2020-09-28T08:03:36.000Z</published>
-    <updated>2021-04-03T08:33:16.339Z</updated>
+    <updated>2021-09-05T09:21:23.416Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;以往習慣用 &lt;code&gt;db.copyDatabase()&lt;/code&gt;，來備份 MongoDB 資料庫，不過從 MongoDB 4.2 版開始，官方已經移除 &lt;strong&gt;copydb&lt;/strong&gt; 命令，包含 &lt;code&gt;db.copyDatabase()&lt;/code&gt; 在內，僅支援 MongoDB 4.0 或更早的版本。MongoDB 4.2+ 版本則必須使用 &lt;code&gt;mongodump&lt;/code&gt; 及 &lt;code&gt;mongorestore&lt;/code&gt; 來 Copy/Clone 資料庫。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/09/28/mongodump-and-mongorestore/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/09/28/mongodump-and-mongorestore/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -67,13 +85,13 @@
     <link href="https://chunkai.blog/2020/08/14/nestjs-fundamentals/"/>
     <id>https://chunkai.blog/2020/08/14/nestjs-fundamentals/</id>
     <published>2020-08-14T14:11:44.000Z</published>
-    <updated>2021-04-03T08:33:16.330Z</updated>
+    <updated>2021-09-05T09:21:18.004Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://nestjs.com/&quot;&gt;NestJS&lt;/a&gt; 是一個漸進式 (progressive) 的 NodeJS 框架，用於建構高效能、可靠性和可擴展的伺服端 (server-side) 應用程式。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/08/14/nestjs-fundamentals/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/08/14/nestjs-fundamentals/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -93,13 +111,13 @@
     <link href="https://chunkai.blog/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/"/>
     <id>https://chunkai.blog/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/</id>
     <published>2020-08-09T16:19:58.000Z</published>
-    <updated>2021-04-03T08:33:16.334Z</updated>
+    <updated>2021-09-05T09:21:20.931Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《亞當理論》是相對強弱指標 RSI (Relative Strength Index) 發明人 Welles Wilder 所發表的投資理論。亞當，象徵著人類的起源，簡單而純粹；而亞當理論的精神是，與其試圖猜測未來，還不如順勢而行，決不逆水行舟。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -119,13 +137,13 @@
     <link href="https://chunkai.blog/2020/07/17/a-wealth-of-common-sense/"/>
     <id>https://chunkai.blog/2020/07/17/a-wealth-of-common-sense/</id>
     <published>2020-07-16T17:15:44.000Z</published>
-    <updated>2021-04-03T08:33:16.307Z</updated>
+    <updated>2021-09-05T09:21:10.027Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《投資前最重要的事》是 &lt;a href=&quot;https://www.amazon.com/Wealth-Common-Sense-Simplicity-Complexity/dp/B01NBTM7HM&quot;&gt;A Wealth of Common Sense&lt;/a&gt; 中文版。作者 Ben Carlson 是知名財經部落格「致富的常識」（A Wealth of Common Sense）創辦人兼主筆，也是彭博社（Blommgerg）專欄作者。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/07/17/a-wealth-of-common-sense/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/07/17/a-wealth-of-common-sense/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -145,13 +163,13 @@
     <link href="https://chunkai.blog/2020/07/12/profiting-in-bull-or-bear-markets/"/>
     <id>https://chunkai.blog/2020/07/12/profiting-in-bull-or-bear-markets/</id>
     <published>2020-07-11T18:50:07.000Z</published>
-    <updated>2021-04-03T08:33:16.316Z</updated>
+    <updated>2021-09-05T09:21:12.561Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《經濟指標教你加減碼》 是 &lt;a href=&quot;https://www.amazon.com/Profiting-Bull-Markets-George-Dagnino/dp/0071367063&quot;&gt;Profiting in Bull or Bear Markets&lt;/a&gt; 中文版。作者 George Dagnino 將商業循環分為四個階段，根據經濟指標判斷當前景氣所在的位置，進一步作為投資決策的參考。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/07/12/profiting-in-bull-or-bear-markets/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/07/12/profiting-in-bull-or-bear-markets/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -173,13 +191,13 @@
     <link href="https://chunkai.blog/2020/07/06/tensile-trading/"/>
     <id>https://chunkai.blog/2020/07/06/tensile-trading/</id>
     <published>2020-07-05T17:46:43.000Z</published>
-    <updated>2021-04-03T08:33:16.325Z</updated>
+    <updated>2021-09-05T09:21:15.318Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《股票交易精鍊手冊》介紹的是張力交易法 (Tensile Trading)，作者 Gatis N. Roze 與 Grayson D. Roze 是一對父子，也是全職的股票投資人。他們以自身的投資經驗描繪出十個階段的路線圖，提供投資人建構屬於自己的投資系統。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/07/06/tensile-trading/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/07/06/tensile-trading/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -197,13 +215,13 @@
     <link href="https://chunkai.blog/2020/06/29/the-little-book-that-builds-wealth/"/>
     <id>https://chunkai.blog/2020/06/29/the-little-book-that-builds-wealth/</id>
     <published>2020-06-28T17:38:42.000Z</published>
-    <updated>2021-04-03T08:33:16.296Z</updated>
+    <updated>2021-09-05T09:21:04.528Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《護城河投資優勢》 是 &lt;a href=&quot;https://www.amazon.com/Little-Book-That-Builds-Wealth/dp/047022651X&quot;&gt;The Little Book that Builds Wealth&lt;/a&gt; 中文版。說明何謂企業的經濟護城河及其重要性，協助投資人辨識具有結構性優勢的長期優質企業。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/29/the-little-book-that-builds-wealth/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/06/29/the-little-book-that-builds-wealth/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -223,13 +241,13 @@
     <link href="https://chunkai.blog/2020/06/25/the-big-short/"/>
     <id>https://chunkai.blog/2020/06/25/the-big-short/</id>
     <published>2020-06-25T15:55:16.000Z</published>
-    <updated>2021-04-03T08:33:16.286Z</updated>
+    <updated>2021-09-05T09:20:58.900Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;電影《大賣空》是真人真事改編自 Michael Lewis 的同名書籍 The Big Short，故事背景是 2007 至 2008 年的美國次級房貸風暴引起的環球金融危機，一群投機客大膽與銀行體系對賭，就此獲利的驚人事蹟。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/25/the-big-short/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/06/25/the-big-short/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -249,13 +267,13 @@
     <link href="https://chunkai.blog/2020/06/21/the-visual-investor/"/>
     <id>https://chunkai.blog/2020/06/21/the-visual-investor/</id>
     <published>2020-06-21T14:54:53.000Z</published>
-    <updated>2021-04-03T08:33:16.303Z</updated>
+    <updated>2021-09-05T09:21:07.287Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《約翰墨菲視覺分析》是 &lt;a href=&quot;https://www.amazon.com/Visual-Investor-Spot-Market-Trends/dp/0470382058&quot;&gt;The Visual Investor&lt;/a&gt; 第二版的中文本，這是一本探討技術分析的書籍。作者 John Murphy 是知名網站 StockCharts.com 的技術分析大師，經典投資著作有《金融市場技術分析》、《市場互動技術分析》等書。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/21/the-visual-investor/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/06/21/the-visual-investor/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -275,13 +293,13 @@
     <link href="https://chunkai.blog/2020/06/14/the-intelligent-asset-allocator/"/>
     <id>https://chunkai.blog/2020/06/14/the-intelligent-asset-allocator/</id>
     <published>2020-06-13T16:06:14.000Z</published>
-    <updated>2021-04-03T08:33:16.291Z</updated>
+    <updated>2021-09-05T09:21:01.868Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《智慧型資產配置》為 &lt;a href=&quot;https://www.amazon.com/gp/product/B005XM6NRY&quot;&gt;The Intelligent Asset Allocator&lt;/a&gt; 中文版，是 William Bernstein 的第一本著作。《智慧型資產配置》，說明資產配置及現代投資組合理論，並用簡單易懂的數學方法解釋了風險與報酬之間的關係。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/14/the-intelligent-asset-allocator/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/06/14/the-intelligent-asset-allocator/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -299,13 +317,13 @@
     <link href="https://chunkai.blog/2020/06/08/aerospace-and-defense-etfs/"/>
     <id>https://chunkai.blog/2020/06/08/aerospace-and-defense-etfs/</id>
     <published>2020-06-08T13:00:00.000Z</published>
-    <updated>2021-04-03T08:33:16.225Z</updated>
+    <updated>2021-09-05T09:20:52.336Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;在美國股市可以代表美國航太與國防產業的 ETFs，主要有三檔，分別是 iShares 發行的 ITA、另一檔是 SPDR 發行的 XAR、以及 invesco 發行的 PPA。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/08/aerospace-and-defense-etfs/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/06/08/aerospace-and-defense-etfs/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -331,13 +349,13 @@
     <link href="https://chunkai.blog/2020/06/07/paying-with-fire/"/>
     <id>https://chunkai.blog/2020/06/07/paying-with-fire/</id>
     <published>2020-06-07T08:49:47.000Z</published>
-    <updated>2021-04-03T08:33:16.265Z</updated>
+    <updated>2021-09-05T09:20:56.263Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;所謂 FIRE，代表的是「Financial Independence, Retire Early」。FIRE 原則是一種生活方式，它的目標正如同字面所定義的：實現財務獨立並提前退休。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/07/paying-with-fire/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/06/07/paying-with-fire/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -361,13 +379,13 @@
     <link href="https://chunkai.blog/2020/05/31/all-about-asset-allocation-part-3/"/>
     <id>https://chunkai.blog/2020/05/31/all-about-asset-allocation-part-3/</id>
     <published>2020-05-30T16:00:00.000Z</published>
-    <updated>2021-04-03T08:33:16.213Z</updated>
+    <updated>2021-09-05T09:20:46.497Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《資產配置投資策略》是 &lt;a href=&quot;https://www.amazon.com/All-About-Asset-Allocation-Second-ebook/dp/B003ZUXQBW&quot;&gt;All About Asset Allocation&lt;/a&gt; 第二版。作者用淺白的例子傳達讀者資產配置與分散投資的重要性，我認為這是一本理論與實務兼具的書籍，此為第三部分「投資組合管理」之個人閱讀摘要整理。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/05/31/all-about-asset-allocation-part-3/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/05/31/all-about-asset-allocation-part-3/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -385,13 +403,13 @@
     <link href="https://chunkai.blog/2020/05/30/all-about-asset-allocation-part-2/"/>
     <id>https://chunkai.blog/2020/05/30/all-about-asset-allocation-part-2/</id>
     <published>2020-05-29T16:00:00.000Z</published>
-    <updated>2021-04-03T08:33:16.204Z</updated>
+    <updated>2021-09-05T09:20:43.619Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《資產配置投資策略》是 &lt;a href=&quot;https://www.amazon.com/All-About-Asset-Allocation-Second-ebook/dp/B003ZUXQBW&quot;&gt;All About Asset Allocation&lt;/a&gt; 第二版。作者用淺白的例子傳達讀者資產配置與分散投資的重要性，我認為這是一本理論與實務兼具的書籍，此為第二部分「資產類別的選擇」之個人閱讀摘要整理。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/05/30/all-about-asset-allocation-part-2/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/05/30/all-about-asset-allocation-part-2/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -407,13 +425,13 @@
     <link href="https://chunkai.blog/2020/05/29/all-about-asset-allocation-part-1/"/>
     <id>https://chunkai.blog/2020/05/29/all-about-asset-allocation-part-1/</id>
     <published>2020-05-28T16:00:00.000Z</published>
-    <updated>2021-04-03T08:33:16.188Z</updated>
+    <updated>2021-09-05T09:21:45.395Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《資產配置投資策略》是 &lt;a href=&quot;https://www.amazon.com/All-About-Asset-Allocation-Second-ebook/dp/B003ZUXQBW&quot;&gt;All About Asset Allocation&lt;/a&gt; 第二版。作者用淺白的例子傳達讀者資產配置與分散投資的重要性，我認為這是一本理論與實務兼具的書籍，此為第一部分「資產配置的基本概念」之個人閱讀摘要整理。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/05/29/all-about-asset-allocation-part-1/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/05/29/all-about-asset-allocation-part-1/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -431,13 +449,13 @@
     <link href="https://chunkai.blog/2020/05/24/stocks-for-the-long-run/"/>
     <id>https://chunkai.blog/2020/05/24/stocks-for-the-long-run/</id>
     <published>2020-05-24T14:20:30.000Z</published>
-    <updated>2021-04-03T08:33:16.218Z</updated>
+    <updated>2021-09-05T09:20:49.739Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《長線獲利之道：散戶投資正典》是 &lt;a href=&quot;https://www.amazon.com/Stocks-Long-Run-Definitive-Investment/dp/0071800514&quot;&gt;Stocks for the Long Run&lt;/a&gt; 第五版。這本書不僅是在論述股票長期投資，你也可以再從中學習到許多經濟理論、金融與貨幣市場及美國經濟發展史等。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/05/24/stocks-for-the-long-run/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/05/24/stocks-for-the-long-run/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -455,13 +473,13 @@
     <link href="https://chunkai.blog/2020/04/05/the-only-investment-fuide-you&#39;ll-ever-need/"/>
     <id>https://chunkai.blog/2020/04/05/the-only-investment-fuide-you&#39;ll-ever-need/</id>
     <published>2020-04-05T15:30:25.000Z</published>
-    <updated>2021-04-03T08:33:16.175Z</updated>
+    <updated>2021-09-05T09:20:40.880Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;《你唯一需要的投資指南》是 &lt;a href=&quot;https://www.amazon.com/Only-Investment-Guide-Youll-Ever-ebook/dp/B011H55NBM&quot;&gt;The Only Investment Guide You’ll Ever Need&lt;/a&gt; 的中文譯本。該書是 Andrew Tobias 於 1978 年出版，相當具有歷史的一本理財書籍。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/04/05/the-only-investment-fuide-you&#39;ll-ever-need/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/04/05/the-only-investment-fuide-you&#39;ll-ever-need/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -479,13 +497,13 @@
     <link href="https://chunkai.blog/2020/03/11/using-rollup-to-bundle-javascript-modules/"/>
     <id>https://chunkai.blog/2020/03/11/using-rollup-to-bundle-javascript-modules/</id>
     <published>2020-03-10T16:00:00.000Z</published>
-    <updated>2021-04-03T08:33:16.171Z</updated>
+    <updated>2021-09-05T09:21:32.899Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;Rollup 是一個 JavaScript 的 module bundler，並提供豐富的插件 (plugins) 將程式碼進行處理，適合用來建構函式庫或應用程式。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/03/11/using-rollup-to-bundle-javascript-modules/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;/2020/03/11/using-rollup-to-bundle-javascript-modules/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -497,30 +515,6 @@
     <category term="Rollup" scheme="https://chunkai.blog/tags/Rollup/"/>
     
     <category term="Webpack" scheme="https://chunkai.blog/tags/Webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>從 Firstrade 移轉帳戶至 TD Ameritrade</title>
-    <link href="https://chunkai.blog/2020/01/31/transferring-to-td-ameritrade-from-firstrade/"/>
-    <id>https://chunkai.blog/2020/01/31/transferring-to-td-ameritrade-from-firstrade/</id>
-    <published>2020-01-30T16:00:00.000Z</published>
-    <updated>2021-04-03T08:33:16.165Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;由於線上申請開戶容易，加上 2018 年 8 月 Firstrade 宣布免交易佣金後，Firstrade 一直是台灣投資人進入美股投資入門的選項之一。恰逢 2019 年 9 月，Firstrade 發生資安疑慮的事件，以及嘉信理財、TD Ameritrade 宣布交易免佣金之後，故決定將美股證券轉移至 TD Ameritrade。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/01/31/transferring-to-td-ameritrade-from-firstrade/cover.jpg&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="投資理財" scheme="https://chunkai.blog/categories/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/"/>
-    
-    
-    <category term="Firstrade" scheme="https://chunkai.blog/tags/Firstrade/"/>
-    
-    <category term="TD Ameritrade" scheme="https://chunkai.blog/tags/TD-Ameritrade/"/>
     
   </entry>
   
