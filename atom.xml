@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2021-09-05T09:27:15.635Z</updated>
+  <updated>2021-12-31T14:04:25.514Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回顧 2021 年</title>
+    <link href="https://chunkai.blog/2021/12/31/2021-year-in-review/"/>
+    <id>https://chunkai.blog/2021/12/31/2021-year-in-review/</id>
+    <published>2021-12-31T11:58:37.000Z</published>
+    <updated>2021-12-31T14:04:25.514Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2021/12/31/2021-year-in-review/cover.jpg&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;今年無論好的、壞的，終究要過去了，願明年會是收穫滿滿的一年！&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>取得美元兌新台幣歷史匯率</title>
@@ -47,7 +67,7 @@
     <link href="https://chunkai.blog/2020/12/31/2020-year-in-review/"/>
     <id>https://chunkai.blog/2020/12/31/2020-year-in-review/</id>
     <published>2020-12-31T14:55:48.000Z</published>
-    <updated>2021-09-05T09:21:26.953Z</updated>
+    <updated>2021-12-31T13:56:44.612Z</updated>
     
     
     <summary type="html">&lt;p&gt;&lt;img src=&quot;/2020/12/31/2020-year-in-review/cover.jpg&quot;&gt;&lt;/p&gt;
@@ -497,32 +517,6 @@
     <category term="投資" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87/"/>
     
     <category term="理財" scheme="https://chunkai.blog/tags/%E7%90%86%E8%B2%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 Rollup 打包 JavaScript 模組</title>
-    <link href="https://chunkai.blog/2020/03/11/using-rollup-to-bundle-javascript-modules/"/>
-    <id>https://chunkai.blog/2020/03/11/using-rollup-to-bundle-javascript-modules/</id>
-    <published>2020-03-10T16:00:00.000Z</published>
-    <updated>2021-09-05T09:21:32.899Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Rollup 是一個 JavaScript 的 module bundler，並提供豐富的插件 (plugins) 將程式碼進行處理，適合用來建構函式庫或應用程式。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/03/11/using-rollup-to-bundle-javascript-modules/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="工具應用" scheme="https://chunkai.blog/categories/%E5%B7%A5%E5%85%B7%E6%87%89%E7%94%A8/"/>
-    
-    
-    <category term="JavaScript" scheme="https://chunkai.blog/tags/JavaScript/"/>
-    
-    <category term="Rollup" scheme="https://chunkai.blog/tags/Rollup/"/>
-    
-    <category term="Webpack" scheme="https://chunkai.blog/tags/Webpack/"/>
     
   </entry>
   
