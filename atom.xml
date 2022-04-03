@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2021-12-31T14:13:06.691Z</updated>
+  <updated>2022-04-03T17:41:27.779Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《順勢交易：多空策略實作指引》</title>
+    <link href="https://chunkai.blog/2022/03/28/the-trend-following-bible/"/>
+    <id>https://chunkai.blog/2022/03/28/the-trend-following-bible/</id>
+    <published>2022-03-28T15:43:05.000Z</published>
+    <updated>2022-04-03T17:41:27.779Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2022/03/28/the-trend-following-bible/cover.jpg&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;《順勢交易：多空策略實作指引》原文為《The Trend Following Bible: How Professional Traders Compound Wealth and Manage Risk》。本書為順勢操作者建立了一套完整的投資策略，包括多空進場原則、停損設定及風險管理，以及複利觀念的運用。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="順勢交易" scheme="https://chunkai.blog/tags/%E9%A0%86%E5%8B%A2%E4%BA%A4%E6%98%93/"/>
+    
+  </entry>
   
   <entry>
     <title>回顧 2021 年</title>
@@ -493,30 +515,6 @@
     <category term="股票" scheme="https://chunkai.blog/tags/%E8%82%A1%E7%A5%A8/"/>
     
     <category term="長期投資" scheme="https://chunkai.blog/tags/%E9%95%B7%E6%9C%9F%E6%8A%95%E8%B3%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《你唯一需要的投資指南》：掌握大局，從小錢開始</title>
-    <link href="https://chunkai.blog/2020/04/05/the-only-investment-fuide-you&#39;ll-ever-need/"/>
-    <id>https://chunkai.blog/2020/04/05/the-only-investment-fuide-you&#39;ll-ever-need/</id>
-    <published>2020-04-05T15:30:25.000Z</published>
-    <updated>2021-09-05T09:20:40.880Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;《你唯一需要的投資指南》是 &lt;a href=&quot;https://www.amazon.com/Only-Investment-Guide-Youll-Ever-ebook/dp/B011H55NBM&quot;&gt;The Only Investment Guide You’ll Ever Need&lt;/a&gt; 的中文譯本。該書是 Andrew Tobias 於 1978 年出版，相當具有歷史的一本理財書籍。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/04/05/the-only-investment-fuide-you&#39;ll-ever-need/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
-    
-    
-    <category term="投資" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87/"/>
-    
-    <category term="理財" scheme="https://chunkai.blog/tags/%E7%90%86%E8%B2%A1/"/>
     
   </entry>
   
