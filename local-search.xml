@@ -1228,13 +1228,13 @@
       
       <tag>NodeJS</tag>
       
-      <tag>CI</tag>
-      
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
       
       <tag>Git</tag>
+      
+      <tag>CI</tag>
       
       <tag>Drone</tag>
       
@@ -1381,9 +1381,9 @@
     
     <tags>
       
-      <tag>Shell</tag>
-      
       <tag>Bash</tag>
+      
+      <tag>Shell</tag>
       
     </tags>
     
@@ -1408,11 +1408,11 @@
     
     <tags>
       
-      <tag>Shell</tag>
+      <tag>Bash-it</tag>
       
       <tag>Bash</tag>
       
-      <tag>Bash-it</tag>
+      <tag>Shell</tag>
       
     </tags>
     
@@ -1437,9 +1437,9 @@
     
     <tags>
       
-      <tag>Docker</tag>
-      
       <tag>DevOps</tag>
+      
+      <tag>Docker</tag>
       
       <tag>Docker Registry</tag>
       
@@ -1553,9 +1553,9 @@
     
     <tags>
       
-      <tag>NodeJS</tag>
-      
       <tag>Gravatar</tag>
+      
+      <tag>NodeJS</tag>
       
     </tags>
     
@@ -1609,17 +1609,17 @@
     
     <tags>
       
+      <tag>NodeJS</tag>
+      
+      <tag>CI</tag>
+      
       <tag>Travis CI</tag>
       
       <tag>Codecov</tag>
       
-      <tag>NodeJS</tag>
-      
       <tag>GitHub</tag>
       
       <tag>Code Coverage</tag>
-      
-      <tag>CI</tag>
       
     </tags>
     
@@ -1646,8 +1646,6 @@
       
       <tag>NodeJS</tag>
       
-      <tag>CI</tag>
-      
       <tag>GitLab CI</tag>
       
       <tag>GitLab</tag>
@@ -1655,6 +1653,8 @@
       <tag>Docker</tag>
       
       <tag>Git</tag>
+      
+      <tag>CI</tag>
       
     </tags>
     
