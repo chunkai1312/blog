@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2023-11-29T06:26:53.084Z</updated>
+  <updated>2023-12-30T19:30:42.480Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回顧 2023 年</title>
+    <link href="https://chunkai.blog/2023/12/31/2023-year-in-review/"/>
+    <id>https://chunkai.blog/2023/12/31/2023-year-in-review/</id>
+    <published>2023-12-30T16:26:46.000Z</published>
+    <updated>2023-12-30T19:30:42.480Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2023/12/31/2023-year-in-review/cover.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;又到了一年一度書寫年度回顧的時刻。一年的總結，標誌著個人成長的一步，同時正視工作中的困難與改進的機會，以下是對這些重要時刻的深入反思。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>NestJS x Fugle API x LINE Notify：打造股票交易訊號通知系統</title>
@@ -491,30 +511,6 @@
     <category term="財務獨立" scheme="https://chunkai.blog/tags/%E8%B2%A1%E5%8B%99%E7%8D%A8%E7%AB%8B/"/>
     
     <category term="提早退休" scheme="https://chunkai.blog/tags/%E6%8F%90%E6%97%A9%E9%80%80%E4%BC%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《資產配置投資策略》：投資組合管理</title>
-    <link href="https://chunkai.blog/2020/05/31/all-about-asset-allocation-part-3/"/>
-    <id>https://chunkai.blog/2020/05/31/all-about-asset-allocation-part-3/</id>
-    <published>2020-05-30T16:00:00.000Z</published>
-    <updated>2021-09-05T09:20:46.497Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;《資產配置投資策略》是 &lt;a href=&quot;https://www.amazon.com/All-About-Asset-Allocation-Second-ebook/dp/B003ZUXQBW&quot;&gt;All About Asset Allocation&lt;/a&gt; 第二版。作者用淺白的例子傳達讀者資產配置與分散投資的重要性，我認為這是一本理論與實務兼具的書籍，此為第三部分「投資組合管理」之個人閱讀摘要整理。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/05/31/all-about-asset-allocation-part-3/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
-    
-    
-    <category term="資產配置" scheme="https://chunkai.blog/tags/%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE/"/>
-    
-    <category term="投資組合" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E7%B5%84%E5%90%88/"/>
     
   </entry>
   
