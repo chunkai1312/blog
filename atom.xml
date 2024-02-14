@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2024-02-13T11:40:01.045Z</updated>
+  <updated>2024-02-14T15:38:41.734Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>再讀《投資金律》：建立必勝投資組合的四大關鍵和十八堂必修課</title>
+    <link href="https://chunkai.blog/2024/02/14/the-four-pillars-of-investing/"/>
+    <id>https://chunkai.blog/2024/02/14/the-four-pillars-of-investing/</id>
+    <published>2024-02-14T09:25:42.000Z</published>
+    <updated>2024-02-14T15:38:41.734Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;我第一次閱讀的中文版《投資金律》出版在 2016 年，原版則出版自 2010 年。這一版的《投資金律》則是作者在 2023 年撰寫的最新版，主要新增了四個章節，從原本的「十四堂」必修課增加到「十八堂」，並更新了許多數據和圖表，反映了近年來的市場變化和投資環境。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/02/14/the-four-pillars-of-investing/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="指數投資" scheme="https://chunkai.blog/tags/%E6%8C%87%E6%95%B8%E6%8A%95%E8%B3%87/"/>
+    
+    <category term="投資金律" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E9%87%91%E5%BE%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>再讀《漫步華爾街》：超越股市漲跌的成功投資策略</title>
@@ -479,38 +503,6 @@
     <category term="資產配置" scheme="https://chunkai.blog/tags/%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE/"/>
     
     <category term="投資組合" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E7%B5%84%E5%90%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>美國航太暨國防產業 ETFs 整理</title>
-    <link href="https://chunkai.blog/2020/06/08/aerospace-and-defense-etfs/"/>
-    <id>https://chunkai.blog/2020/06/08/aerospace-and-defense-etfs/</id>
-    <published>2020-06-08T13:00:00.000Z</published>
-    <updated>2021-09-05T09:20:52.336Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;在美國股市可以代表美國航太與國防產業的 ETFs，主要有三檔，分別是 iShares 發行的 ITA、另一檔是 SPDR 發行的 XAR、以及 invesco 發行的 PPA。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/08/aerospace-and-defense-etfs/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="投資理財" scheme="https://chunkai.blog/categories/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/"/>
-    
-    
-    <category term="美股" scheme="https://chunkai.blog/tags/%E7%BE%8E%E8%82%A1/"/>
-    
-    <category term="Aerospace &amp; Defense" scheme="https://chunkai.blog/tags/Aerospace-Defense/"/>
-    
-    <category term="ETF" scheme="https://chunkai.blog/tags/ETF/"/>
-    
-    <category term="ITA" scheme="https://chunkai.blog/tags/ITA/"/>
-    
-    <category term="XAR" scheme="https://chunkai.blog/tags/XAR/"/>
-    
-    <category term="PPA" scheme="https://chunkai.blog/tags/PPA/"/>
     
   </entry>
   
