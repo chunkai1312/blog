@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2024-02-14T15:38:41.734Z</updated>
+  <updated>2024-05-05T17:42:39.829Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>穿越三國戰場：《三國志戰役事典：魏蜀吳最著名的74場戰役》閱讀筆記</title>
+    <link href="https://chunkai.blog/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/"/>
+    <id>https://chunkai.blog/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/</id>
+    <published>2024-05-05T08:44:49.000Z</published>
+    <updated>2024-05-05T17:42:39.829Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;許多人可能像我一樣，最初是透過經典名著《三國演義》或是光榮《三國志系列》電玩遊戲認識到三國時代。《三國志戰役事典：魏蜀吳最著名的74場戰役》詳實地記錄了三國時代的著名戰役，按照時間順序從東漢末年黃巾之亂開始，到晉滅吳之戰結束三國時代的74場決定性戰</summary>
+      
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="歷史" scheme="https://chunkai.blog/tags/%E6%AD%B7%E5%8F%B2/"/>
+    
+    <category term="三國" scheme="https://chunkai.blog/tags/%E4%B8%89%E5%9C%8B/"/>
+    
+    <category term="三國志" scheme="https://chunkai.blog/tags/%E4%B8%89%E5%9C%8B%E5%BF%97/"/>
+    
+    <category term="三國演義" scheme="https://chunkai.blog/tags/%E4%B8%89%E5%9C%8B%E6%BC%94%E7%BE%A9/"/>
+    
+  </entry>
   
   <entry>
     <title>再讀《投資金律》：建立必勝投資組合的四大關鍵和十八堂必修課</title>
@@ -479,30 +508,6 @@
     <category term="技術分析" scheme="https://chunkai.blog/tags/%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/"/>
     
     <category term="圖形分析" scheme="https://chunkai.blog/tags/%E5%9C%96%E5%BD%A2%E5%88%86%E6%9E%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《智慧型資產配置》：建構最大報酬與最低風險的投資組合</title>
-    <link href="https://chunkai.blog/2020/06/14/the-intelligent-asset-allocator/"/>
-    <id>https://chunkai.blog/2020/06/14/the-intelligent-asset-allocator/</id>
-    <published>2020-06-13T16:06:14.000Z</published>
-    <updated>2021-09-05T09:21:01.868Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;《智慧型資產配置》為 &lt;a href=&quot;https://www.amazon.com/gp/product/B005XM6NRY&quot;&gt;The Intelligent Asset Allocator&lt;/a&gt; 中文版，是 William Bernstein 的第一本著作。《智慧型資產配置》，說明資產配置及現代投資組合理論，並用簡單易懂的數學方法解釋了風險與報酬之間的關係。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/14/the-intelligent-asset-allocator/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
-    
-    
-    <category term="資產配置" scheme="https://chunkai.blog/tags/%E8%B3%87%E7%94%A2%E9%85%8D%E7%BD%AE/"/>
-    
-    <category term="投資組合" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E7%B5%84%E5%90%88/"/>
     
   </entry>
   
