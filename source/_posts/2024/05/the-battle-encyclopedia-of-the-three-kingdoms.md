@@ -10,6 +10,8 @@ date: 2024-05-05 16:44:49
 
 ![](/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/cover.png)
 
+<!-- more -->
+
 ## 本書特色
 
 - **詳細圖解**：提供了部隊和陣營移動的詳盡圖解，有助於讀者更好地理解戰役的動線和戰術。
