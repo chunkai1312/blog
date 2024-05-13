@@ -30,7 +30,7 @@
       
       <tag>00631L</tag>
       
-      <tag>40</tag>
+      <tag>0050</tag>
       
     </tags>
     
@@ -1402,11 +1402,11 @@
     
     <tags>
       
+      <tag>NodeJS</tag>
+      
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
-      
-      <tag>NodeJS</tag>
       
       <tag>Git</tag>
       
@@ -1613,9 +1613,9 @@
     
     <tags>
       
-      <tag>Docker</tag>
-      
       <tag>DevOps</tag>
+      
+      <tag>Docker</tag>
       
       <tag>Docker Registry</tag>
       
@@ -1729,9 +1729,9 @@
     
     <tags>
       
-      <tag>NodeJS</tag>
-      
       <tag>Gravatar</tag>
+      
+      <tag>NodeJS</tag>
       
     </tags>
     
@@ -1820,13 +1820,13 @@
     
     <tags>
       
+      <tag>NodeJS</tag>
+      
       <tag>GitLab CI</tag>
       
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
-      
-      <tag>NodeJS</tag>
       
       <tag>Git</tag>
       
