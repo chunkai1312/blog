@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2024-05-05T17:42:39.829Z</updated>
+  <updated>2024-05-13T16:45:47.070Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -17,18 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>槓桿 ETF 投資法：回測實證 00631L 槓桿投資策略</title>
+    <link href="https://chunkai.blog/2024/05/13/leveraged-investing-backtest/"/>
+    <id>https://chunkai.blog/2024/05/13/leveraged-investing-backtest/</id>
+    <published>2024-05-13T15:42:28.000Z</published>
+    <updated>2024-05-13T16:45:47.070Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;這項回測實驗是閱讀 &lt;a href=&quot;https://www.books.com.tw/products/0010953374&quot;&gt;《槓桿ETF投資法》&lt;/a&gt; 後所得到的靈感啟發。根據實證結果顯示，在相同的曝險比例下，使用 00631L 取代 0050 確實是可行的投資策略，甚至能取得更佳的報酬。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/05/13/leveraged-investing-backtest/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="投資理財" scheme="https://chunkai.blog/categories/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/"/>
+    
+    
+    <category term="槓桿投資法" scheme="https://chunkai.blog/tags/%E6%A7%93%E6%A1%BF%E6%8A%95%E8%B3%87%E6%B3%95/"/>
+    
+    <category term="槓桿ETF" scheme="https://chunkai.blog/tags/%E6%A7%93%E6%A1%BFETF/"/>
+    
+    <category term="元大台灣50正二" scheme="https://chunkai.blog/tags/%E5%85%83%E5%A4%A7%E5%8F%B0%E7%81%A350%E6%AD%A3%E4%BA%8C/"/>
+    
+    <category term="元大台灣50" scheme="https://chunkai.blog/tags/%E5%85%83%E5%A4%A7%E5%8F%B0%E7%81%A350/"/>
+    
+    <category term="00631L" scheme="https://chunkai.blog/tags/00631L/"/>
+    
+    <category term="40" scheme="https://chunkai.blog/tags/40/"/>
+    
+  </entry>
+  
+  <entry>
     <title>穿越三國戰場：《三國志戰役事典：魏蜀吳最著名的74場戰役》閱讀筆記</title>
     <link href="https://chunkai.blog/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/"/>
     <id>https://chunkai.blog/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/</id>
     <published>2024-05-05T08:44:49.000Z</published>
-    <updated>2024-05-05T17:42:39.829Z</updated>
+    <updated>2024-05-13T16:32:35.475Z</updated>
     
     
-      
-      
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;許多人可能像我一樣，最初是透過經典名著《三國演義》或是光榮《三國志系列》電玩遊戲認識到三國時代。《三國志戰役事典：魏蜀吳最著名的74場戰役》詳實地記錄了三國時代的著名戰役，按照時間順序從東漢末年黃巾之亂開始，到晉滅吳之戰結束三國時代的74場決定性戰</summary>
-      
+&lt;p&gt;許多人可能像我一樣，最初是透過經典名著《三國演義》或是光榮《三國志系列》電玩遊戲認識到三國時代。《三國志戰役事典：魏蜀吳最著名的74場戰役》詳實地記錄了三國時代的著名戰役，按照時間順序從東漢末年黃巾之亂開始，到晉滅吳之戰結束三國時代的74場決定性戰役。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/cover.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -482,32 +513,6 @@
     <category term="環球金融危機" scheme="https://chunkai.blog/tags/%E7%92%B0%E7%90%83%E9%87%91%E8%9E%8D%E5%8D%B1%E6%A9%9F/"/>
     
     <category term="金融海嘯" scheme="https://chunkai.blog/tags/%E9%87%91%E8%9E%8D%E6%B5%B7%E5%98%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《約翰墨菲視覺分析》：運用技術分析，看圖書故事</title>
-    <link href="https://chunkai.blog/2020/06/21/the-visual-investor/"/>
-    <id>https://chunkai.blog/2020/06/21/the-visual-investor/</id>
-    <published>2020-06-21T14:54:53.000Z</published>
-    <updated>2021-09-05T09:21:07.287Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;《約翰墨菲視覺分析》是 &lt;a href=&quot;https://www.amazon.com/Visual-Investor-Spot-Market-Trends/dp/0470382058&quot;&gt;The Visual Investor&lt;/a&gt; 第二版的中文本，這是一本探討技術分析的書籍。作者 John Murphy 是知名網站 StockCharts.com 的技術分析大師，經典投資著作有《金融市場技術分析》、《市場互動技術分析》等書。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/21/the-visual-investor/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
-    
-    
-    <category term="視覺分析" scheme="https://chunkai.blog/tags/%E8%A6%96%E8%A6%BA%E5%88%86%E6%9E%90/"/>
-    
-    <category term="技術分析" scheme="https://chunkai.blog/tags/%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/"/>
-    
-    <category term="圖形分析" scheme="https://chunkai.blog/tags/%E5%9C%96%E5%BD%A2%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
