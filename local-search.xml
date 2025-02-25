@@ -4,6 +4,83 @@
   
   
   <entry>
+    <title>《基礎架構即程式碼》：從基礎架構管理到軟體工程思維</title>
+    <link href="/2025/02/26/infrastructure-as-code/"/>
+    <url>/2025/02/26/infrastructure-as-code/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/2025/02/26/infrastructure-as-code/cover.png"></p><p>這本書在我的書架上擺了好幾年，最近終於靜下心來完整讀完。回顧這些年的開發經歷，從手動配置環境、撰寫部署腳本，到逐步引入自動化，IaC（Infrastructure as Code）已經成為現代軟體開發的核心之一。而這本書則提供了一種更系統化的思考方式，讓我重新審視現有的基礎架構管理模式。  </p><span id="more"></span>  <h2 id="從腳本驅動到系統化管理：IaC-的轉變"><a href="#從腳本驅動到系統化管理：IaC-的轉變" class="headerlink" title="從腳本驅動到系統化管理：IaC 的轉變"></a>從腳本驅動到系統化管理：IaC 的轉變</h2><p>在小型開發團隊中，工程師往往身兼數職，除了後端開發，還要負責 CI/CD pipeline、監控、基礎設施維運等工作。初期，這些任務或許只需幾個 Ansible playbook 或 Terraform module 就能解決，但隨著系統複雜度提升，技術債也隨之累積，例如：  </p><ul><li><strong>環境不一致</strong>，導致部署問題層出不窮  </li><li><strong>手動操作風險</strong>，缺乏標準化流程，稍有不慎便可能影響系統穩定性  </li><li><strong>變更難以追蹤</strong>，基礎架構缺乏版本控制與審查機制  </li></ul><p>讀完本書讓我意識到，IaC 不只是寫幾個 Terraform 或 CloudFormation 檔案，而是一種軟體工程化的管理方式，涵蓋版本控制、測試、審核流程，以及與應用開發一致的敏捷迭代思維。  </p><h2 id="以軟體工程思維打造穩定可維護的基礎架構"><a href="#以軟體工程思維打造穩定可維護的基礎架構" class="headerlink" title="以軟體工程思維打造穩定可維護的基礎架構"></a>以軟體工程思維打造穩定可維護的基礎架構</h2><p>作者強調，IaC 的核心在於將基礎架構視為軟體，而非一組靜態的伺服器配置。這種觀念與現代 DevOps 團隊的最佳實踐相符，例如：  </p><ul><li><strong>GitOps</strong> —— 透過 Git 管理基礎架構狀態，確保變更可追蹤、可回滾  </li><li><strong>Immutable Infrastructure</strong> —— 降低手動修改帶來的不確定性，透過完整替換來確保環境一致性  </li><li><strong>Policy-as-Code</strong> —— 透過自動化測試，確保基礎架構變更符合既定標準  </li></ul><p>這些方法部分已經應用在目前開發的日常工作中，但仍有許多優化空間，特別是在環境一致性與變更管理方面。  </p><h2 id="小型團隊的挑戰與對大型-DevOps-團隊的想像"><a href="#小型團隊的挑戰與對大型-DevOps-團隊的想像" class="headerlink" title="小型團隊的挑戰與對大型 DevOps 團隊的想像"></a>小型團隊的挑戰與對大型 DevOps 團隊的想像</h2><p>在小型開發團隊中，DevOps 角色通常是「誰會誰做」，不像大公司有專職 SRE 或 Platform Engineering 團隊來維護基礎設施。這種靈活性雖然帶來了一定的彈性，但也讓流程標準化變得困難。  </p><p>此外，小型團隊的 IaC 實踐往往是從解決眼前問題出發，例如用 Terraform 或 Ansible 來管理雲端資源，或是用 Kubernetes YAML 來定義應用部署。但讀完這本書後，我開始思考，在大型 DevOps 團隊中，IaC 的實踐應該更加成熟，例如：  </p><ul><li><strong>如何在多人協作下維護大規模的 IaC repository？</strong>  </li><li><strong>如何設計可複用、可擴展的 IaC 模組？</strong>  </li><li><strong>如何透過策略與治理機制，確保基礎架構變更符合合規性要求？</strong>  </li></ul><p>這些問題或許在小型團隊中尚未構成迫切需求，但如果未來有機會參與更大規模的 DevOps 團隊，這些應該是值得深入學習的方向。  </p><h2 id="結語：基礎架構應該像軟體一樣被管理"><a href="#結語：基礎架構應該像軟體一樣被管理" class="headerlink" title="結語：基礎架構應該像軟體一樣被管理"></a><strong>結語：基礎架構應該像軟體一樣被管理</strong></h2><p>《基礎架構即程式碼》不僅是一本技術指南，更是一種開發哲學，提醒我們基礎架構應該像軟體一樣被管理，而不是一堆難以追蹤的手動操作。在小型開發團隊中，這樣的轉變雖然需要時間，但長遠來看，它能幫助我們降低風險、提升可維護性。  </p><p>而在更大規模的 DevOps 團隊中，這些原則又會如何落實？這或許是我未來想要進一步探索的方向。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>閱讀筆記</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>DevOps</tag>
+      
+      <tag>Infrastructure</tag>
+      
+      <tag>IaC</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>回顧 2024 年</title>
+    <link href="/2024/12/31/2024-year-in-review/"/>
+    <url>/2024/12/31/2024-year-in-review/</url>
+    
+    <content type="html"><![CDATA[<p><img src="/2024/12/31/2024-year-in-review/cover.png"></p><blockquote><p>時間飛逝，2024 年即將走到尾聲。今年對我來說，是充滿挑戰與成長的一年。回首這一年，最令我感到驕傲與感恩的，是幾個重大的里程碑。</p></blockquote><span id="more"></span><h2 id="年初的決定：買下一間預售屋"><a href="#年初的決定：買下一間預售屋" class="headerlink" title="年初的決定：買下一間預售屋"></a>年初的決定：買下一間預售屋</h2><p>年初時，我做出了一個重大的財務與人生決定——買下了一間預售屋。這個決定不僅代表著我對未來的期待，也是一個重要的資產規劃步驟。從選擇房屋、洽談條件到最終簽約，每一個環節都讓我更深刻地體會到人生規劃的重要性。雖然這樣的決定伴隨著一些壓力，但同時也給予我更多的動力，讓我在工作上更加努力，朝著自己設定的目標邁進。</p><h2 id="投資亮點：美股績效翻倍"><a href="#投資亮點：美股績效翻倍" class="headerlink" title="投資亮點：美股績效翻倍"></a>投資亮點：美股績效翻倍</h2><p>2024 年，對我來說可說是投資的豐收年。隨著人工智慧（AI）技術的快速發展，像 NVIDIA (NVDA) 和 Palantir (PLTR) 等企業的爆發性成長，極大地推升了我的投資組合表現，成為其中的關鍵推手。</p><p>除此之外，對總體經濟的深入研究也為我的投資決策提供了寶貴的指引。透過分析美國聯準會的利率政策與市場動態，我得以在波動的市場中找到機會，實現穩定增長。這一年，我深刻感受到，耐心、紀律與持續學習是獲得長期回報的關鍵。我會繼續精進我的投資策略，希望能夠在未來迎來更多穩定的回報。</p><h2 id="面對挑戰：公司的瓶頸"><a href="#面對挑戰：公司的瓶頸" class="headerlink" title="面對挑戰：公司的瓶頸"></a>面對挑戰：公司的瓶頸</h2><p>當然，並非一切都一帆風順。今年，公司在成長過程中也遭遇了一些瓶頸。從業務擴展到內部團隊的溝通協作，都出現了需要解決的挑戰。作為團隊的一員，我有幸參與了這些問題的解決過程，無論是協助調整產品方向，還是改善內部流程，這些經歷讓我對自己的職場價值有了更深的認識。雖然挑戰重重，但我相信這些經驗將成為未來成長的養分。</p><h2 id="展望-2025"><a href="#展望-2025" class="headerlink" title="展望 2025"></a>展望 2025</h2><p>回顧 2024 年，每一個挑戰和突破都讓我更加珍惜當下，也更加期待未來。展望 2025 年，我希望能在個人與職業生涯上持續成長，並進一步提升我的投資技能。</p><p>願來年的我，能穩步邁向理想中的生活目標，並將今年的學習與經驗轉化為更多的成就。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活札記</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>《逆轉勝：2004波士頓紅襪傳奇之役》：見證棒球史上偉大的逆轉</title>
+    <link href="/2024/11/03/the-comeback-2004-boston-red-sox/"/>
+    <url>/2024/11/03/the-comeback-2004-boston-red-sox/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>作為一位見證過 2004 年這場傳奇的資深棒球迷，重溫 Netflix 的這部紀錄片《逆轉勝：2004波士頓紅襪傳奇之役》，依然讓人心潮澎湃。這部作品完美捕捉了紅襪隊從 2003 年的心碎到 2004 年的榮耀時刻，展現了一支百年老店如何突破「詛咒」，完成了棒球史上最不可思議的逆轉。</p></blockquote><p><img src="/2024/11/03/the-comeback-2004-boston-red-sox/poster.jpg"></p><span id="more"></span><h2 id="「詛咒」的枷鎖：從-1918-到-2003"><a href="#「詛咒」的枷鎖：從-1918-到-2003" class="headerlink" title="「詛咒」的枷鎖：從 1918 到 2003"></a>「詛咒」的枷鎖：從 1918 到 2003</h2><p>在進入 2003-2004 這段故事之前，我們必須理解紅襪隊背負的沉重歷史包袱。自從 1918 年奪冠後，紅襪隊在之後的 86 年間始終與世界大賽冠軍無緣，這段期間被球迷稱為「貝比魯斯詛咒」（Curse of the Bambino）。1920 年將貝比魯斯（Babe Ruth）交易到宿敵洋基的決定，不只改寫了棒球史，更讓紅襪隊陷入漫長的冠軍荒。</p><p>2003 年的美聯冠軍戰 Game 7 慘敗，某種程度上正是這個「詛咒」的縮影。當時總教練 Grady Little 在第 8 局的決策——讓已明顯疲態的王牌投手 Pedro Martinez 繼續投球，不只是一個糟糕的戰術判斷，更反映出紅襪隊長期以來在關鍵時刻總是選擇保守、依賴球星的思維定式。</p><h2 id="改革者-Theo-Epstein-的數據革命"><a href="#改革者-Theo-Epstein-的數據革命" class="headerlink" title="改革者 Theo Epstein 的數據革命"></a>改革者 Theo Epstein 的數據革命</h2><p>紀錄片中最值得關注的，是年輕總經理 Theo Epstein 帶來的改變。在當時，「數據分析」（Sabermetrics）還未被廣泛採用，但 Epstein 堅持以數據引導決策，這與傳統棒球界重視「直覺」的思維大相徑庭。他引進數據分析專家 Bill James，開創了 MLB 管理的新紀元。</p><p>交易 Nomar Garciaparra 是最好的例子。雖然 Nomar 是球隊的當家球星，但數據顯示他的守備範圍持續下滑，而且容易受傷。引進 Orlando Cabrera 和 Doug Mientkiewicz 不只強化了內野防守，更改善了球隊文化。這些決策在當時備受質疑，但最終證明是致勝的關鍵。</p><h2 id="2004-ALCS：超越統計的神蹟"><a href="#2004-ALCS：超越統計的神蹟" class="headerlink" title="2004 ALCS：超越統計的神蹟"></a>2004 ALCS：超越統計的神蹟</h2><p>從純粹的數據角度來看，一支球隊在季後賽 0-3 落後的情況下連勝 4 場的機率微乎其微。但紅襪隊做到了，這正是棒球最迷人之處——它不只是數字的遊戲，更是一場關於信念與意志的較量。</p><p>Dave Roberts 的盜壘堪稱完美示範。當時所有人都知道他會跑，但他仍然成功了。這一個盜壘不只改變了一場比賽，更徹底扭轉了整個系列賽的走向。而 Curt Schilling 的「血襪之戰」（The Bloody Sock Game）則完美詮釋了什麼是真正的棒球精神——即便腳踝受傷，他仍用意志力撐過 7 局，在 Fenway Park 寫下永垂棒球史的一頁。</p><h2 id="結語：這不只是一個棒球故事"><a href="#結語：這不只是一個棒球故事" class="headerlink" title="結語：這不只是一個棒球故事"></a>結語：這不只是一個棒球故事</h2><p>對棒球迷而言，這部紀錄片的可貴之處在於它完整保存了每一個關鍵時刻：從 Kevin Millar 在 Game 4 之前說的「Don’t let us win tonight」，到 David Ortiz 在延長賽的再見安打，從 Schilling 血染紅襪的堅持，到最後一戰 Johnny Damon 的致命重砲。每一個片段都是棒球文化的經典瞬間。</p><p>更重要的是，這部紀錄片展現了運動如何將一座城市、一群球迷凝聚在一起。波士頓人等待了 86 年才等到這一刻，這段漫長的等待讓最後的勝利更顯珍貴。透過鏡頭，我們看到了球迷的淚水、球員的堅持，以及一座城市共同的信念。</p><p>重看這部紀錄片，除了喚起對那段輝煌歷史的回憶，更讓我們看到了棒球之美——它不只是比賽，更是關於希望、堅持與救贖的故事。2004 年的紅襪隊向世人證明，在棒球場上，沒有什麼是不可能的。這個故事將永遠留在每個棒球迷的心中，提醒我們為什麼會如此熱愛這項運動。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>影片賞析</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>美國職棒</tag>
+      
+      <tag>波士頓紅襪</tag>
+      
+      <tag>貝比魯斯魔咒</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《股市循環的選股時機》：從利率、經濟和市場的角度解讀股市循環</title>
     <link href="/2024/05/19/souba-cycle-no-miwakekata-shinsoban-meigara-sentaku-to-baibai-no-timing/"/>
     <url>/2024/05/19/souba-cycle-no-miwakekata-shinsoban-meigara-sentaku-to-baibai-no-timing/</url>
@@ -559,7 +636,7 @@
     
     <categories>
       
-      <category>電影賞析</category>
+      <category>影片賞析</category>
       
     </categories>
     
@@ -1065,7 +1142,7 @@
     
     <categories>
       
-      <category>電影賞析</category>
+      <category>影片賞析</category>
       
     </categories>
     

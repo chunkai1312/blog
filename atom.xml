@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2024-05-19T09:33:34.873Z</updated>
+  <updated>2025-02-25T17:40:34.476Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,76 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《基礎架構即程式碼》：從基礎架構管理到軟體工程思維</title>
+    <link href="https://chunkai.blog/2025/02/26/infrastructure-as-code/"/>
+    <id>https://chunkai.blog/2025/02/26/infrastructure-as-code/</id>
+    <published>2025-02-25T16:59:46.000Z</published>
+    <updated>2025-02-25T17:40:34.476Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2025/02/26/infrastructure-as-code/cover.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;這本書在我的書架上擺了好幾年，最近終於靜下心來完整讀完。回顧這些年的開發經歷，從手動配置環境、撰寫部署腳本，到逐步引入自動化，IaC（Infrastructure as Code）已經成為現代軟體開發的核心之一。而這本書則提供了一種更系統化的思考方式，讓我重新審視現有的基礎架構管理模式。  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="DevOps" scheme="https://chunkai.blog/tags/DevOps/"/>
+    
+    <category term="Infrastructure" scheme="https://chunkai.blog/tags/Infrastructure/"/>
+    
+    <category term="IaC" scheme="https://chunkai.blog/tags/IaC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回顧 2024 年</title>
+    <link href="https://chunkai.blog/2024/12/31/2024-year-in-review/"/>
+    <id>https://chunkai.blog/2024/12/31/2024-year-in-review/</id>
+    <published>2024-12-31T15:12:39.000Z</published>
+    <updated>2025-02-25T16:58:45.808Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2024/12/31/2024-year-in-review/cover.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;時間飛逝，2024 年即將走到尾聲。今年對我來說，是充滿挑戰與成長的一年。回首這一年，最令我感到驕傲與感恩的，是幾個重大的里程碑。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《逆轉勝：2004波士頓紅襪傳奇之役》：見證棒球史上偉大的逆轉</title>
+    <link href="https://chunkai.blog/2024/11/03/the-comeback-2004-boston-red-sox/"/>
+    <id>https://chunkai.blog/2024/11/03/the-comeback-2004-boston-red-sox/</id>
+    <published>2024-11-03T15:19:24.000Z</published>
+    <updated>2025-02-25T16:58:45.806Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;作為一位見證過 2004 年這場傳奇的資深棒球迷，重溫 Netflix 的這部紀錄片《逆轉勝：2004波士頓紅襪傳奇之役》，依然讓人心潮澎湃。這部作品完美捕捉了紅襪隊從 2003 年的心碎到 2004 年的榮耀時刻，展現了一支百年老店如何突破「詛咒」，完成了棒球史上最不可思議的逆轉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/11/03/the-comeback-2004-boston-red-sox/poster.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="影片賞析" scheme="https://chunkai.blog/categories/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/"/>
+    
+    
+    <category term="美國職棒" scheme="https://chunkai.blog/tags/%E7%BE%8E%E5%9C%8B%E8%81%B7%E6%A3%92/"/>
+    
+    <category term="波士頓紅襪" scheme="https://chunkai.blog/tags/%E6%B3%A2%E5%A3%AB%E9%A0%93%E7%B4%85%E8%A5%AA/"/>
+    
+    <category term="貝比魯斯魔咒" scheme="https://chunkai.blog/tags/%E8%B2%9D%E6%AF%94%E9%AD%AF%E6%96%AF%E9%AD%94%E5%92%92/"/>
+    
+  </entry>
   
   <entry>
     <title>《股市循環的選股時機》：從利率、經濟和市場的角度解讀股市循環</title>
@@ -435,84 +505,6 @@
     <category term="投資哲學" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E5%93%B2%E5%AD%B8/"/>
     
     <category term="分散投資" scheme="https://chunkai.blog/tags/%E5%88%86%E6%95%A3%E6%8A%95%E8%B3%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《經濟指標教你加減碼》：景氣循環投資</title>
-    <link href="https://chunkai.blog/2020/07/12/profiting-in-bull-or-bear-markets/"/>
-    <id>https://chunkai.blog/2020/07/12/profiting-in-bull-or-bear-markets/</id>
-    <published>2020-07-11T18:50:07.000Z</published>
-    <updated>2021-09-05T09:21:12.561Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;《經濟指標教你加減碼》 是 &lt;a href=&quot;https://www.amazon.com/Profiting-Bull-Markets-George-Dagnino/dp/0071367063&quot;&gt;Profiting in Bull or Bear Markets&lt;/a&gt; 中文版。作者 George Dagnino 將商業循環分為四個階段，根據經濟指標判斷當前景氣所在的位置，進一步作為投資決策的參考。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/07/12/profiting-in-bull-or-bear-markets/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
-    
-    
-    <category term="經濟指標" scheme="https://chunkai.blog/tags/%E7%B6%93%E6%BF%9F%E6%8C%87%E6%A8%99/"/>
-    
-    <category term="商業循環" scheme="https://chunkai.blog/tags/%E5%95%86%E6%A5%AD%E5%BE%AA%E7%92%B0/"/>
-    
-    <category term="景氣循環" scheme="https://chunkai.blog/tags/%E6%99%AF%E6%B0%A3%E5%BE%AA%E7%92%B0/"/>
-    
-    <category term="景氣循環投資" scheme="https://chunkai.blog/tags/%E6%99%AF%E6%B0%A3%E5%BE%AA%E7%92%B0%E6%8A%95%E8%B3%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《股票交易精鍊手冊》：掌握股票市場的十個階段</title>
-    <link href="https://chunkai.blog/2020/07/06/tensile-trading/"/>
-    <id>https://chunkai.blog/2020/07/06/tensile-trading/</id>
-    <published>2020-07-05T17:46:43.000Z</published>
-    <updated>2021-09-05T09:21:15.318Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;《股票交易精鍊手冊》介紹的是張力交易法 (Tensile Trading)，作者 Gatis N. Roze 與 Grayson D. Roze 是一對父子，也是全職的股票投資人。他們以自身的投資經驗描繪出十個階段的路線圖，提供投資人建構屬於自己的投資系統。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/07/06/tensile-trading/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
-    
-    
-    <category term="張力交易法" scheme="https://chunkai.blog/tags/%E5%BC%B5%E5%8A%9B%E4%BA%A4%E6%98%93%E6%B3%95/"/>
-    
-    <category term="Tensile Trading" scheme="https://chunkai.blog/tags/Tensile-Trading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《護城河投資優勢》：挑選具有經濟護城河的優質企業</title>
-    <link href="https://chunkai.blog/2020/06/29/the-little-book-that-builds-wealth/"/>
-    <id>https://chunkai.blog/2020/06/29/the-little-book-that-builds-wealth/</id>
-    <published>2020-06-28T17:38:42.000Z</published>
-    <updated>2021-09-05T09:21:04.528Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;《護城河投資優勢》 是 &lt;a href=&quot;https://www.amazon.com/Little-Book-That-Builds-Wealth/dp/047022651X&quot;&gt;The Little Book that Builds Wealth&lt;/a&gt; 中文版。說明何謂企業的經濟護城河及其重要性，協助投資人辨識具有結構性優勢的長期優質企業。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/29/the-little-book-that-builds-wealth/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
-    
-    
-    <category term="經濟護城河" scheme="https://chunkai.blog/tags/%E7%B6%93%E6%BF%9F%E8%AD%B7%E5%9F%8E%E6%B2%B3/"/>
-    
-    <category term="價值投資" scheme="https://chunkai.blog/tags/%E5%83%B9%E5%80%BC%E6%8A%95%E8%B3%87/"/>
-    
-    <category term="主動投資" scheme="https://chunkai.blog/tags/%E4%B8%BB%E5%8B%95%E6%8A%95%E8%B3%87/"/>
     
   </entry>
   
