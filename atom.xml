@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Chunkai&#39;s 網記網錄</title>
+  
+  <subtitle>My Life, My Style.</subtitle>
+  <link href="https://chunkai.blog/atom.xml" rel="self"/>
+  
+  <link href="https://chunkai.blog/"/>
+  <updated>2025-03-01T15:54:16.331Z</updated>
+  <id>https://chunkai.blog/</id>
+  
+  <author>
+    <name>Chun-Kai Wang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《基礎架構即程式碼》：從基礎架構管理到軟體工程思維</title>
+    <link href="https://chunkai.blog/2025/02/26/infrastructure-as-code/"/>
+    <id>https://chunkai.blog/2025/02/26/infrastructure-as-code/</id>
+    <published>2025-02-25T16:59:46.000Z</published>
+    <updated>2025-03-01T15:54:16.331Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2025/02/26/infrastructure-as-code/cover.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;這本書在我的書架上擺了好幾年，最近終於靜下心來完整讀完。回顧這些年的開發經歷，從手動配置環境、撰寫部署腳本，到逐步引入自動化，IaC（Infrastructure as Code）已經成為現代軟體開發的核心之一。而這本書則提供了一種更系統化的思考方式，讓我重新審視現有的基礎架構管理模式。  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="DevOps" scheme="https://chunkai.blog/tags/DevOps/"/>
+    
+    <category term="Infrastructure" scheme="https://chunkai.blog/tags/Infrastructure/"/>
+    
+    <category term="IaC" scheme="https://chunkai.blog/tags/IaC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node Cluster IPC：讓 Node.js 行程間通訊更簡單</title>
+    <link href="https://chunkai.blog/2025/01/03/node-cluster-ipc/"/>
+    <id>https://chunkai.blog/2025/01/03/node-cluster-ipc/</id>
+    <published>2025-01-03T15:30:00.000Z</published>
+    <updated>2025-03-01T15:54:20.710Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/chunkai1312/node-cluster-ipc&quot;&gt;Node Cluster IPC&lt;/a&gt; 是我開發的一個輕量級 Node.js 套件，目的在簡化使用 &lt;code&gt;cluster&lt;/code&gt; 模組時的行程間通訊（IPC）。在 Node.js 應用中，當需要處理大量並發請求或計算密集型操作時，使用 &lt;code&gt;cluster&lt;/code&gt; 模組來建立多個工作行程是一種常見的做法。隨著多行程的運行，如何高效且可靠地進行行程間的數據傳遞成為了開發中的一個挑戰。而 Node Cluster IPC 正是為了解決這些問題而誕生的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技術分享" scheme="https://chunkai.blog/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="NodeJS" scheme="https://chunkai.blog/tags/NodeJS/"/>
+    
+    <category term="Cluster" scheme="https://chunkai.blog/tags/Cluster/"/>
+    
+    <category term="IPC" scheme="https://chunkai.blog/tags/IPC/"/>
+    
+    <category term="Process" scheme="https://chunkai.blog/tags/Process/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回顧 2024 年</title>
+    <link href="https://chunkai.blog/2024/12/31/2024-year-in-review/"/>
+    <id>https://chunkai.blog/2024/12/31/2024-year-in-review/</id>
+    <published>2024-12-31T15:12:39.000Z</published>
+    <updated>2025-02-25T16:58:45.808Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2024/12/31/2024-year-in-review/cover.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;時間飛逝，2024 年即將走到尾聲。今年對我來說，是充滿挑戰與成長的一年。回首這一年，最令我感到驕傲與感恩的，是幾個重大的里程碑。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《逆轉勝：2004波士頓紅襪傳奇之役》：見證棒球史上偉大的逆轉</title>
+    <link href="https://chunkai.blog/2024/11/03/the-comeback-2004-boston-red-sox/"/>
+    <id>https://chunkai.blog/2024/11/03/the-comeback-2004-boston-red-sox/</id>
+    <published>2024-11-03T15:19:24.000Z</published>
+    <updated>2025-02-25T16:58:45.806Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;作為一位見證過 2004 年這場傳奇的資深棒球迷，重溫 Netflix 的這部紀錄片《逆轉勝：2004波士頓紅襪傳奇之役》，依然讓人心潮澎湃。這部作品完美捕捉了紅襪隊從 2003 年的心碎到 2004 年的榮耀時刻，展現了一支百年老店如何突破「詛咒」，完成了棒球史上最不可思議的逆轉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/11/03/the-comeback-2004-boston-red-sox/poster.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="影片賞析" scheme="https://chunkai.blog/categories/%E5%BD%B1%E7%89%87%E8%B3%9E%E6%9E%90/"/>
+    
+    
+    <category term="美國職棒" scheme="https://chunkai.blog/tags/%E7%BE%8E%E5%9C%8B%E8%81%B7%E6%A3%92/"/>
+    
+    <category term="波士頓紅襪" scheme="https://chunkai.blog/tags/%E6%B3%A2%E5%A3%AB%E9%A0%93%E7%B4%85%E8%A5%AA/"/>
+    
+    <category term="貝比魯斯魔咒" scheme="https://chunkai.blog/tags/%E8%B2%9D%E6%AF%94%E9%AD%AF%E6%96%AF%E9%AD%94%E5%92%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《股市循環的選股時機》：從利率、經濟和市場的角度解讀股市循環</title>
+    <link href="https://chunkai.blog/2024/05/19/souba-cycle-no-miwakekata-shinsoban-meigara-sentaku-to-baibai-no-timing/"/>
+    <id>https://chunkai.blog/2024/05/19/souba-cycle-no-miwakekata-shinsoban-meigara-sentaku-to-baibai-no-timing/</id>
+    <published>2024-05-19T09:33:28.000Z</published>
+    <updated>2024-05-19T09:33:34.873Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;《股市循環的選股時機》原著首次出版於 1990 年，這本中文譯本為新裝版於 2015 年重新發行。本書深入探討了股票市場的四個主要階段：金融行情、業績行情、反金融行情、以及反業績行情，並提供了如何識別和利用這些市場階段的實用建議。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/05/19/souba-cycle-no-miwakekata-shinsoban-meigara-sentaku-to-baibai-no-timing/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="景氣循環" scheme="https://chunkai.blog/tags/%E6%99%AF%E6%B0%A3%E5%BE%AA%E7%92%B0/"/>
+    
+    <category term="股市循環" scheme="https://chunkai.blog/tags/%E8%82%A1%E5%B8%82%E5%BE%AA%E7%92%B0/"/>
+    
+    <category term="週期投資" scheme="https://chunkai.blog/tags/%E9%80%B1%E6%9C%9F%E6%8A%95%E8%B3%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>槓桿 ETF 投資法：回測實證 00631L 槓桿投資策略</title>
+    <link href="https://chunkai.blog/2024/05/13/leveraged-investing-backtest/"/>
+    <id>https://chunkai.blog/2024/05/13/leveraged-investing-backtest/</id>
+    <published>2024-05-13T15:42:28.000Z</published>
+    <updated>2024-05-13T17:08:34.172Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;這項回測實驗是閱讀 &lt;a href=&quot;https://www.books.com.tw/products/0010953374&quot;&gt;《槓桿ETF投資法》&lt;/a&gt; 後所得到的靈感啟發。根據實證結果顯示，在相同的曝險比例下，使用 00631L 取代 0050 確實是可行的投資策略，甚至能取得更佳的報酬。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/05/13/leveraged-investing-backtest/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="投資理財" scheme="https://chunkai.blog/categories/%E6%8A%95%E8%B3%87%E7%90%86%E8%B2%A1/"/>
+    
+    
+    <category term="槓桿投資法" scheme="https://chunkai.blog/tags/%E6%A7%93%E6%A1%BF%E6%8A%95%E8%B3%87%E6%B3%95/"/>
+    
+    <category term="槓桿ETF" scheme="https://chunkai.blog/tags/%E6%A7%93%E6%A1%BFETF/"/>
+    
+    <category term="元大台灣50正二" scheme="https://chunkai.blog/tags/%E5%85%83%E5%A4%A7%E5%8F%B0%E7%81%A350%E6%AD%A3%E4%BA%8C/"/>
+    
+    <category term="元大台灣50" scheme="https://chunkai.blog/tags/%E5%85%83%E5%A4%A7%E5%8F%B0%E7%81%A350/"/>
+    
+    <category term="00631L" scheme="https://chunkai.blog/tags/00631L/"/>
+    
+    <category term="0050" scheme="https://chunkai.blog/tags/0050/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>穿越三國戰場：《三國志戰役事典：魏蜀吳最著名的74場戰役》閱讀筆記</title>
+    <link href="https://chunkai.blog/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/"/>
+    <id>https://chunkai.blog/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/</id>
+    <published>2024-05-05T08:44:49.000Z</published>
+    <updated>2024-05-13T16:32:35.475Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;許多人可能像我一樣，最初是透過經典名著《三國演義》或是光榮《三國志系列》電玩遊戲認識到三國時代。《三國志戰役事典：魏蜀吳最著名的74場戰役》詳實地記錄了三國時代的著名戰役，按照時間順序從東漢末年黃巾之亂開始，到晉滅吳之戰結束三國時代的74場決定性戰役。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="歷史" scheme="https://chunkai.blog/tags/%E6%AD%B7%E5%8F%B2/"/>
+    
+    <category term="三國" scheme="https://chunkai.blog/tags/%E4%B8%89%E5%9C%8B/"/>
+    
+    <category term="三國志" scheme="https://chunkai.blog/tags/%E4%B8%89%E5%9C%8B%E5%BF%97/"/>
+    
+    <category term="三國演義" scheme="https://chunkai.blog/tags/%E4%B8%89%E5%9C%8B%E6%BC%94%E7%BE%A9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>再讀《投資金律》：建立必勝投資組合的四大關鍵和十八堂必修課</title>
+    <link href="https://chunkai.blog/2024/02/14/the-four-pillars-of-investing/"/>
+    <id>https://chunkai.blog/2024/02/14/the-four-pillars-of-investing/</id>
+    <published>2024-02-14T09:25:42.000Z</published>
+    <updated>2024-02-14T15:38:41.734Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;我第一次閱讀的中文版《投資金律》出版在 2016 年，原版則出版自 2010 年。這一版的《投資金律》則是作者在 2023 年撰寫的最新版，主要新增了四個章節，從原本的「十四堂」必修課增加到「十八堂」，並更新了許多數據和圖表，反映了近年來的市場變化和投資環境。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/02/14/the-four-pillars-of-investing/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="指數投資" scheme="https://chunkai.blog/tags/%E6%8C%87%E6%95%B8%E6%8A%95%E8%B3%87/"/>
+    
+    <category term="投資金律" scheme="https://chunkai.blog/tags/%E6%8A%95%E8%B3%87%E9%87%91%E5%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>再讀《漫步華爾街》：超越股市漲跌的成功投資策略</title>
+    <link href="https://chunkai.blog/2024/02/12/a-random-walk-down-wall-street/"/>
+    <id>https://chunkai.blog/2024/02/12/a-random-walk-down-wall-street/</id>
+    <published>2024-02-12T14:19:44.000Z</published>
+    <updated>2024-02-13T11:40:01.045Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;我手中的這本《漫步華爾街》是 2023 年出版的 50 週年增訂版，而我首次閱讀的是 40 週年增訂版，大約是十年前的事。當時的我尚未進入股市，對於基本的投資知識、技術分析和基本分析並不熟悉。這本書可謂是我投資觀念的啟蒙之作，奠定了我早年的投資策略與藍圖。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2024/02/12/a-random-walk-down-wall-street/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="指數投資" scheme="https://chunkai.blog/tags/%E6%8C%87%E6%95%B8%E6%8A%95%E8%B3%87/"/>
+    
+    <category term="磐石理論" scheme="https://chunkai.blog/tags/%E7%A3%90%E7%9F%B3%E7%90%86%E8%AB%96/"/>
+    
+    <category term="空中樓閣理論" scheme="https://chunkai.blog/tags/%E7%A9%BA%E4%B8%AD%E6%A8%93%E9%96%A3%E7%90%86%E8%AB%96/"/>
+    
+    <category term="基本面分析" scheme="https://chunkai.blog/tags/%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%88%86%E6%9E%90/"/>
+    
+    <category term="技術面分析" scheme="https://chunkai.blog/tags/%E6%8A%80%E8%A1%93%E9%9D%A2%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回顧 2023 年</title>
+    <link href="https://chunkai.blog/2023/12/31/2023-year-in-review/"/>
+    <id>https://chunkai.blog/2023/12/31/2023-year-in-review/</id>
+    <published>2023-12-30T16:26:46.000Z</published>
+    <updated>2023-12-30T19:30:42.480Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2023/12/31/2023-year-in-review/cover.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;又到了一年一度書寫年度回顧的時刻。一年的總結，標誌著個人成長的一步，同時正視工作中的困難與改進的機會，以下是對這些重要時刻的深入反思。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>NestJS x Fugle API x LINE Notify：打造股票交易訊號通知系統</title>
+    <link href="https://chunkai.blog/2023/11/28/trading-signal-notifier/"/>
+    <id>https://chunkai.blog/2023/11/28/trading-signal-notifier/</id>
+    <published>2023-11-27T16:00:00.000Z</published>
+    <updated>2023-11-29T06:26:53.084Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2023/11/28/trading-signal-notifier/cover.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在瞬息萬變的金融市場中，抓住投資機會並應對風險至關重要，你可能已經擁有自己的交易策略，但要時刻關注市場動態並非易事，因此需要一套可靠行情監控工具，幫助你隨時掌握市場的脈動。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技術分享" scheme="https://chunkai.blog/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="NodeJS" scheme="https://chunkai.blog/tags/NodeJS/"/>
+    
+    <category term="NestJS" scheme="https://chunkai.blog/tags/NestJS/"/>
+    
+    <category term="Fugle API" scheme="https://chunkai.blog/tags/Fugle-API/"/>
+    
+    <category term="LINE Notify" scheme="https://chunkai.blog/tags/LINE-Notify/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HonKit：GitBook 的替代方案</title>
+    <link href="https://chunkai.blog/2023/04/20/honkit-a-gitbook-alternative/"/>
+    <id>https://chunkai.blog/2023/04/20/honkit-a-gitbook-alternative/</id>
+    <published>2023-04-19T18:38:28.000Z</published>
+    <updated>2023-04-20T02:18:13.352Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2023/04/20/honkit-a-gitbook-alternative/cover.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/honkit/honkit&quot;&gt;HonKit&lt;/a&gt; 是一個 GitBook 2 的分支版本，它保留了 GitBook 2 的大部分功能，同時增加了一些新功能，如插件系統、主題定制、圖表、自定義 CSS 等。因此，如果你已經熟悉了 GitBook 2 的使用，那麼轉換到 HonKit 可能會比較容易，因為它們的基礎架構是相似的。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="技術分享" scheme="https://chunkai.blog/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="GitBook" scheme="https://chunkai.blog/tags/GitBook/"/>
+    
+    <category term="HonKit" scheme="https://chunkai.blog/tags/HonKit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回顧 2022 年</title>
+    <link href="https://chunkai.blog/2022/12/31/2022-year-in-review/"/>
+    <id>https://chunkai.blog/2022/12/31/2022-year-in-review/</id>
+    <published>2022-12-31T14:41:22.000Z</published>
+    <updated>2022-12-31T15:52:35.213Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2022/12/31/2022-year-in-review/cover.jpg&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2022 年即將走完了，回顧完今年，準備迎接新的一年吧！&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《順勢交易：多空策略實作指引》：專業交易員如何複利致富和管理風險</title>
+    <link href="https://chunkai.blog/2022/03/28/the-trend-following-bible/"/>
+    <id>https://chunkai.blog/2022/03/28/the-trend-following-bible/</id>
+    <published>2022-03-28T15:43:05.000Z</published>
+    <updated>2022-04-04T08:39:15.083Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2022/03/28/the-trend-following-bible/cover.jpg&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;《順勢交易：多空策略實作指引》原文為《The Trend Following Bible: How Professional Traders Compound Wealth and Manage Risk》。本書為順勢操作者建立了一套完整的投資策略，包括多空進場原則、停損設定及風險管理，以及複利觀念的運用。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="順勢交易" scheme="https://chunkai.blog/tags/%E9%A0%86%E5%8B%A2%E4%BA%A4%E6%98%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回顧 2021 年</title>
+    <link href="https://chunkai.blog/2021/12/31/2021-year-in-review/"/>
+    <id>https://chunkai.blog/2021/12/31/2021-year-in-review/</id>
+    <published>2021-12-31T11:58:37.000Z</published>
+    <updated>2021-12-31T14:13:06.691Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2021/12/31/2021-year-in-review/cover.jpg&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;今年無論好的、壞的，終究要過去了，願明年會是收穫滿滿的一年！&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>取得美元兌新台幣歷史匯率</title>
+    <link href="https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/"/>
+    <id>https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/</id>
+    <published>2021-09-05T08:12:22.000Z</published>
+    <updated>2021-09-05T09:27:15.635Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;美元兌新台幣歷史匯率除了可以透過中央銀行網站查訊，也可以從臺灣期貨交易所取得參考匯率。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/09/05/fetching-usd-to-twd-exchange-rate-history/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具應用" scheme="https://chunkai.blog/categories/%E5%B7%A5%E5%85%B7%E6%87%89%E7%94%A8/"/>
+    
+    
+    <category term="新台幣" scheme="https://chunkai.blog/tags/%E6%96%B0%E5%8F%B0%E5%B9%A3/"/>
+    
+    <category term="美元" scheme="https://chunkai.blog/tags/%E7%BE%8E%E5%85%83/"/>
+    
+    <category term="匯率" scheme="https://chunkai.blog/tags/%E5%8C%AF%E7%8E%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回顧 2020 年</title>
+    <link href="https://chunkai.blog/2020/12/31/2020-year-in-review/"/>
+    <id>https://chunkai.blog/2020/12/31/2020-year-in-review/</id>
+    <published>2020-12-31T14:55:48.000Z</published>
+    <updated>2021-12-31T13:56:44.612Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2020/12/31/2020-year-in-review/cover.jpg&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2020 年肯定是載入史冊的一年，在即將邁入新年的同時，又到了年終回顧的時刻。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MongoDB 備份與還原</title>
+    <link href="https://chunkai.blog/2020/09/28/mongodump-and-mongorestore/"/>
+    <id>https://chunkai.blog/2020/09/28/mongodump-and-mongorestore/</id>
+    <published>2020-09-28T08:03:36.000Z</published>
+    <updated>2021-09-05T09:21:23.416Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;以往習慣用 &lt;code&gt;db.copyDatabase()&lt;/code&gt;，來備份 MongoDB 資料庫，不過從 MongoDB 4.2 版開始，官方已經移除 &lt;strong&gt;copydb&lt;/strong&gt; 命令，包含 &lt;code&gt;db.copyDatabase()&lt;/code&gt; 在內，僅支援 MongoDB 4.0 或更早的版本。MongoDB 4.2+ 版本則必須使用 &lt;code&gt;mongodump&lt;/code&gt; 及 &lt;code&gt;mongorestore&lt;/code&gt; 來 Copy/Clone 資料庫。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/09/28/mongodump-and-mongorestore/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具應用" scheme="https://chunkai.blog/categories/%E5%B7%A5%E5%85%B7%E6%87%89%E7%94%A8/"/>
+    
+    
+    <category term="MongoDB" scheme="https://chunkai.blog/tags/MongoDB/"/>
+    
+    <category term="mongodump" scheme="https://chunkai.blog/tags/mongodump/"/>
+    
+    <category term="mongorestore" scheme="https://chunkai.blog/tags/mongorestore/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NestJS 官方課程：NestJS Fundamentals</title>
+    <link href="https://chunkai.blog/2020/08/14/nestjs-fundamentals/"/>
+    <id>https://chunkai.blog/2020/08/14/nestjs-fundamentals/</id>
+    <published>2020-08-14T14:11:44.000Z</published>
+    <updated>2021-09-05T09:21:18.004Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://nestjs.com/&quot;&gt;NestJS&lt;/a&gt; 是一個漸進式 (progressive) 的 NodeJS 框架，用於建構高效能、可靠性和可擴展的伺服端 (server-side) 應用程式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/08/14/nestjs-fundamentals/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工具應用" scheme="https://chunkai.blog/categories/%E5%B7%A5%E5%85%B7%E6%87%89%E7%94%A8/"/>
+    
+    
+    <category term="NodeJS" scheme="https://chunkai.blog/tags/NodeJS/"/>
+    
+    <category term="NestJS" scheme="https://chunkai.blog/tags/NestJS/"/>
+    
+    <category term="Web Framework" scheme="https://chunkai.blog/tags/Web-Framework/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《亞當理論》：要在市場上成功，我們就必須屈服</title>
+    <link href="https://chunkai.blog/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/"/>
+    <id>https://chunkai.blog/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/</id>
+    <published>2020-08-09T16:19:58.000Z</published>
+    <updated>2021-09-05T09:21:20.931Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;《亞當理論》是相對強弱指標 RSI (Relative Strength Index) 發明人 Welles Wilder 所發表的投資理論。亞當，象徵著人類的起源，簡單而純粹；而亞當理論的精神是，與其試圖猜測未來，還不如順勢而行，決不逆水行舟。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="閱讀筆記" scheme="https://chunkai.blog/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/"/>
+    
+    
+    <category term="技術分析" scheme="https://chunkai.blog/tags/%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/"/>
+    
+    <category term="亞當理論" scheme="https://chunkai.blog/tags/%E4%BA%9E%E7%95%B6%E7%90%86%E8%AB%96/"/>
+    
+    <category term="順勢交易" scheme="https://chunkai.blog/tags/%E9%A0%86%E5%8B%A2%E4%BA%A4%E6%98%93/"/>
+    
+  </entry>
+  
+</feed>

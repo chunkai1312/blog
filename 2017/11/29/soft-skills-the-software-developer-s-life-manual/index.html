@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="
+
+這是一本不是在講技術的軟體相關書籍，而是作者結合自身經驗，聚焦在如何成為「全方位的軟體開發人員」這件事情上。
+">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+  <title>《Soft Skills 軟實力：軟體開發人員的生存手冊》：成為全方位的軟體開發人員 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":"UA-90351388-1","gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  <script data-ad-client="ca-pub-5251083151585518" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Chunkai's 網記網錄</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首頁
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                封存
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分類
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                標籤
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                關於
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="《Soft Skills 軟實力：軟體開發人員的生存手冊》：成為全方位的軟體開發人員">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2017-11-29 00:00" pubdate>
+        2017年11月29日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分鐘
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">《Soft Skills 軟實力：軟體開發人員的生存手冊》：成為全方位的軟體開發人員</h1>
+            
+            <div class="markdown-body">
+              <p><img src="/2017/11/29/soft-skills-the-software-developer-s-life-manual/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>這是一本不是在講技術的軟體相關書籍，而是作者結合自身經驗，聚焦在如何成為「全方位的軟體開發人員」這件事情上。</p>
+</blockquote>
+<span id="more"></span>
+
+<p>這本書的是 “Soft Skills: The software developer’s life manual” 的中譯本，其實簡中版本出來一段時間了，我也一直列在待讀書單。趁著最近看到出了繁中版本，大概花了一週的晚上把它讀完。書中安排的七個 sections，依序講講自己的心得摘要。</p>
+<h2 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h2><p>我想每個人都知道職涯管理的重要性，但可能很少人會以「企業」的角度來思考、管理自己的職涯。事實上，不只是軟體工程師，如果能夠以經營一家企業的角度來思考自己的職涯人生，將會改變我們的思考方式，並且更留心、更積極主動地管理自己的職涯。</p>
+<p>以商業角度而言，每家企業提供的產品與服務也不大相同，因此發展自己的專業很重要，你可能是一個網頁前端工程師、後端工程師、 App 開發者或是 DevOps 維運人員。甚至，我們可以思考是否能專為某個特定類型的客戶或產業提供服務？身為一位軟體工程師，我們所提供的服務就是創造軟體。在這個資訊化的時代，各行各業都有資訊系統、軟體開發的需求，但是一個軟體真正有價值的地方，並不是技術，而是解決了什麼樣的問題。程式語言只是工具，是需要結合各種 domain knowledge，才能產生作用。</p>
+<h2 id="Marketing-Yourself"><a href="#Marketing-Yourself" class="headerlink" title="Marketing Yourself"></a>Marketing Yourself</h2><p>當我們願意把自己的職涯視為企業來經營，「自我行銷」理所當然地就變成很重要的一件事。何謂行銷？行銷的核心就是把產品（服務）和需要該產品（服務）的人連結在一起；何謂自我行銷？顧名思義就是把自己和那些對你提供的能力有需求的人連結起來。</p>
+<p>我們在應徵工作時，個人履歷基本上就是個廣告，用於行銷自己所提供的服務。而在履歷之外，還有許多可以為自己爭取曝光的機會。例如：部落格文章、Prodcast 節目、線上影片、雜誌文章、書籍、程式研習營、研討會等。其中，寫部落格文章可能是最容易入門的方式，寫文章的許多好處就不在此贅述。寫文章不難，但能夠持之以恆並不簡單，這也是我自己持續要努力的方向。</p>
+<h2 id="Learning"><a href="#Learning" class="headerlink" title="Learning"></a>Learning</h2><p>資訊技術是個無時無刻都在更新的領域，身為軟體從業人員，必須保持不斷學習的熱忱，自主學習更是必須具備的基本能力。也許跟從小沒有補習的學習經驗有關，自主學習以及學習新技術對我來說不是太困難的事。個人學習經驗不一定適用於每一個人，不過這一章節提供的「十步驟學習法」，也是很值得參考，這十個步驟分別是：</p>
+<ol>
+<li>綜觀全貌：針對想學習的主題，進行基本的研究。</li>
+<li>決定範圍：根據第一步驟收集到的資訊，提出適當的學習範圍。</li>
+<li>定義成功：提出言簡意賅的敘述，定義投入學習後所能獲得的成功樣貌。</li>
+<li>尋找資源：為你要學習的主題，盡可能尋找更多的資源。</li>
+<li>建立學習計畫：針對學習主題，建立自己的學習路徑。</li>
+<li>篩選資源：瀏覽在步驟四蒐集到的資源，找出哪些內容最有助於學習。</li>
+<li>學習恰到好處的基礎知識：只學剛好夠用的資訊，盡快進入實作階段。</li>
+<li>實作：把在步驟七所學到的知識，實際付諸行動。</li>
+<li>具備足夠學以致用的知識：瀏覽蒐集的資源，深入學習計畫裡的模組。</li>
+<li>教導他人：透過教導他人的過程，補足自身的學習落差。</li>
+</ol>
+<p>其中，針對想學習的主題，步驟 1 至 6 做一次，然後就你所建立的學習計畫，重複步驟 7 至 10。</p>
+<h2 id="Productivity"><a href="#Productivity" class="headerlink" title="Productivity"></a>Productivity</h2><p>各種分心的事物容易轉移我們的注意力，讓我們無法專注，必須花更多的時間才完成預定的工作。提高生產力的關鍵就在於提升專注力。</p>
+<p>這個章節中，介紹了一種叫做「番茄鐘工作法」(Pomodoro Technique) 的時間管理方法。它的核心概念是，規劃當天要進行的工作，開始做第一個任務，然後計時 25 分鐘，一次只做一項工作，在這 25 分鐘內，全神貫注在工作上。如果工作被打斷，嘗試利用各種方法處理這些干擾因素。25 分鐘結束後，計時 5 分鐘的休息時間，即是一個完整的番茄鐘。每 4 個番茄鐘，就休息長一點的時間，通常是 15 分鐘。</p>
+<p>如果使用番茄鐘工作法，我覺得 Kanbanflow 是個不錯的平台工具，它有點類似像 Trello 這樣的專案管理平台。但是比較過後我覺得更 lightweight 一點，重點是它內建了番茄鐘計時器 (Pomodoro Timer)，方便運用番茄鐘工作法於時間管理和工作上。</p>
+<h2 id="Financial"><a href="#Financial" class="headerlink" title="Financial"></a>Financial</h2><p>如果不是財務金融相關科系畢業，相信學校不會教太多關於財務的知識，但是理財卻是人生十分重要的課題。從新鮮人踏入職場的那一刻起，就應該要想想自己以後的退休計畫及目標。擬定個人退休計畫的第一步，是找出退休後每個月需要的生活費，當被動收入（就是不需要工作也能產生的收入）能達成每個月的退休生活費，就可以「正式」退休了。而究竟需要多少錢才能退休呢？這取決於我們的日常開銷，用什麼工具、手段來產生被動收入，以及有什麼樣的投資機會。</p>
+<p>談談債務危機。現實生活中，我們時常可以看到原本是有錢人，最終卻深陷債務危機的新聞層出不窮。而所有財務錯誤中，最大的問題就是負債，債務愈多，負擔就越重，就會離財務自由的機會越來越遠。負債的時候，存錢困難，也不太可能進行投資。雖然我們可能無法完全避開可能遭遇負債的情況，但可以避免負債時可能做出的不智行為。例如在存錢之前，應該先把債務還清；在償還債務時，根據利率來安排還款的優先序。更重要的是，應避免不必要的債務。</p>
+<p>順便提一下，可能很多人都使用過的「就學貸款」。本書作者認為，在許多情況下，就學貸款可以算是好的債務。如果貸款能取得學位，而幫助你找到高薪的工作，那這個債務就完全值得投資。</p>
+<h2 id="Fitness"><a href="#Fitness" class="headerlink" title="Fitness"></a>Fitness</h2><p>健康對於一個人的重要性就不必多言。多運動能使身體更健康，進而提升工作效率，在最佳體能狀態時，專注力與生產力都會提高；處於體重過重和不健康的狀態之下，將暴露於罹患各種疾病的風險之中。</p>
+<p>健身、健身、健身。因為很重要，所以說三次。</p>
+<h2 id="Spirit"><a href="#Spirit" class="headerlink" title="Spirit"></a>Spirit</h2><p>最後這個章節探討的是比較心靈層面的事物。不過有科學證據顯示正面思考確實可以改善健康、延長壽命，和建立人生中的各項優勢。反過來說，負面思考不僅真的會對自身造成傷害，還會妨礙我們的努力，阻礙人生的成功（參考「吸引力法則）」。</p>
+<p>除了正向思考外，每個人也應該創造正面積極的自我形象。什麼是自我形象呢？自我形象就是去除別人對你的所有觀感，包含自我感覺良好的謊言與欺瞞後，我們如何看待自己。也許很多人會覺得自我形象是很難改變的，但事實上，每個人是有能力改變自我形象的。設定想成為的形象，然後找出能成為這個形象的目標，不斷在腦海中建立這個形象的模樣，而且表現得像自己所想的樣子，最終就能「弄假成真」。</p>
+<p>在我們人生中一定會遭遇失敗，但是失敗不是被擊倒，而是通往成功的道路。學習擁抱失敗，在失敗中成長，讓自己一次比一次更好、變得更強。</p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>這是一本不是在講技術的軟體相關書籍，而是作者結合自身經驗，聚焦在如何成為「全方位的軟體開發人員」這件事情上。一位全方位的軟體開發人員，不是程式的功力有多好、解決問題的能力有多棒，或是多會運用單元測試（當然這些都很重要）；而是具備管理職涯、實現目標以及享受人生的能力。</p>
+<p>一位成功的軟體開發人員，絕對不是只有埋首寫程式而已，還有怎麼生活。每個人都應該專注於個人成長，讓自己成為更好的自己。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%96%B1%E8%AE%80%E7%AD%86%E8%A8%98/">閱讀筆記</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Soft-Skills/">Soft Skills</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Software-Development/">Software Development</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Software-Engineering/">Software Engineering</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Software-Engineer/">Software Engineer</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本部落格所有文章除特別聲明外，均採用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 協議</a> ，轉載請註明出處！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/12/04/conference-review-taai-2017/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">TAAI 2017 會後感想</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/10/16/using-pop3-authentication-strategy-for-passport-and-nodejs/">
+                        <span class="hidden-mobile">使用 Passport 和 Node.js 的 POP3 身份認證策略</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2017/11/29/soft-skills-the-software-developer-s-life-manual/';
+          this.page.identifier = '/2017/11/29/soft-skills-the-software-developer-s-life-manual/';
+        };
+        Fluid.utils.lazyComments('disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-5251083151585518"
+         data-ad-slot="6125407494"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目錄</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
