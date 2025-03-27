@@ -1,0 +1,709 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="RTB（Real Time Bidding）即時競價機制，是一個網路廣告的競價機制。相比於之前廣告主投放廣告較常採用的廣告聯播網，無法確定真正點擊廣告的是誰，而浪費預算。即時競價機制是利用資料分析能力，得出使用者的習慣跟興趣，再讓相關的廣告商互相競價廣告位，這個競價方式可以讓廣告商可以用合理的價錢購買到最適合的廣告。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="數位廣告基礎入門：即時競價 Real-Time Bidding">
+<meta property="og:url" content="https://chunkai.blog/2020/01/17/real-time-bidding/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="RTB（Real Time Bidding）即時競價機制，是一個網路廣告的競價機制。相比於之前廣告主投放廣告較常採用的廣告聯播網，無法確定真正點擊廣告的是誰，而浪費預算。即時競價機制是利用資料分析能力，得出使用者的習慣跟興趣，再讓相關的廣告商互相競價廣告位，這個競價方式可以讓廣告商可以用合理的價錢購買到最適合的廣告。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2020/01/17/real-time-bidding/cover.jpg">
+<meta property="article:published_time" content="2020-01-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:20:34.698Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="Digital Advertising">
+<meta property="article:tag" content="Real-Time Bidding">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2020/01/17/real-time-bidding/cover.jpg">
+  
+  
+  
+  <title>數位廣告基礎入門：即時競價 Real-Time Bidding - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="數位廣告基礎入門：即時競價 Real-Time Bidding"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-01-17 00:00" pubdate>
+          2020年1月17日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">數位廣告基礎入門：即時競價 Real-Time Bidding</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>RTB（Real Time Bidding）即時競價機制，是一個網路廣告的競價機制。相比於之前廣告主投放廣告較常採用的廣告聯播網，無法確定真正點擊廣告的是誰，而浪費預算。即時競價機制是利用資料分析能力，得出使用者的習慣跟興趣，再讓相關的廣告商互相競價廣告位，這個競價方式可以讓廣告商可以用合理的價錢購買到最適合的廣告。</p>
+</blockquote>
+<p><img src="/2020/01/17/real-time-bidding/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<span id="more"></span>
+
+<h2 id="何謂即時競價"><a href="#何謂即時競價" class="headerlink" title="何謂即時競價"></a>何謂即時競價</h2><p>RTB（Real Time Bidding）即時競價機制，是一個網路廣告的競價機制。相比於之前廣告主投放廣告較常採用的廣告聯播網，無法確定真正點擊廣告的是誰，而浪費預算。即時競價機制是利用資料分析能力，得出使用者的習慣跟興趣，再讓相關的廣告商互相競價廣告位，這個競價方式可以讓廣告商可以用合理的價錢購買到最適合的廣告。</p>
+<h2 id="即時競價市場中的關鍵角色"><a href="#即時競價市場中的關鍵角色" class="headerlink" title="即時競價市場中的關鍵角色"></a>即時競價市場中的關鍵角色</h2><p>RTB 市場的關鍵角色包括廣告主（Advertiser）、廣告需求方平台（DSP）、廣告交易平台（AdX）、廣告供應方平台（SSP）、數據管理平台（DMP）和出版商（Publisher）。</p>
+<p><img src="./rtb-ecosystem.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="廣告主-Advertiser"><a href="#廣告主-Advertiser" class="headerlink" title="廣告主 Advertiser"></a>廣告主 Advertiser</h3><p>廣告主是廣告曝光（impressions）和相關受眾（audiences）的購買者。在 RTB 出價拍賣中，廣告主根據其行銷目標、預算、策略等為廣告曝光出價。出價最高的廣告主會贏得廣告曝光。</p>
+<h3 id="廣告需求方平台-Demand-Side-Platform-DSP"><a href="#廣告需求方平台-Demand-Side-Platform-DSP" class="headerlink" title="廣告需求方平台 Demand Side Platform (DSP)"></a>廣告需求方平台 Demand Side Platform (DSP)</h3><p>DSP 是一個全面的代理平台，可幫助廣告主優化廣告管理和投放策略。基於大數據分析和受眾群體定位技術 (audience targeting technolo­gies) 以及 RTB 架構和演算法，DSP 幫助廣告主以簡單，便捷和統一的方式從 AdX 購買最匹配的廣告曝光。</p>
+<h3 id="廣告交易平台-Ad-Exchange-AdX"><a href="#廣告交易平台-Ad-Exchange-AdX" class="headerlink" title="廣告交易平台 Ad Exchange (AdX)"></a>廣告交易平台 Ad Exchange (AdX)</h3><p>AdX 是一個廣告交易市場，它針對每次的廣告曝光匹配買方和賣方，就像股票交易市場一樣。AdX 使用標準化協定在 RTB 市場中的其他角色之間傳遞廣告請求和用戶資訊，旨在找到廣告主及其目標受眾（target audiences）的最佳匹配。因此，它在 RTB 市場中起著至關重要的作用。</p>
+<h3 id="廣告供應方平台-Supply-Side-Platform-SSP"><a href="#廣告供應方平台-Supply-Side-Platform-SSP" class="headerlink" title="廣告供應方平台 Supply Side Platform (SSP)"></a>廣告供應方平台 Supply Side Platform (SSP)</h3><p>SSP 是一個代理平台，可幫助出版商優化廣告庫存（ad inventory）的管理和定價策略，包括設置最優底價、將廣告曝光分配到不同的 channels 等。</p>
+<h3 id="數據管理平台-Data-Management-Platform-DMP"><a href="#數據管理平台-Data-Management-Platform-DMP" class="headerlink" title="數據管理平台 Data Management Platform (DMP)"></a>數據管理平台 Data Management Platform (DMP)</h3><p>DMP 是一個數據管理平台，用於收集，儲存和分析 Internet 用戶的 cookie 數據。DMP 通常為 DSPs 和 AdXs 提供識別目標受眾的付費服務。</p>
+<h3 id="出版商-Publisher"><a href="#出版商-Publisher" class="headerlink" title="出版商 Publisher"></a>出版商 Publisher</h3><p>出版商是網站的擁有者。每次訪問出版商網頁的用戶都會觸發一次曝光，並且在此次曝光中贏得 RTB 競價的廣告主的廣告將顯示在該出版商的網頁上。</p>
+<h2 id="即時競價廣告的投放流程"><a href="#即時競價廣告的投放流程" class="headerlink" title="即時競價廣告的投放流程"></a>即時競價廣告的投放流程</h2><p><img src="./rtb-process.png" srcset="/img/loading.gif" lazyload></p>
+<p>① Internet 用戶訪問出版商的網頁。</p>
+<p>② 如果在 RTB 市場上有一個或多個廣告版位要出售，則出版商會將廣告請求發送到 SSP 和 AdX，包含用戶資訊、廣告版位和底價。</p>
+<p>③ 收到來自 SSP 的廣告請求後，AdX 會將所有訊息轉發給符合條件的 DSP。</p>
+<p>④ 然後，每個 DSP 解析廣告請求中的訊息，向 DMP 詢問該用戶的必要資訊（例如其地理位置、性別、年齡、歷史行為、購物興趣和意圖等），並開始拍賣以匹配廣告主。獲勝的廣告主廣告將反饋給 AdX，每個 DSP 必須在特定時間內做出回應。</p>
+<p>⑤ AdX 開始競標每個 DSP 獲勝的廣告主，並確定這些獲勝的廣告主中的最高出價。如果此出價低於出版商的底價，則此 RTB 流程將終止，廣告版位為空。或重新分配給非 RTB channels。否則，出價最高的廣告主將最終贏得廣告曝光。</p>
+<p>⑥ AdX 向所有 DSP 宣布競價結果，並將最終獲勝的廣告主的廣告發送給 SSP。</p>
+<p>⑦ SSP 協助將廣告顯示出版商網頁上的廣告版位，以呈現在用戶面前。</p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://wnzhang.net/share/rtb-papers/rtb-survey.pdf">A Survey on Real Time Bidding Advertising</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.inside.com.tw/article/6673-what-is-rtb">【硬塞科技字典】什麼是 RTB 即時競價廣告？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bnext.com.tw/article/32464/BN-ARTICLE-32464">一張圖教你看懂什麼是RTB實時競價廣告｜數位時代</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B8%E4%BD%8D%E5%BB%A3%E5%91%8A/" class="category-chain-item">數位廣告</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Digital-Advertising/" class="print-no-link">#Digital Advertising</a>
+      
+        <a href="/tags/Real-Time-Bidding/" class="print-no-link">#Real-Time Bidding</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>數位廣告基礎入門：即時競價 Real-Time Bidding</div>
+      <div>https://chunkai.blog/2020/01/17/real-time-bidding/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2020年1月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/01/21/conversion-tracking/" title="數位廣告基礎入門：轉換追蹤 Conversion Tracking">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">數位廣告基礎入門：轉換追蹤 Conversion Tracking</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/01/10/programmatic-advertising/" title="數位廣告基礎入門：程式化廣告 Programmatic Advertising">
+                        <span class="hidden-mobile">數位廣告基礎入門：程式化廣告 Programmatic Advertising</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2020/01/17/real-time-bidding/';
+          this.page.identifier = '/2020/01/17/real-time-bidding/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,745 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="由於 Same Origin Policy 的安全性考量，在瀏覽器上運行的客戶端 JavaScript 通常會存在跨網域存取資料的限制。當我們在開發第三方 JavaScript (Third-party JavaScript) 應用時，最好能在本地開發環境模擬跨網域 (cross-domain)，避免將來在正式環境上發生無法預期的錯誤。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在本地端模擬多個網域名稱以用於第三方 JavaScript 開發">
+<meta property="og:url" content="https://chunkai.blog/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="由於 Same Origin Policy 的安全性考量，在瀏覽器上運行的客戶端 JavaScript 通常會存在跨網域存取資料的限制。當我們在開發第三方 JavaScript (Third-party JavaScript) 應用時，最好能在本地開發環境模擬跨網域 (cross-domain)，避免將來在正式環境上發生無法預期的錯誤。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/cover.jpg">
+<meta property="article:published_time" content="2017-04-03T12:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:19:15.369Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="Third-Party JavaScript">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/cover.jpg">
+  
+  
+  
+  <title>在本地端模擬多個網域名稱以用於第三方 JavaScript 開發 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="在本地端模擬多個網域名稱以用於第三方 JavaScript 開發"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-04-03 20:00" pubdate>
+          2017年4月3日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">在本地端模擬多個網域名稱以用於第三方 JavaScript 開發</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>由於 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Same-origin_policy">Same Origin Policy</a> 的安全性考量，在瀏覽器上運行的客戶端 JavaScript 通常會存在跨網域存取資料的限制。當我們在開發第三方 JavaScript (Third-party JavaScript) 應用時，最好能在本地開發環境模擬跨網域 (cross-domain)，避免將來在正式環境上發生無法預期的錯誤。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="What-is-Third-Party-JavaScript"><a href="#What-is-Third-Party-JavaScript" class="headerlink" title="What is Third-Party JavaScript?"></a>What is Third-Party JavaScript?</h2><p>按 <em>Third-Party JavaScript</em> 一書的定義，第三方 JavaScript 應有以下特徵：</p>
+<ol>
+<li>並非由網站內容提供者所編寫</li>
+<li>由不受網站內容提供者控制的外部伺服器提供</li>
+<li>程式的目的是作為內容提供者網站的一部分被執行</li>
+</ol>
+<p>一言以蔽之，第三方 JavaScript 是從遠端 web server 取得服務，並在網頁發布者 (publisher) 頁面上獨立運行的客戶端程式。以下是第三方 JavaScript 應用的實際例子：</p>
+<ol>
+<li>Embedded widgets - 嵌入在發布者網頁中的小型交互式應用 (Disqus, Google Maps, Facebook Widget)</li>
+<li>Analytics and metrics - 收集訪客在發布者網站上的交互數據 (Google Analytics, Flurry, Mixpanel)</li>
+<li>Web service API wrappers - 用於與外部 Web 服務通信的客戶端應用程式 (Facebook Graph API)</li>
+</ol>
+<h2 id="Configuring-Environment-for-Third-Party-JavaScript-Development"><a href="#Configuring-Environment-for-Third-Party-JavaScript-Development" class="headerlink" title="Configuring Environment for Third-Party JavaScript Development"></a>Configuring Environment for Third-Party JavaScript Development</h2><p>我們的目標是在伺服器上提供 script files ，並將其加載到發布者 (publisher) 的網站上。為了建立這個環境，我們需要有一個測試頁面來模擬發布者的網站和一個 web server 放置 script files ，然後將測試頁面和 script files 放置在不同的網域名稱下。</p>
+<h3 id="Publisher-Test-Page"><a href="#Publisher-Test-Page" class="headerlink" title="Publisher Test Page"></a>Publisher Test Page</h3><p>一個發布者的測試頁面會載入並執行第三方 script ，以下是一個簡單的範例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Publisher Test Page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Publisher Test Page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-comment">&lt;!-- script include snippet here --&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>&lt;script&gt;</code> 放置的位置會影響網頁載入的速度。一般而言，我們會將第三方 script 放置在 <code>&lt;/body&gt;</code> 結束標籤之前。</p>
+<h3 id="The-Web-Server"><a href="#The-Web-Server" class="headerlink" title="The Web Server"></a>The Web Server</h3><p>為了讓測試頁面和第三方 script files 能夠被瀏覽器存取，因此我們需要在本地端運行 web server。可作為網頁伺服器的選擇相當多，您可使用 <a target="_blank" rel="noopener" href="https://httpd.apache.org/">Apache</a>、<a target="_blank" rel="noopener" href="https://www.nginx.com/">Nginx</a> 這類專門的 web server，或是其他程式語言內置的 web server 作為本地開發環境。</p>
+<p>稍後我們會以 <strong>Node.js</strong> 作為 web server 實現一個範例。</p>
+<h3 id="Simulating-Multiple-Domains"><a href="#Simulating-Multiple-Domains" class="headerlink" title="Simulating Multiple Domains"></a>Simulating Multiple Domains</h3><p>有了網站發布者的測試頁面與網頁伺服器，我們還需要多個不同的網域來提供測試頁面及第三方 script files 的存取。為了模擬多個網域名稱，我們需要修改作業系統的 <code>hosts</code> 檔案並建立兩個別名指向本地主機。</p>
+<p>在 OS X 與 Unix-based 作業系統上，可以在 <code>/etc/hosts</code> 文件找到本機 host 配置；在 Windows 作業系統，嘗試打開 <code>C:/windows/system32/drivers/etc/hosts</code> 文件，然後加入以下兩行：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs accesslog"><span class="hljs-number">127.0.0.1</span>       publisher.dev<br><span class="hljs-number">127.0.0.1</span>       widget.dev<br></code></pre></td></tr></table></figure>
+
+<p>其中，<code>publisher.dev</code> 是作為模擬網站提供者的頁面的位址，<code>widget.dev</code> 則是放置第三方 script files 的伺服器位址。</p>
+<h2 id="Using-Node-js-for-Example"><a href="#Using-Node-js-for-Example" class="headerlink" title="Using Node.js for Example"></a>Using Node.js for Example</h2><p>對於 JavaScript 開發者來說，Node.js 應是相對熟悉的平台。我們使用 <a target="_blank" rel="noopener" href="https://expressjs.com/">express</a> 框架作為 web server ，搭建我們的第三方 JavaScript 開發環境。</p>
+<h3 id="Structure-and-Files"><a href="#Structure-and-Files" class="headerlink" title="Structure and Files"></a>Structure and Files</h3><p>首先，創建一個資料夾 <code>third-party-js-dev</code> 作為專案目錄，並建立以下目錄檔案：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs stylus">.<br>├── static<br>│   ├── publisher<br>│   │   └── index.html<br>│   └── widget<br>│       └── widget.js<br>├── test<br>│   └── server<span class="hljs-selector-class">.test</span><span class="hljs-selector-class">.js</span> <br>├── server.js<br>└── package.json<br></code></pre></td></tr></table></figure>
+
+<p><code>third-party-js-dev/package.json</code>:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;third-party-js-dev&quot;</span>,<br>  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,<br>  <span class="hljs-attr">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;node server.js&quot;</span>,<br>    <span class="hljs-attr">&quot;test&quot;</span>: <span class="hljs-string">&quot;mocha test&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;dependencies&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;express&quot;</span>: <span class="hljs-string">&quot;^4.15.2&quot;</span>,<br>    <span class="hljs-attr">&quot;vhost&quot;</span>: <span class="hljs-string">&quot;^3.0.2&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;devDependencies&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;mocha&quot;</span>: <span class="hljs-string">&quot;^3.2.0&quot;</span>,<br>    <span class="hljs-attr">&quot;superagent&quot;</span>: <span class="hljs-string">&quot;^3.5.2&quot;</span>,<br>    <span class="hljs-attr">&quot;supertest&quot;</span>: <span class="hljs-string">&quot;^3.0.0&quot;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>請執行 <code>npm install</code> 安裝依賴套件。</p>
+<p><code>third-party-js-dev/server.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)<br><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>)<br><span class="hljs-keyword">const</span> vhost = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;vhost&#x27;</span>)<br><br><span class="hljs-keyword">const</span> app = express()<br><br>app.use(vhost(<span class="hljs-string">&#x27;publisher.dev&#x27;</span>, express.static(path.join(__dirname, <span class="hljs-string">&#x27;static&#x27;</span>, <span class="hljs-string">&#x27;publisher&#x27;</span>))))<br>app.use(vhost(<span class="hljs-string">&#x27;widget.dev&#x27;</span>, express.static(path.join(__dirname, <span class="hljs-string">&#x27;static&#x27;</span>, <span class="hljs-string">&#x27;widget&#x27;</span>))))<br><br>app.listen(<span class="hljs-number">8080</span>, <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Server is running&#x27;</span>))<br></code></pre></td></tr></table></figure>
+
+<p>這裡是程式進入點，也設定了 express 的 middlewares ，主要是針對不同的網域名稱指向不同的靜態資源目錄。</p>
+<p><code>third-party-js-dev/static/publisher</code> 目錄下的檔案可以透過 <code>http://publisher.dev:8080</code> 被存取；同時在 <code>third-party-js-dev/static/widget</code> 目錄下的檔案也可以透過 <code>http://widget.dev:8080</code> 被訪問。</p>
+<p><code>third-party-js-dev/static/publisher/index.html</code>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Publisher Test Page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Publisher Test Page<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://widget.dev:8080/widget.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>此為用來模擬 publisher 的測試頁面。</p>
+<p><code>third-party-js-dev/static/widget/widget.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Hello World!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>widget.js</code> 是我們提供的第三方 script file 。 如果在 publisher 的頁面上載入成功，打開瀏覽器 Console 應會顯示 <code>Hello World!</code> 。</p>
+<h3 id="Writing-Test"><a href="#Writing-Test" class="headerlink" title="Writing Test"></a>Writing Test</h3><p>我們可以撰寫簡單的測試來驗證我們的環境是否建立成功。</p>
+<p><code>third-party-js-dev/test/server.test.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;supertest&#x27;</span>)<br><span class="hljs-keyword">const</span> app = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;../server&#x27;</span>)<br><br>describe(<span class="hljs-string">&#x27;Simulating multiple domains at local&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  it(<span class="hljs-string">&#x27;should respond index.html&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> request(<span class="hljs-string">&#x27;http://publisher.dev:8080&#x27;</span>)<br>      .get(<span class="hljs-string">&#x27;/&#x27;</span>)<br>      .expect(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-regexp">/html/</span>)<br>      .expect(<span class="hljs-number">200</span>)<br>  &#125;)<br><br>  it(<span class="hljs-string">&#x27;should respond widget.js&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> request(<span class="hljs-string">&#x27;http://widget.dev:8080&#x27;</span>)<br>      .get(<span class="hljs-string">&#x27;/widget.js&#x27;</span>)<br>      .expect(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-regexp">/javascript/</span>)<br>      .expect(<span class="hljs-number">200</span>)<br>  &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>請執行 <code>npm test</code> 跑測試。如果通過測試，表示您的設定沒有問題。</p>
+<h3 id="Starting-the-Server-and-Opening-Your-Browser"><a href="#Starting-the-Server-and-Opening-Your-Browser" class="headerlink" title="Starting the Server and Opening Your Browser"></a>Starting the Server and Opening Your Browser</h3><p>執行 <code>npm start</code> 啟動 web server ，打開瀏覽器並在網址列上輸入 <code>http://publisher.dev:8080</code> 進入測試頁面。</p>
+<p><img src="/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/publisher_test_page.png" srcset="/img/loading.gif" lazyload></p>
+<p>以 Google Chrome 為例，開啟<strong>開發人員工具</strong>，Console 上顯示 <code>Hello World!</code> 則大功告成。</p>
+<p>您可以在這個 <a target="_blank" rel="noopener" href="https://github.com/chunkai1312/third-party-js-dev">repo</a> 找到完整的程式範例。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://www.manning.com/books/third-party-javascript">Third-Party JavaScript</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Third-Party-JavaScript/" class="print-no-link">#Third-Party JavaScript</a>
+      
+        <a href="/tags/Node-js/" class="print-no-link">#Node.js</a>
+      
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>在本地端模擬多個網域名稱以用於第三方 JavaScript 開發</div>
+      <div>https://chunkai.blog/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2017年4月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/05/01/using-react-as-template-engine-for-universal-express-applications/" title="使用 React 作為 Express 的樣板引擎建構 Universal 應用程式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 React 作為 Express 的樣板引擎建構 Universal 應用程式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/03/03/monitoring-your-websites-with-uptime-robot/" title="使用 Uptime Robot 監控你的網站">
+                        <span class="hidden-mobile">使用 Uptime Robot 監控你的網站</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/';
+          this.page.identifier = '/2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

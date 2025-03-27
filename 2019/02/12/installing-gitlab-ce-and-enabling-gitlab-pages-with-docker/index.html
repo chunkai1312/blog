@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="GitLab CE v8.16 版以後，支援 GitLab Pages 功能。就像 GitHub Pages 一樣，你可以為 GitLab 上的 project 建立靜態網站。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Docker 安裝 GitLab CE 並啟用 GitLab Pages">
+<meta property="og:url" content="https://chunkai.blog/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="GitLab CE v8.16 版以後，支援 GitLab Pages 功能。就像 GitHub Pages 一樣，你可以為 GitLab 上的 project 建立靜態網站。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg">
+<meta property="article:published_time" content="2019-02-12T14:39:25.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:20:10.812Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="GitLab">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="GitLab Pages">
+<meta property="article:tag" content="Traefik">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg">
+  
+  
+  
+  <title>使用 Docker 安裝 GitLab CE 並啟用 GitLab Pages - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 Docker 安裝 GitLab CE 並啟用 GitLab Pages"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-02-12 22:39" pubdate>
+          2019年2月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          692 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用 Docker 安裝 GitLab CE 並啟用 GitLab Pages</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>GitLab CE v8.16 版以後，支援 GitLab Pages 功能。就像 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a> 一樣，你可以為 GitLab 上的 project 建立靜態網站。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="使用-Docker-安裝-GitLab"><a href="#使用-Docker-安裝-GitLab" class="headerlink" title="使用 Docker 安裝 GitLab"></a>使用 Docker 安裝 GitLab</h2><p>以下使用 <a target="_blank" rel="noopener" href="https://github.com/sameersbn/docker-gitlab">sameersbn/docker-gitlab</a> 提供的鏡像檔安裝 GitLab 環境。最簡單的入門方式是透過 <a target="_blank" rel="noopener" href="https://docs.docker.com/compose/">docker-compose</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ wget https://raw.githubusercontent.com/sameersbn/docker-gitlab/master/docker-compose.yml<br></code></pre></td></tr></table></figure>
+
+<p>使用以下命令啟動 GitLab：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>docker-compose up<br></code></pre></td></tr></table></figure>
+
+<p>將瀏覽器指向 <code>http://localhost:10080</code> 並使用預設的使用者名稱和密碼登錄：</p>
+<ul>
+<li>username: <code>root</code></li>
+<li>password: <code>5iveL!fe</code></li>
+</ul>
+<p><code>sameersbn/gitlab</code> 鏡像檔提供了可用的 <a target="_blank" rel="noopener" href="https://github.com/sameersbn/docker-gitlab#available-configuration-parameters">配置參數</a> 依照你想要的方式配置 GitLab。</p>
+<h2 id="配置-GitLab-Pages"><a href="#配置-GitLab-Pages" class="headerlink" title="配置 GitLab Pages"></a>配置 GitLab Pages</h2><h3 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h3><p>在設定 GitLab Pages 之前，需要：</p>
+<ol>
+<li>有一個單獨的網域名稱，在該網域下將提供 GitLab Pages。我們假設是 <code>example.io</code>。</li>
+<li>配置萬用字元（wildcard）DNS 記錄</li>
+<li>（Optional）如果決定在 HTTPS 下提供 Pages，需要為該網域提供萬用字元（wildcard）憑證。</li>
+<li>（Optional but recommended）請用共享的 GitLab Runners。</li>
+</ol>
+<h3 id="DNS-配置"><a href="#DNS-配置" class="headerlink" title="DNS 配置"></a>DNS 配置</h3><p>在 DNS 提供商配置一條 A 類型的萬用字元（wildcard）DNS 記錄，指向 GitLab 運行的主機。例如：</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dns">*.example.io. <span class="hljs-number">1800</span> <span class="hljs-keyword">IN</span> <span class="hljs-keyword">A</span> <span class="hljs-number">1.1.1.1</span><br></code></pre></td></tr></table></figure>
+
+<p>其中 <code>example.io</code> 為 Gitlab Pages 的網域；而 <code>1.1.1.1</code> 是 GitLab 服務的 IP 位址。</p>
+<h3 id="啟用-GitLab-Pages"><a href="#啟用-GitLab-Pages" class="headerlink" title="啟用 GitLab Pages"></a>啟用 GitLab Pages</h3><p>要啟用 GitLab Pages 功能，需要寫入以下配置參數：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">...</span><br>    <span class="hljs-attr">envrironment:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">GITLAB_PAGES_ENABLED=true</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">GITLAB_PAGES_PORT=18080</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">GITLAB_PAGES_EXTERNAL_HTTP=:18080</span><br><span class="hljs-string">...</span><br></code></pre></td></tr></table></figure>
+
+<p>GitLab Pages 預設跑在 docker 容器的 <code>8081</code> port。以下透過 docker-compose 設定對應到宿主機器的 <code>18080</code> port：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">...</span><br>    <span class="hljs-attr">ports:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;10080:80&quot;</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;10022:22&quot;</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;18080:8081&quot;</span><br><span class="hljs-string">...</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="使用-Traefik-反向代理"><a href="#使用-Traefik-反向代理" class="headerlink" title="使用 Traefik 反向代理"></a>使用 Traefik 反向代理</h2><p><a target="_blank" rel="noopener" href="https://traefik.io/">Traefik</a> 是一套 HTTP 反向代理和負載均衡器，與 Docker 有深度的整合，可以輕鬆部署微服務。其安裝配置方式可參照 Traefik <a target="_blank" rel="noopener" href="https://docs.traefik.io/user-guide/docker-and-lets-encrypt/">官方文件</a>。</p>
+<p>假設底下是一份用於啟動 Traefik 服務的 <code>docker-compose.yml</code> 檔案：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">version:</span> <span class="hljs-string">&#x27;2&#x27;</span><br><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">traefik:</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">traefik:1.5.4</span><br>    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-number">80</span><span class="hljs-string">:80</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-number">443</span><span class="hljs-string">:443</span><br>    <span class="hljs-attr">networks:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">web</span><br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">/var/run/docker.sock:/var/run/docker.sock</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">/opt/traefik/traefik.toml:/traefik.toml</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">/opt/traefik/acme.json:/acme.json</span><br>    <span class="hljs-attr">container_name:</span> <span class="hljs-string">traefik</span><br><br><span class="hljs-attr">networks:</span><br>  <span class="hljs-attr">web:</span><br>    <span class="hljs-attr">external:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>先建立一個 <code>web</code> 的 docker 虛擬網路：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker network create web<br></code></pre></td></tr></table></figure>
+
+<p>啟動 Traefik 服務：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ docker-compose up<br></code></pre></td></tr></table></figure>
+
+<p>然後我們修改原來 GitLab 的 <code>docker-compose.yml</code> 檔案，在 gitlab 服務下加入：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">...</span><br>    <span class="hljs-attr">labels:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;traefik.backend=gitlab&quot;</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;traefik.gitlab.frontend.rule=Host:examole.com&quot;</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;traefik.gitlab.port=80&quot;</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;traefik.pages.frontend.rule=HostRegexp:&#123;subdomain:[a-z]+&#125;.examole.io&quot;</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;traefik.pages.port=8081&quot;</span><br><span class="hljs-string">...</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>將 <code>traefik.gitlab.frontend.rule=Host:examole.com</code> 中的 <code>examole.com</code> 換成你指定的 GitLab 網域名稱。</li>
+<li>將 <code>traefik.pages.frontend.rule=HostRegexp:&#123;subdomain:[a-z]+&#125;.examole.io</code> 中的 <code>examole.io</code> 換成你提供的 GitLab Pages 網域名稱。</li>
+</ul>
+<h2 id="建立-GitLab-Pages"><a href="#建立-GitLab-Pages" class="headerlink" title="建立 GitLab Pages"></a>建立 GitLab Pages</h2><p>GitLab 官方提供了許多建立 GitLab Pages 的 <a target="_blank" rel="noopener" href="https://gitlab.com/pages">範例</a>。以下以 <a target="_blank" rel="noopener" href="https://github.com/GitbookIO/gitbook">GitBook</a> 為例。</p>
+<p>我們在自架 GitLab 上建立一個 <code>docs</code> 的 group，並在底下建立 <code>gitbook</code> repo。然後將官方的 GitBook <a target="_blank" rel="noopener" href="https://gitlab.com/pages/gitbook">範例</a> clone 下來，push 至我們的 GitLab repo。</p>
+<p>官方預設已經寫好 <code>.gitlab-ci.yml</code> 腳本。如果 GitLab CI 運行沒問題，就會部署至 GitLab Pages。</p>
+<blockquote>
+<p>需要安裝 GitLab Runner 以執行 GitLab CI pipelines。</p>
+</blockquote>
+<p>打開瀏覽器，進入 <code>http://docs.example.io/gitbook</code> 查看內容是否正確。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="http://www.damagehead.com/docker-gitlab/">Docker Gitlab</a><br><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/user/project/pages/index.html">GitLab Pages</a><br><a target="_blank" rel="noopener" href="https://traefik.io/">Traefik</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/GitLab/" class="print-no-link">#GitLab</a>
+      
+        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
+      
+        <a href="/tags/GitLab-Pages/" class="print-no-link">#GitLab Pages</a>
+      
+        <a href="/tags/Traefik/" class="print-no-link">#Traefik</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 Docker 安裝 GitLab CE 並啟用 GitLab Pages</div>
+      <div>https://chunkai.blog/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2019年2月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/02/27/using-marp-to-create-slides-with-markdown/" title="Marp：寫 Markdown 製作投影片">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Marp：寫 Markdown 製作投影片</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/02/12/building-a-personal-blog-with-hexo-on-github-page/" title="使用 Hexo 及 GitHub Page 建立個人部落格">
+                        <span class="hidden-mobile">使用 Hexo 及 GitHub Page 建立個人部落格</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/';
+          this.page.identifier = '/2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

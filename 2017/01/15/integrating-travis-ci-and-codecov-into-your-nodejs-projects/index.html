@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="最近試著將自己的在 GitHub 上 open source projects 整合 Travis CI 與 Codecob 服務，在此記錄一下實踐的過程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="將 Travis CI 和 Codecov 整合至 Node.js 專案">
+<meta property="og:url" content="https://chunkai.blog/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="最近試著將自己的在 GitHub 上 open source projects 整合 Travis CI 與 Codecob 服務，在此記錄一下實踐的過程。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg">
+<meta property="article:published_time" content="2017-01-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:19:09.518Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="NodeJS">
+<meta property="article:tag" content="CI">
+<meta property="article:tag" content="Travis CI">
+<meta property="article:tag" content="Codecov">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Code Coverage">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg">
+  
+  
+  
+  <title>將 Travis CI 和 Codecov 整合至 Node.js 專案 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="將 Travis CI 和 Codecov 整合至 Node.js 專案"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-01-15 00:00" pubdate>
+          2017年1月15日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          705 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">將 Travis CI 和 Codecov 整合至 Node.js 專案</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>最近試著將自己的在 GitHub 上 open source projects 整合 Travis CI 與 Codecob 服務，在此記錄一下實踐的過程。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a>Travis CI</h2><p>Travis CI 是許多被託管在 GitHub 上的開源專案使用的持續整合服務。其設定非常簡單，只需要幾個步驟：</p>
+<ul>
+<li>使用 GitHub 帳號登入 <a target="_blank" rel="noopener" href="https://travis-ci.org/">Travis CI</a>。</li>
+<li>Travis CI 會同步你在 GitHub 上的 public 專案，請選擇要使用的 Travis CI 的 repository 。</li>
+<li>在選擇的專案根目錄下新增 <code>.travis.yml</code> 檔案，來定義 CI 流程。</li>
+</ul>
+<p>完成以上步驟後，只要有新的 commit 提交到 GitHub 上，就會觸發 Travis CI，以下是一個簡單的例子：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">language:</span> <span class="hljs-string">node_js</span><br><span class="hljs-attr">node_js:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;7&quot;</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;6&quot;</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;5&quot;</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;4&quot;</span><br><span class="hljs-attr">install:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span><br><span class="hljs-attr">script:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">test</span><br><span class="hljs-attr">after_success:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">coverage</span><br></code></pre></td></tr></table></figure>
+
+<p>更多的設定內容可以參考<a target="_blank" rel="noopener" href="https://docs.travis-ci.com/">官方文件</a>。</p>
+<p>這份設定檔聲明我們測試的環境為 Node.js，並指定版本 v4 ~ v7 。在執行 build 前，會運行 <code>npm install</code> 來安裝該專案的依賴模組，然後執行 <code>npm test</code> 跑測試腳本。在定義的各版本環境皆需通過測試，否則即 build 失敗。build 完成後，則執行 <code>npm run coverage</code> ，整合測試覆蓋率服務。</p>
+<h2 id="Codecov"><a href="#Codecov" class="headerlink" title="Codecov"></a>Codecov</h2><p>代碼覆蓋率 (code coverage) 是評估程式原始碼被測試的比例和程度的指標。<a target="_blank" rel="noopener" href="https://coveralls.io/">Coveralls</a> 是許多 GitHub 上的開源專案使用的測試覆蓋率服務，不過這裡要介紹的是另外一套 <a target="_blank" rel="noopener" href="https://codecov.io/">Codecov</a> ，更為簡單易用：</p>
+<ul>
+<li>使用 GitHub 帳號登入 <a target="_blank" rel="noopener" href="https://codecov.io/">Codecov</a>。</li>
+<li>Codecov 會同步你在 GitHub 上的 public 專案，請選擇要使用的 Codecov 的 repository 。</li>
+<li>將測試結果上傳至 Codecov 。</li>
+</ul>
+<p>在 Node.js 環境下我們需要安裝該模組至專案：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">$ npm install codecov --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span><br></code></pre></td></tr></table></figure>
+
+<p>我們使用 <a target="_blank" rel="noopener" href="https://github.com/istanbuljs/nyc">nyc</a> 提供測試報告，這是基於 <a target="_blank" rel="noopener" href="https://istanbul.js.org/">istanbul</a> 的代碼覆蓋率工具，支援 <a target="_blank" rel="noopener" href="https://github.com/tapjs/node-tap">tap</a> 、 <a target="_blank" rel="noopener" href="https://github.com/mochajs/mocha">mocha</a> 、 <a target="_blank" rel="noopener" href="https://github.com/avajs/ava">AVA</a> 等常用的 JavaScript 測試框架。 </p>
+<p>在 <code>package.json</code> 中定義：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>   <span class="hljs-attr">&quot;scripts&quot;</span>: &#123;<br>     <span class="hljs-attr">&quot;test&quot;</span>: <span class="hljs-string">&quot;nyc mocha test/**/*.js&quot;</span>,<br>     <span class="hljs-attr">&quot;coverage&quot;</span>: <span class="hljs-string">&quot;nyc report --reporter=text-lcov &gt; coverage.lcov &amp;&amp; codecov&quot;</span><br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>我們定義了兩個 script ，執行 <code>npm test</code> 使用 mocha 可運行測試並顯示測試報告， <code>npm run coverage</code> 則將測試報告上傳至 Codecov。然後在 <code>.travis.yml</code> 檔案中加入：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">after_success:</span> <span class="hljs-string">npm</span> <span class="hljs-string">run</span> <span class="hljs-string">coverage</span><br></code></pre></td></tr></table></figure>
+
+<p>如此，當 Travis CI 完成測試腳本並 build 成功後，就會將代碼覆蓋率報告上傳至 Codecov。</p>
+<h2 id="Adding-Badges-to-Your-Project"><a href="#Adding-Badges-to-Your-Project" class="headerlink" title="Adding Badges to Your Project"></a>Adding Badges to Your Project</h2><p>Travis CI 與 Codecov 都有提供狀態圖示 (badge) ，我們可以在該平台上找到提供的語法加入 <code>README.md</code> 檔案。不過 Codecov 的提供的 badge 顯示為 <code>codecov</code>，想要顯示 <code>coverage</code> 可另使用 <a target="_blank" rel="noopener" href="http://shields.io/">Shields.io</a> 提供的服務。</p>
+<p>以下是使用 <a target="_blank" rel="noopener" href="http://shields.io/">Shields.io</a> 提供的 Travus CI 與 Codecov 狀態圖示，將 <code>USER</code> 與 <code>REPO</code> 換成您的 GitHub 帳號與 repository 名稱，加入 <code>README.md</code> 檔案中即可：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs md">[<span class="hljs-string">![Build Status</span>][<span class="hljs-symbol">travis-image</span>]][<span class="hljs-symbol">travis-url</span>]<br>[<span class="hljs-string">![Coverage Status</span>][<span class="hljs-symbol">codecov-image</span>]][<span class="hljs-symbol">codecov-url</span>]<br><br>[<span class="hljs-symbol">travis-image</span>]: <span class="hljs-link">https://img.shields.io/travis/USER/REPO.svg</span><br>[<span class="hljs-symbol">travis-url</span>]: <span class="hljs-link">https://travis-ci.org/USER/REPO</span><br>[<span class="hljs-symbol">codecov-image</span>]: <span class="hljs-link">https://img.shields.io/codecov/c/github/USER/REPO.svg</span><br>[<span class="hljs-symbol">codecov-url</span>]: <span class="hljs-link">https://codecov.io/gh/USER/REPO</span><br></code></pre></td></tr></table></figure>
+
+<p>然後我們就可以在專案的 GitHub 頁面上看到顯示的 <code>build</code> 與 <code>coverage</code> 狀態：</p>
+<p><img src="/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/badges.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/NodeJS/" class="print-no-link">#NodeJS</a>
+      
+        <a href="/tags/CI/" class="print-no-link">#CI</a>
+      
+        <a href="/tags/Travis-CI/" class="print-no-link">#Travis CI</a>
+      
+        <a href="/tags/Codecov/" class="print-no-link">#Codecov</a>
+      
+        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
+      
+        <a href="/tags/Code-Coverage/" class="print-no-link">#Code Coverage</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>將 Travis CI 和 Codecov 整合至 Node.js 專案</div>
+      <div>https://chunkai.blog/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2017年1月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/01/21/using-slack-incoming-webhook-as-alert-notification-for-express-application/" title="使用 Slack Incoming Webhook 為 Express 應用程式建立警報通知">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 Slack Incoming Webhook 為 Express 應用程式建立警報通知</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/" title="使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合">
+                        <span class="hidden-mobile">使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/';
+          this.page.identifier = '/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

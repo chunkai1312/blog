@@ -1,0 +1,698 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="angular.component() 是在 Angular 1.5 版本中新增的方法，它是基於 angular.directive()，更簡單地說，即是 controller + template 。有了 angular.component() 這個新利器，我們可以很容易地將 Angular 寫成像 React 一樣的元件化應用程式 (component-based application)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 AngularJS v1.5+ 建立 component-based 應用程式">
+<meta property="og:url" content="https://chunkai.blog/2016/12/24/component-based-application-using-angularjs-v1.5+/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="angular.component() 是在 Angular 1.5 版本中新增的方法，它是基於 angular.directive()，更簡單地說，即是 controller + template 。有了 angular.component() 這個新利器，我們可以很容易地將 Angular 寫成像 React 一樣的元件化應用程式 (component-based application)">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2016/12/24/component-based-application-using-angularjs-v1.5+/cover.jpg">
+<meta property="article:published_time" content="2016-12-23T18:02:30.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:19:12.875Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="AngularJS">
+<meta property="article:tag" content="前端工程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2016/12/24/component-based-application-using-angularjs-v1.5+/cover.jpg">
+  
+  
+  
+  <title>使用 AngularJS v1.5+ 建立 component-based 應用程式 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 AngularJS v1.5+ 建立 component-based 應用程式"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2016-12-24 02:02" pubdate>
+          2016年12月24日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          895 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用 AngularJS v1.5+ 建立 component-based 應用程式</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2016/12/24/component-based-application-using-angularjs-v1.5+/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p><code>angular.component()</code> 是在 Angular 1.5 版本中新增的方法，它是基於 <code>angular.directive()</code>，更簡單地說，即是 <strong>controller + template</strong> 。有了 <code>angular.component()</code> 這個新利器，我們可以很容易地將 Angular 寫成像 React 一樣的元件化應用程式 (component-based application)。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Code-Example"><a href="#Code-Example" class="headerlink" title="Code Example"></a>Code Example</h2><p>直接來看看實際的例子，以下是 <a target="_blank" rel="noopener" href="https://facebook.github.io/react">React</a> 官方網站上一個簡單的 todo app 範例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;<br>    <span class="hljs-built_in">super</span>(props);<br>    <span class="hljs-built_in">this</span>.handleChange = <span class="hljs-built_in">this</span>.handleChange.bind(<span class="hljs-built_in">this</span>);<br>    <span class="hljs-built_in">this</span>.handleSubmit = <span class="hljs-built_in">this</span>.handleSubmit.bind(<span class="hljs-built_in">this</span>);<br>    <span class="hljs-built_in">this</span>.state = &#123;<span class="hljs-attr">items</span>: [], <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;&#x27;</span>&#125;;<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> (<br>      &lt;div&gt;<br>        &lt;h3&gt;TODO&lt;/h3&gt;<br>        &lt;TodoList items=&#123;<span class="hljs-built_in">this</span>.state.items&#125; /&gt;<br>        &lt;form onSubmit=&#123;<span class="hljs-built_in">this</span>.handleSubmit&#125;&gt;<br>          &lt;input onChange=&#123;<span class="hljs-built_in">this</span>.handleChange&#125; value=&#123;<span class="hljs-built_in">this</span>.state.text&#125; /&gt;<br>          &lt;button&gt;&#123;<span class="hljs-string">&#x27;Add #&#x27;</span> + (<span class="hljs-built_in">this</span>.state.items.length + <span class="hljs-number">1</span>)&#125;&lt;/button&gt;<br>        &lt;/form&gt;<br>      &lt;/div&gt;<br>    );<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">handleChange</span>(<span class="hljs-params">e</span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.setState(&#123;<span class="hljs-attr">text</span>: e.target.value&#125;);<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">handleSubmit</span>(<span class="hljs-params">e</span>)</span> &#123;<br>    e.preventDefault();<br>    <span class="hljs-keyword">var</span> newItem = &#123;<br>      text: <span class="hljs-built_in">this</span>.state.text,<br>      id: <span class="hljs-built_in">Date</span>.now()<br>    &#125;;<br>    <span class="hljs-built_in">this</span>.setState(<span class="hljs-function">(<span class="hljs-params">prevState</span>) =&gt;</span> (&#123;<br>      items: prevState.items.concat(newItem),<br>      text: <span class="hljs-string">&#x27;&#x27;</span><br>    &#125;));<br>  &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">render</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-keyword">return</span> (<br>      &lt;ul&gt;<br>        &#123;<span class="hljs-built_in">this</span>.props.items.map(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> (<br>          &lt;li key=&#123;item.id&#125;&gt;&#123;item.text&#125;&lt;/li&gt;<br>        ))&#125;<br>      &lt;/ul&gt;<br>    );<br>  &#125;<br>&#125;<br><br>ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TodoApp</span> /&gt;</span></span>, mountNode);<br></code></pre></td></tr></table></figure>
+
+<p>這個範例定義的 2 個 component。 <code>TodoApp</code> 為 root component，包含一個 input text field 用來輸入 todo；<code>TodoList</code> 則用來展示 todo list。</p>
+<p>接著我們來看看使用 Angular 1.5 提供的 <code>angular.component()</code> 來寫這段範例會是什麼樣子。以下是我將上面的 React 範例寫成 Angular 版本：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoAppController</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params"></span>)</span> &#123;<br>    <span class="hljs-built_in">this</span>.items = [];<br>  &#125;<br><br>  <span class="hljs-function"><span class="hljs-title">handleSubmit</span>(<span class="hljs-params">e</span>)</span> &#123;<br>    e.preventDefault();<br>    <span class="hljs-keyword">var</span> newItem = &#123;<br>      text: <span class="hljs-built_in">this</span>.text,<br>      id: <span class="hljs-built_in">Date</span>.now()<br>    &#125;;<br>    <span class="hljs-built_in">this</span>.items = <span class="hljs-built_in">this</span>.items.concat(newItem);<br>    <span class="hljs-built_in">this</span>.text = <span class="hljs-string">&#x27;&#x27;</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> todoAppComponent = &#123;<br>  controller: TodoAppController,<br>  template: <span class="hljs-string">`</span><br><span class="hljs-string">    &lt;div&gt;</span><br><span class="hljs-string">      &lt;h3&gt;TODO&lt;/h3&gt;</span><br><span class="hljs-string">      &lt;todo-list items=&quot;$ctrl.items&quot;&gt;&lt;/todo-list&gt;</span><br><span class="hljs-string">      &lt;form ng-submit=&quot;$ctrl.handleSubmit($event)&quot;&gt;</span><br><span class="hljs-string">        &lt;input ng-model=&quot;$ctrl.text&quot; /&gt;</span><br><span class="hljs-string">        &lt;button&gt;Add # &#123;&#123;$ctrl.items.length + 1&#125;&#125;&lt;/button&gt;</span><br><span class="hljs-string">      &lt;/form&gt;</span><br><span class="hljs-string">    &lt;/div&gt;</span><br><span class="hljs-string">  `</span><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoListController</span> </span>&#123; &#125;<br><br><span class="hljs-keyword">const</span> todoListComponent = &#123;<br>  bindings: &#123; <span class="hljs-attr">items</span>: <span class="hljs-string">&#x27;&lt;&#x27;</span> &#125;,<br>  contorller: TodoListController,<br>  template: <span class="hljs-string">`</span><br><span class="hljs-string">    &lt;ul&gt;</span><br><span class="hljs-string">      &lt;li ng-repeat=&quot;item in $ctrl.items&quot;&gt;&#123;&#123;item.text&#125;&#125;&lt;/li&gt;</span><br><span class="hljs-string">    &lt;/ul&gt;</span><br><span class="hljs-string">  `</span><br>&#125;<br><br>angular<br>  .module(<span class="hljs-string">&#x27;todoApp&#x27;</span>, [])<br>  .component(<span class="hljs-string">&#x27;todoApp&#x27;</span>, todoAppComponent)<br>  .component(<span class="hljs-string">&#x27;todoList&#x27;</span>, todoListComponent)<br></code></pre></td></tr></table></figure>
+
+<p>這裡我們使用 ES6/ES2015 的 <code>class</code> 來定義 controller，template的 <code>$ctrl</code> 會指向 controller 的 <code>this</code>，此為 angular 所預設。您也可以在 <code>component</code> 加上 <code>controllerAs</code> 選項將 <code>$ctrl</code> 命名為您想指定的變數名稱。</p>
+<p><code>bindings</code> 的前身其實就是 <code>angular.directive()</code> 選項的 <code>scope</code>，如果需要外部的資料引入 component，我們可以定義於此。換作 React 的說法，大概就是 <code>props</code>。<code>bindings</code> 的屬性定義 <code>&lt;</code> 符號表示單向綁定，有別於 <code>=</code> 符號的雙向綁定，它只作用於該 component，不會去改變外部資料。</p>
+<p>我們可以發現，用上 <code>angular.component()</code> 後，除了 React 用 JSX，而 Angular 用 template 以外，我們還在 Angular 版本用了 <code>ngModel</code> 讓程式少寫了一點，其他看起來其實已經跟 React 版本相去不遠。</p>
+<p>將 Angular 應用程式元件化之後，我們還可以結合在 React 生態圈被廣泛使用的 <a target="_blank" rel="noopener" href="http://redux.js.org/">Redux</a> 做狀態管理，讓整個程式資料流變得可預測、更清楚。</p>
+<p>TodoMVC 是一個經典範例，也是比上面稍微複雜一點的例子，這裡我用 <a target="_blank" rel="noopener" href="https://github.com/angular-redux/ng-redux">ng-redux</a> 寫了一個 <a target="_blank" rel="noopener" href="https://ng-redux-todomvc.herokuapp.com/">demo</a>，並附上 Github <a target="_blank" rel="noopener" href="https://github.com/chunkai1312/ng-redux-todomvc">repo</a> 供參考。</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Angular 1 曾經紅極一時，但在 2016 年，可能相對被認為過時了一點。話雖如此，許多使用 Angular 1 開發的舊專案還是要繼續維護。從目前幾個熱門的前端框架，如 <a target="_blank" rel="noopener" href="https://facebook.github.io/react">React</a>、<a target="_blank" rel="noopener" href="https://angular.io/">Angular 2</a> 、<a target="_blank" rel="noopener" href="https://vuejs.org/">Vue</a> 來看，不難發現前端應用程式元件化已經是大勢所趨，將既有程式使用 <code>angular.component()</code> 重構，除了讓程式變得好維護外，日後若要升級 Angular 2，甚至遷移到 React 或 Vue，都會比較容易一些。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.angularjs.org/guide/component">Understanding Components</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.grossman.io/angular-1-using-redux-architecture">Angular 1 using redux architecture</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/AngularJS/" class="print-no-link">#AngularJS</a>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" class="print-no-link">#前端工程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 AngularJS v1.5+ 建立 component-based 應用程式</div>
+      <div>https://chunkai.blog/2016/12/24/component-based-application-using-angularjs-v1.5+/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2016年12月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2016/12/31/2016-year-in-review/" title="回顧 2016 年">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">回顧 2016 年</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2016/12/24/component-based-application-using-angularjs-v1.5+/';
+          this.page.identifier = '/2016/12/24/component-based-application-using-angularjs-v1.5+/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

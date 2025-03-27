@@ -1,0 +1,748 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="最近開始需要撰寫一些 shell script 來執行 DevOps 自動化的工作。這篇主要記錄如何使用 shell script 來建立一個簡單的命令列程式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Shell Script 建立命令列程式">
+<meta property="og:url" content="https://chunkai.blog/2017/05/30/building-cli-program-with-shell-script/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="最近開始需要撰寫一些 shell script 來執行 DevOps 自動化的工作。這篇主要記錄如何使用 shell script 來建立一個簡單的命令列程式。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2017/05/30/building-cli-program-with-shell-script/cover.jpg">
+<meta property="article:published_time" content="2017-05-30T07:12:48.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:19:27.606Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="Shell">
+<meta property="article:tag" content="Bash">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2017/05/30/building-cli-program-with-shell-script/cover.jpg">
+  
+  
+  
+  <title>使用 Shell Script 建立命令列程式 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 Shell Script 建立命令列程式"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-05-30 15:12" pubdate>
+          2017年5月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          817 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用 Shell Script 建立命令列程式</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2017/05/30/building-cli-program-with-shell-script/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>最近開始需要撰寫一些 shell script 來執行 DevOps 自動化的工作。這篇主要記錄如何使用 shell script 來建立一個簡單的命令列程式。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Writing-a-Shell-Script"><a href="#Writing-a-Shell-Script" class="headerlink" title="Writing a Shell Script"></a>Writing a Shell Script</h2><p>為了成功地建立與執行一個 shell script ，我們需要做三件事：</p>
+<ol>
+<li>寫一個 script</li>
+<li>使 script 可執行</li>
+<li>將 script 放置到 shell 能夠找到的地方</li>
+</ol>
+<h3 id="Script-File-Format"><a href="#Script-File-Format" class="headerlink" title="Script File Format"></a>Script File Format</h3><p>以一個印出 <code>Hello World!</code> 的程式為例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment"># My first script</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello World!&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>第一行是 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Shebang_%28Unix%29">Shebang</a> ，告訴系統要用什麼樣的直譯器來執行該 script 。這裡我們使用的是 UNIX 系統最常見的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29">Bash</a> 。</li>
+<li>第二行是註解，在 <code>#</code> 符號之後的都會被忽略。</li>
+<li>第三行我們使用 <code>echo</code> 命令印出 <code>Hello World!</code> 。</li>
+</ol>
+<h3 id="Executable-Permissions"><a href="#Executable-Permissions" class="headerlink" title="Executable Permissions"></a>Executable Permissions</h3><p>為了讓 script 可執行，我們需要給予 script file 可執行權限。以 <code>hello_world</code> 為例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ chmod 755 hello_world<br></code></pre></td></tr></table></figure>
+
+<p>對於 script file，有兩個常見的權限設置：</p>
+<ol>
+<li>為 script 指定 <code>755</code> 讓所有人都能執行</li>
+<li>為 script 指定 <code>700</code> 只有擁有者能夠執行。</li>
+</ol>
+<p>注意為了能夠執行 script，script 必須是可讀取的。</p>
+<h3 id="Script-File-Location"><a href="#Script-File-Location" class="headerlink" title="Script File Location"></a>Script File Location</h3><p>設定權限之後，就能執行 script ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ./hello_world<br>Hello World!<br></code></pre></td></tr></table></figure>
+
+<p>為了執行 script ，必須將確切路徑置於 script 名稱前。若沒有，就會得到如下結果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hello_world<br>-bash: hello_world: <span class="hljs-built_in">command</span> not found<br></code></pre></td></tr></table></figure>
+
+<p>這是因為該 script 位置不在 PATH 變數之目錄清單中。可輸入以下指令檢視目前 PATH 變數內容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PAH</span></span><br></code></pre></td></tr></table></figure>
+
+<p>若 script 就在這個清單裡的任何一個目錄下，就可以在任何地方執行 scipt 。大部分 Linux 分支套件會將 PATH 變數包含使用者家目錄下的 <code>bin</code> 目錄，允許使用者執行自有程式。若 PATH 變數裡沒有該目錄，可以編輯以下內容到 <code>.bashrc</code> 裡：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">export</span> <span class="hljs-attribute">PATH</span>=<span class="hljs-string">&quot;~bin:<span class="hljs-variable">$PATH</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>完成變更後它會影響每個新終端機的 session 。要將變動套用到現行終端機 session，必須讓 shell 重新讀取 <code>.bashrc</code> 檔，可透過 <code>sourcing</code> 來完成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ . .bashrc<br></code></pre></td></tr></table></figure>
+
+<p>確認設定好 PATH 環境變數後，我們在使用者的家目錄下建立一個 <code>bin</code> 目錄，然後將 script 置於此並執行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> ~<br>$ mkdir bin<br>$ mv hello_world bin<br>$ hello_world<br>Hello World!<br></code></pre></td></tr></table></figure>
+
+<h4 id="Good-Locations-For-Scripts"><a href="#Good-Locations-For-Scripts" class="headerlink" title="Good Locations For Scripts"></a>Good Locations For Scripts</h4><ol>
+<li><code>~/bin</code> 目錄是存放為個人使用 script 的好地方。</li>
+<li>若寫了一個允許系統裡所有人使用的 script，傳統位置會是 <code>/usr/local/bin</code>。</li>
+<li>供系統管理員使用的 script 經常放到 <code>/usr/local/sbin</code> 目錄下。</li>
+<li>多數情況下，本機提供的軟體，不論是 script 還是編譯過的程式，應該都放在 <code>/usr/local</code> 目錄下，而非 <code>/bin</code> 或 <code>/usr/bin</code> 目錄。</li>
+</ol>
+<h2 id="Building-a-Simple-CLI-Program"><a href="#Building-a-Simple-CLI-Program" class="headerlink" title="Building a Simple CLI Program"></a>Building a Simple CLI Program</h2><p>這裡提供一個簡單的 CLI (command-line interface) <a href="(https://github.com/chunkai1312/shell-template">程式範例</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br>PROGRAM=$(basename <span class="hljs-variable">$0</span>)<br>VERSION=<span class="hljs-string">&quot;1.0.0&quot;</span><br>DESCRIPTION=<span class="hljs-string">&quot;This is a script template.&quot;</span><br><br><span class="hljs-function"><span class="hljs-title">usage</span></span> () &#123;<br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;</span><br><span class="hljs-string">  Usage: <span class="hljs-variable">$PROGRAM</span> [options]</span><br><span class="hljs-string"></span><br><span class="hljs-string">  <span class="hljs-variable">$DESCRIPTION</span></span><br><span class="hljs-string"></span><br><span class="hljs-string">  Options:</span><br><span class="hljs-string"></span><br><span class="hljs-string">    -h, --help     output usage information</span><br><span class="hljs-string">    -v, --version  output the version number</span><br><span class="hljs-string">    -p, --print    print \&quot;Hello World!\&quot;</span><br><span class="hljs-string">  &quot;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-title">print</span></span> () &#123;<br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;Hello World!&#x27;</span><br>&#125;<br><br><span class="hljs-comment"># process command line options</span><br><br><span class="hljs-keyword">while</span> [[ -n <span class="hljs-variable">$1</span> ]]; <span class="hljs-keyword">do</span><br>  <span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span><br>    -h | --<span class="hljs-built_in">help</span>)      usage<br>                      <span class="hljs-built_in">exit</span><br>                      ;;<br>    -v | --version)   <span class="hljs-built_in">echo</span> <span class="hljs-variable">$VERSION</span><br>                      <span class="hljs-built_in">exit</span><br>                      ;;<br>    -p | --<span class="hljs-built_in">print</span>)     <span class="hljs-built_in">print</span><br>                      <span class="hljs-built_in">exit</span><br>                      ;;<br>    *)                usage &gt;&amp;2<br>                      <span class="hljs-built_in">exit</span> 1<br>                      ;;<br>  <span class="hljs-keyword">esac</span><br>  <span class="hljs-built_in">shift</span><br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+
+<p>這是一個不到 50 行的 script ，原理是使用 <code>while-do</code> 迴圈一個一個讀取命令列參數，若符合參數條件就執行對應的指令或函式。假設 script 名稱為 <code>program</code> ，並給予可執行權限且至於 PATH 環境變數之目錄清單下。</p>
+<p>執行 <code>program -h</code> 顯示程式使用方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ program -h<br><br>  Usage: program [options]<br><br>  This is a script template.<br><br>  Options:<br><br>    -h, --<span class="hljs-built_in">help</span>     output usage information<br>    -v, --version  output the version number<br>    -p, --<span class="hljs-built_in">print</span>    <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;Hello World!&quot;</span><br><br></code></pre></td></tr></table></figure>
+
+<p>執行 <code>program -v</code> 顯示程式版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ program -v<br>1.0.0<br></code></pre></td></tr></table></figure>
+
+<p>執行 <code>program -p</code> 印出 <code>Hello World!</code> ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ program -p<br>Hello World!<br></code></pre></td></tr></table></figure>
+
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="http://linuxcommand.org/lc3_wss0010.php">Writing Your First Script And Getting It To Work</a><br><a target="_blank" rel="noopener" href="http://billie66.github.io/TLCL/">TLCL</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Shell/" class="print-no-link">#Shell</a>
+      
+        <a href="/tags/Bash/" class="print-no-link">#Bash</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 Shell Script 建立命令列程式</div>
+      <div>https://chunkai.blog/2017/05/30/building-cli-program-with-shell-script/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2017年5月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/10/16/using-pop3-authentication-strategy-for-passport-and-nodejs/" title="使用 Passport 和 Node.js 的 POP3 身份認證策略">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 Passport 和 Node.js 的 POP3 身份認證策略</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/05/27/making-your-terminal-more-productive-using-bash-it/" title="使用 Bash-it 讓 Terminal 更具生產力">
+                        <span class="hidden-mobile">使用 Bash-it 讓 Terminal 更具生產力</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2017/05/30/building-cli-program-with-shell-script/';
+          this.page.identifier = '/2017/05/30/building-cli-program-with-shell-script/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

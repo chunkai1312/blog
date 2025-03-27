@@ -1,0 +1,750 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="本篇文章將介紹如何在 GitLab 上使用 GitLab CI 為 Node.js 應用程式進行持續整合。首先，必須建置好 GitLab 環境，並在一台主機上安裝好 Docker，作為 CI Server 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合">
+<meta property="og:url" content="https://chunkai.blog/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="本篇文章將介紹如何在 GitLab 上使用 GitLab CI 為 Node.js 應用程式進行持續整合。首先，必須建置好 GitLab 環境，並在一台主機上安裝好 Docker，作為 CI Server 。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/cover.jpg">
+<meta property="article:published_time" content="2017-01-07T11:02:44.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:19:03.506Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="GitLab CI">
+<meta property="article:tag" content="GitLab">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="NodeJS">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="CI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/cover.jpg">
+  
+  
+  
+  <title>使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-01-07 19:02" pubdate>
+          2017年1月7日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          922 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>本篇文章將介紹如何在 GitLab 上使用 GitLab CI 為 Node.js 應用程式進行持續整合。首先，必須建置好 GitLab 環境，並在一台主機上安裝好 Docker，作為 CI Server 。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="Install-GitLab-Runner"><a href="#Install-GitLab-Runner" class="headerlink" title="Install GitLab Runner"></a>Install GitLab Runner</h2><p>使用 GitLab 官方提供的 Docker 的映像檔 <a target="_blank" rel="noopener" href="https://hub.docker.com/r/gitlab/gitlab-runner/">gitlab/gitlab-runner</a> 安裝 GitLab Runner：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo docker run -d --name gitlab-runner --restart always \<br>  -v /var/run/docker.sock:/var/run/docker.sock \<br>  -v /srv/gitlab-runner/config:/etc/gitlab-runner \<br>  gitlab/gitlab-runner:latest<br></code></pre></td></tr></table></figure>
+
+<p>確認 Docker Container 是否正常運行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo docker ps<br></code></pre></td></tr></table></figure>
+
+<h2 id="Register-GitLab-Runner"><a href="#Register-GitLab-Runner" class="headerlink" title="Register GitLab Runner"></a>Register GitLab Runner</h2><p>使用 Docker 安裝好 GitLab Runner 後，我們需要在 GitLab 上註冊這個 Runner 用來跑 CI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo docker <span class="hljs-built_in">exec</span> -it gitlab-runner gitlab-runner register<br></code></pre></td></tr></table></figure>
+
+<p>接著會要求輸入必要的配置訊息。其中，會要求輸入 <strong>Registration Token</strong> ， 這可以在 GitLab 的 project 設定下進入 Runners 頁面找到。 </p>
+<p>或者，您也可以直接加入參數進行配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ sudo docker <span class="hljs-built_in">exec</span> -it gitlab-runner gitlab-runner register -n \<br>  --url https://gitlab.com/ci \<br>  --registration-token REGISTRATION_TOKEN \<br>  --executor docker \<br>  --description <span class="hljs-string">&quot;My Docker Runner&quot;</span> \<br>  --docker-image <span class="hljs-string">&quot;node:boron&quot;</span> \<br>  --docker-volumes /var/run/docker.sock:/var/run/docker.sock<br></code></pre></td></tr></table></figure>
+
+<p>這裡我們預設要進行 CI 的環境為 Node.js v6，並且使用官方提供的 Docker 映像檔 <code>node:boron</code> 。</p>
+<p>配置完畢後，應會在 terminal 上顯示 <code>Registering runner... succeeded</code> 。然後在 GitLab 上的 project 底下的 Runners 頁面，可以在 <code>Available specific runners</code> 區塊看到啟動的 Runner 。</p>
+<p>在該 runner 右側點選按鈕 <code>Enable for this project</code> ，我們就可以將此 runner 用在該 project。</p>
+<h2 id="Create-a-Node-js-Application"><a href="#Create-a-Node-js-Application" class="headerlink" title="Create a Node.js Application"></a>Create a Node.js Application</h2><p>接著我們會建立一個名為 <code>gitlab-ci-demo</code> 的 Node.js 應用程式，來測試 GitLab CI 。首先，我們創建一個目錄，然後配置 <code>package.json</code> 檔案：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;gitlab-ci-demo&quot;</span>,<br>  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.0.0&quot;</span>,<br>  <span class="hljs-attr">&quot;scripts&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;node app.js&quot;</span>,<br>    <span class="hljs-attr">&quot;test&quot;</span>: <span class="hljs-string">&quot;nyc --reporter=text-summary mocha test/**/*test.js&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;dependencies&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;express&quot;</span>: <span class="hljs-string">&quot;^4.14.0&quot;</span><br>  &#125;,<br>  <span class="hljs-attr">&quot;devDependencies&quot;</span>: &#123;<br>    <span class="hljs-attr">&quot;mocha&quot;</span>: <span class="hljs-string">&quot;^3.2.0&quot;</span>,<br>    <span class="hljs-attr">&quot;nyc&quot;</span>: <span class="hljs-string">&quot;^10.0.0&quot;</span>,<br>    <span class="hljs-attr">&quot;supertest&quot;</span>: <span class="hljs-string">&quot;^2.0.1&quot;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>接著安裝依賴套件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm install<br></code></pre></td></tr></table></figure>
+
+<p>在該目錄下，建立 <code>app.js</code> 檔案：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-meta">&#x27;use strict&#x27;</span><br><br><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express&#x27;</span>)<br><br><span class="hljs-keyword">const</span> app = express()<br><br>app.get(<span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>  res.send(<span class="hljs-string">&#x27;Hello World&#x27;</span>)<br>&#125;)<br><br>app.listen(<span class="hljs-number">8080</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Running on http://localhost:8080&#x27;</span>)  <br>&#125;)<br><br><span class="hljs-built_in">module</span>.exports = app<br></code></pre></td></tr></table></figure>
+
+<p>這是一個非常簡單的 <a target="_blank" rel="noopener" href="https://expressjs.com/">express</a> 範例。完成後，我們試著執行啟動它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm start<br></code></pre></td></tr></table></figure>
+
+<p>命令列顯示 <code>Running on http://localhost:8080</code> 表示已經啟動該 server。</p>
+<p>打開瀏覽器，鍵入網址 <code>http://localhost:8080</code> ，頁面上應會顯示 <code>Hello World</code> 。</p>
+<h2 id="Write-Test"><a href="#Write-Test" class="headerlink" title="Write Test"></a>Write Test</h2><p>在這裡，我們使用 <a target="_blank" rel="noopener" href="https://mochajs.org/">mocha</a> 作為測試框架，以 <a target="_blank" rel="noopener" href="https://github.com/visionmedia/supertest">supertest</a> 來測試 express 應用。</p>
+<p>為了撰寫測試，在 project 根目錄下新增 <code>test</code> 目錄，然後建立 <code>app.test.js</code> 檔案：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-meta">&#x27;use strict&#x27;</span><br><br><span class="hljs-keyword">const</span> request = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;supertest&#x27;</span>)<br><span class="hljs-keyword">const</span> app = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;../app&#x27;</span>)<br><br>describe(<span class="hljs-string">&#x27;GET /&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  it(<span class="hljs-string">&#x27;should respond &quot;Hello World&quot;&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">done</span>) =&gt;</span> &#123;<br>    request(app)<br>      .get(<span class="hljs-string">&#x27;/&#x27;</span>)<br>      .expect(<span class="hljs-number">200</span>, <span class="hljs-string">&#x27;Hello World&#x27;</span>, done)<br>  &#125;)<br>&#125;)<br><br></code></pre></td></tr></table></figure>
+
+<p>接著執行測試：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ npm <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
+
+<p>若無意外，應會顯示類似以下訊息，表示通過測試：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">Running on http://localhost:8080<br><span class="hljs-code">  GET /</span><br><span class="hljs-code">    ✓ should respond &quot;Hello World&quot; (49ms)</span><br><br><br><span class="hljs-code">  1 passing (59ms)</span><br><br><br>=============================== Coverage summary ===============================<br>Statements   : 100% ( 7/7 )<br>Branches     : 100% ( 0/0 )<br>Functions    : 100% ( 2/2 )<br>Lines        : 100% ( 7/7 )<br>================================================================================<br></code></pre></td></tr></table></figure>
+
+<h2 id="CI-Configuration"><a href="#CI-Configuration" class="headerlink" title="CI Configuration"></a>CI Configuration</h2><p>在 project 根目錄下加入 <code>.gitlab-ci.yml</code> 檔案來定義 CI 流程。相關配置可參考<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ce/ci/yaml/README.html">官方文件</a>，以下是一個簡單的範例：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">cache:</span><br>  <span class="hljs-attr">paths:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">node_modules/</span><br><br><span class="hljs-attr">before_script:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">install</span><br>  <br><span class="hljs-attr">test:</span><br>  <span class="hljs-attr">script:</span><br>   <span class="hljs-bullet">-</span> <span class="hljs-string">npm</span> <span class="hljs-string">test</span><br></code></pre></td></tr></table></figure>
+
+<p>簡單說明一下這個配置。我們會在跑 script 前，執行 <code>npm install</code> 來安裝依賴套件，然後執行 <code>npm test</code> 運行測試。如果過程中沒有發生錯誤，並且通過測試，就視為 <strong>build pass</strong> 。</p>
+<p>至此，我們已經準備好專案了。我們建立一個簡單的 Node.js 應用程式，並寫好測試，接著就將專案推送至 GitLab 。</p>
+<p>如果有在 Runners 設定 <code>Enable for this project</code> ，此時就會開始跑 CI ， 然後可以在 GitLab 查看 build 狀態與結果。</p>
+<p><img src="/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/build.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="Build-Status-amp-Coverage-Report"><a href="#Build-Status-amp-Coverage-Report" class="headerlink" title="Build Status &amp; Coverage Report"></a>Build Status &amp; Coverage Report</h2><p>最後，我們可以為 project 的 <code>README.md</code> 檔案加入 build status 和 test coverage 圖示。</p>
+<p>在 GitLab 的 project 設定下進入 CI/CD Pipelines 頁面，在 <strong>Test coverage parsing</strong> 欄位填入 <code>^Lines\s*:\s*([^%]+)</code> 。然後將下面 <code>Build status</code> 與 <code>Coverage report</code> 的 Markdown 語法寫入 <code>README.md</code> 檔案。</p>
+<p><img src="/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/readme.png" srcset="/img/loading.gif" lazyload></p>
+<p>大功告成。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/GitLab-CI/" class="print-no-link">#GitLab CI</a>
+      
+        <a href="/tags/GitLab/" class="print-no-link">#GitLab</a>
+      
+        <a href="/tags/Docker/" class="print-no-link">#Docker</a>
+      
+        <a href="/tags/NodeJS/" class="print-no-link">#NodeJS</a>
+      
+        <a href="/tags/Git/" class="print-no-link">#Git</a>
+      
+        <a href="/tags/CI/" class="print-no-link">#CI</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合</div>
+      <div>https://chunkai.blog/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2017年1月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/" title="將 Travis CI 和 Codecov 整合至 Node.js 專案">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">將 Travis CI 和 Codecov 整合至 Node.js 專案</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2016/12/31/2016-year-in-review/" title="回顧 2016 年">
+                        <span class="hidden-mobile">回顧 2016 年</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/';
+          this.page.identifier = '/2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

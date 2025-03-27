@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="本文透過實現一個簡易的 i18n (internationalization) 功能來演示 React Context API 的基本應用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 React Context API 實現 i18n 多國語言">
+<meta property="og:url" content="https://chunkai.blog/2019/11/15/using-react-context-api-to-support-for-i18n/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="本文透過實現一個簡易的 i18n (internationalization) 功能來演示 React Context API 的基本應用。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2019/11/15/using-react-context-api-to-support-for-i18n/cover.jpg">
+<meta property="article:published_time" content="2019-11-15T13:51:46.000Z">
+<meta property="article:modified_time" content="2021-09-05T09:20:26.334Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="F2E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2019/11/15/using-react-context-api-to-support-for-i18n/cover.jpg">
+  
+  
+  
+  <title>使用 React Context API 實現 i18n 多國語言 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用 React Context API 實現 i18n 多國語言"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-11-15 21:51" pubdate>
+          2019年11月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">使用 React Context API 實現 i18n 多國語言</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2019/11/15/using-react-context-api-to-support-for-i18n/cover.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>本文透過實現一個簡易的 i18n (internationalization) 功能來演示 React Context API 的基本應用。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="React-Context-API"><a href="#React-Context-API" class="headerlink" title="React Context API"></a>React Context API</h2><p>React Context 提供 component tree 傳遞資料的方法，而不必在每個級別傳遞 props。這很適合用在對於 React 應用程式中是屬於全域的資料，例如當前認證的用戶、主題或語言偏好。</p>
+<p>較早版本的 React 提供的 Context API 官方並不建議使用。React 16.3 發布的 New Context API 使用 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/render-props.html">Render Props</a> pattern 實現將資料傳遞給 children。</p>
+<p>React 16.3+ Context API 核心包含：<code>React.createContext</code>、<code>Context.Provider</code>、<code>Context.Consumer</code>。</p>
+<h3 id="React-createContext"><a href="#React-createContext" class="headerlink" title="React.createContext"></a>React.createContext</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> MyContext = React.createContext(defaultValue);<br></code></pre></td></tr></table></figure>
+
+<p><code>React.createContext</code> 用於建立一個 Context 物件，該物件包含 <code>Provider</code> 和 <code>Consumer</code> 兩個 component。</p>
+<h3 id="Context-Provider"><a href="#Context-Provider" class="headerlink" title="Context.Provider"></a>Context.Provider</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;MyContext.Provider value=&#123;<span class="hljs-comment">/* some value */</span>&#125;&gt;<br></code></pre></td></tr></table></figure>
+
+<p><code>Context.Provider</code> 提供 context 的值，通常會放在 component tree 接近最上層的位置。</p>
+<h3 id="Context-Consumer"><a href="#Context-Consumer" class="headerlink" title="Context.Consumer"></a>Context.Consumer</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;MyContext.Consumer&gt;<br>  &#123;<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> <span class="hljs-comment">/* render something based on the context value */</span>&#125;<br>&lt;/MyContext.Consumer&gt;<br></code></pre></td></tr></table></figure>
+
+<p><code>Context.Consumer</code> 接收 context 的值，可以在屬於 Provider 子元件的任何一層使用。</p>
+<h2 id="使用-Context-API-實現-i18n-功能"><a href="#使用-Context-API-實現-i18n-功能" class="headerlink" title="使用 Context API 實現 i18n 功能"></a>使用 Context API 實現 i18n 功能</h2><p>接下來會以實作 i18n 功能的例子說明如何使用 React Context API。我們以 <a target="_blank" rel="noopener" href="https://create-react-app.dev/">Create React App</a> 快速建立一個 React 應用程式範例，並建立 <code>src/i18n</code> 目錄。</p>
+<h3 id="I18nContext"><a href="#I18nContext" class="headerlink" title="I18nContext"></a>I18nContext</h3><p>我們使用 <code>React.createContext</code> 建立一個 <code>I18nContext</code> 及定義其初始狀態。這裡我們預計會提供三種方法來預計來實現多國語言轉換功能：</p>
+<ul>
+<li><code>t(key: string): string</code>: 將定義的鍵值翻譯成對應的語系內容</li>
+<li><code>getLocale()</code>: 取得當前語系</li>
+<li><code>setLocale()</code>: 設置/變更當前語系</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; createContext &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><br><span class="hljs-keyword">const</span> I18nContext = createContext(&#123;<br>  t: <span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;&#x27;</span>,<br>  getLocale: <span class="hljs-function">() =&gt;</span> &#123;&#125;,<br>  setLocale: <span class="hljs-function">() =&gt;</span> &#123;&#125;,<br>&#125;);<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> I18nContext;<br></code></pre></td></tr></table></figure>
+
+<h3 id="I18nProvider"><a href="#I18nProvider" class="headerlink" title="I18nProvider"></a>I18nProvider</h3><p>所以我們需要實作一個 <code>I18nProvider</code> 在 tree 的上層使用來提供 context 的值：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> I18nContext <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./I18nContext&#x27;</span>;<br><br><span class="hljs-keyword">const</span> I18nProvider ＝ (props) =&gt; &#123;<br>  <span class="hljs-keyword">const</span> [ locale, setLocale ] = useState(<span class="hljs-string">&#x27;en-US&#x27;</span>);<br><br>  <span class="hljs-keyword">const</span> i18n = &#123; <br>    t: <span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> props.translations[locale][key],<br>    getLocale: <span class="hljs-function">() =&gt;</span> locale,<br>    setLocale: <span class="hljs-function"><span class="hljs-params">locale</span> =&gt;</span> setLocale(locale),<br>  &#125;;<br><br>  <span class="hljs-keyword">return</span> (<br>    &lt;I18nContext.Provider value=&#123;i18n&#125;&gt;<br>      &#123;props.children&#125;<br>    &lt;/I18nContext.Provider&gt;<br>  );<br>&#125;;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> I18nProvider;<br></code></pre></td></tr></table></figure>
+
+<h3 id="useI18n"><a href="#useI18n" class="headerlink" title="useI18n"></a>useI18n</h3><p>為了讀取 context 及訂閱變更的內容，我們實作一個 <code>useI18n</code> 的 React hook 方便我們在其他 functional component 使用多國語言。我們使用 <code>useContext</code> 接收 <code>I18nContext</code> 取得當前 context 的狀態：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123; useContext &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> I18nContext <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./I18nContext&#x27;</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useI18n</span> (<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> i18n = useContext(I18nContext);<br>  <span class="hljs-keyword">return</span> i18n;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> useI18n;<br></code></pre></td></tr></table></figure>
+
+<h3 id="withI18n"><a href="#withI18n" class="headerlink" title="withI18n"></a>withI18n</h3><p>自 React 16.8 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/hooks-intro.html">Hooks</a> 功能釋出後，functional component 已經可以藉用 <code>useState</code> 與 <code>useEffect</code> 等 hooks 滿足大部分情境。如果要使用傳統的 class component 時，我們可以實作一個 <a target="_blank" rel="noopener" href="https://reactjs.org/docs/higher-order-components.html">HOC (higher-order component)</a> 來包裝 Context API 來使用 i18n：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> I18nContext, &#123; I18nContextProps &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./I18nContext&#x27;</span>;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> withI18n = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">WrappedComponent</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> ComponentWithI18n = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> (<br>      &lt;I18nContext.Consumer&gt;<br>        &#123;<span class="hljs-function"><span class="hljs-params">i18n</span> =&gt;</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">WrappedComponent</span> &#123;<span class="hljs-attr">...i18n</span>&#125; &#123;<span class="hljs-attr">...props</span>&#125; /&gt;</span></span>&#125;<br>      &lt;/I18nContext.Consumer&gt;<br>    )<br>    <span class="hljs-keyword">return</span> ComponentWithI18n<br>  &#125;<br>&#125;;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> withI18n;<br></code></pre></td></tr></table></figure>
+
+<p>最後在 <code>src/i18n/index.js</code> 將各個模組導出，方便在其他檔案中 import 它們。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> &#123; <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> I18nProvider &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./I18nProvider&#x27;</span>;<br><span class="hljs-keyword">export</span> &#123; <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> useI18n &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./useI18n&#x27;</span>;<br><span class="hljs-keyword">export</span> &#123; <span class="hljs-keyword">default</span> <span class="hljs-keyword">as</span> withI18n &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./withI18n&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="在-React-中使用-I18nContext"><a href="#在-React-中使用-I18nContext" class="headerlink" title="在 React 中使用 I18nContext"></a>在 React 中使用 I18nContext</h2><p>接著可以在 React 應用程式使用我們建立好的 I18nContext 提供多國語言功能了。我們需要建立多個語系檔來決定轉譯的內容，在 <code>src/locales</code> 是我們要放置各語系檔案的目錄。以下以英文及中文為例：</p>
+<p><code>src/locales/en-US.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-string">&#x27;getting_started&#x27;</span>: <span class="hljs-string">&#x27;Edit &lt;code&gt;src/App.tsx&lt;/code&gt; and save to reload.&#x27;</span>,<br>  <span class="hljs-string">&#x27;learn_react&#x27;</span>: <span class="hljs-string">&#x27;Learn React&#x27;</span>,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><code>src/locales/zh-TW.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  <span class="hljs-string">&#x27;getting_started&#x27;</span>: <span class="hljs-string">&#x27;編輯 &lt;code&gt;src/App.tsx&lt;/code&gt; 並儲存以重新載入。&#x27;</span>,<br>  <span class="hljs-string">&#x27;learn_react&#x27;</span>: <span class="hljs-string">&#x27;學習 React&#x27;</span>,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>在 React 應用程式入口 <code>src/index.js</code>，在 component tree 的上層引入 <code>I18nProvider</code>，並將語言包內容注入 Provider：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-dom&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./index.css&#x27;</span>;<br><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App&#x27;</span>;<br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> serviceWorker <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./serviceWorker&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; I18nProvider &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./i18n&#x27;</span>;<br><br><span class="hljs-keyword">const</span> locales = [ <span class="hljs-string">&#x27;en-US&#x27;</span>, <span class="hljs-string">&#x27;zh-TW&#x27;</span> ];<br><span class="hljs-keyword">const</span> translations = &#123;<br>  <span class="hljs-string">&#x27;en-US&#x27;</span>: <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./locales/en-US&#x27;</span>).default,<br>  <span class="hljs-string">&#x27;zh-TW&#x27;</span>: <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./locales/zh-TW&#x27;</span>).default,<br>&#125;<br><br>ReactDOM.render(<br>  &lt;I18nProvider locales=&#123;locales&#125; translations=&#123;translations&#125;&gt;<br>    &lt;App /&gt;<br>  &lt;/I18nProvider&gt;,<br>  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;root&#x27;</span>)<br>);<br></code></pre></td></tr></table></figure>
+
+<p>然後在需要使用多國語言的 functional component 引入 <code>useI18n</code> hook 使用 <code>t</code> 函式來轉換對應的語系內容，<code>setLocale</code> 用來設置轉換語系：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./logo.svg&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./App.css&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; useI18n &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./i18n&#x27;</span>;<br><br><span class="hljs-keyword">const</span> App: React.FC = <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> &#123; t, setLocale &#125; = useI18n();<br><br>  <span class="hljs-keyword">return</span> (<br>    &lt;div className=<span class="hljs-string">&quot;App&quot;</span>&gt;<br>      &lt;header className=<span class="hljs-string">&quot;App-header&quot;</span>&gt;<br>        &lt;img src=&#123;logo&#125; className=<span class="hljs-string">&quot;App-logo&quot;</span> alt=<span class="hljs-string">&quot;logo&quot;</span> /&gt;<br>        &lt;p dangerouslySetInnerHTML=&#123;&#123; <span class="hljs-attr">__html</span>: t(<span class="hljs-string">&#x27;getting_started&#x27;</span>) &#125;&#125; /&gt;<br>        &lt;a<br>          className=<span class="hljs-string">&quot;App-link&quot;</span><br>          href=<span class="hljs-string">&quot;https://reactjs.org&quot;</span><br>          target=<span class="hljs-string">&quot;_blank&quot;</span><br>          rel=<span class="hljs-string">&quot;noopener noreferrer&quot;</span><br>        &gt;<br>          &#123;t(<span class="hljs-string">&#x27;learn_react&#x27;</span>)&#125;<br>        &lt;/a&gt;<br>      &lt;/header&gt;<br>      &lt;footer className=<span class="hljs-string">&quot;App-Footer&quot;</span>&gt;<br>        &lt;span className=<span class="hljs-string">&quot;App-Locale&quot;</span> onClick=&#123;<span class="hljs-function">() =&gt;</span> setLocale(<span class="hljs-string">&#x27;en-US&#x27;</span>)&#125;&gt;English&lt;/span&gt;<br>        &#123;<span class="hljs-string">&#x27; | &#x27;</span>&#125;<br>        &lt;span className=<span class="hljs-string">&quot;App-Locale&quot;</span> onClick=&#123;<span class="hljs-function">() =&gt;</span> setLocale(<span class="hljs-string">&#x27;zh-TW&#x27;</span>)&#125;&gt;正體中文&lt;/span&gt;<br>      &lt;/footer&gt;<br>    &lt;/div&gt;<br>  );<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> App;<br></code></pre></td></tr></table></figure>
+
+<p>最後執行 <code>npm start</code> 查看結果。</p>
+<p><img src="/2019/11/15/using-react-context-api-to-support-for-i18n/react-i18n-example.jpg" srcset="/img/loading.gif" lazyload></p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>透過 React Context API 可以在 component 之間共享數據，結合 React Hook 與 HOC 可以很容易實現可複用的第三方 library。我們經由一個簡易的 i18n 功能展示如何使用它們，完整的範例可以參考 <a target="_blank" rel="noopener" href="https://github.com/chunkai1312/react-i18n-example">react-i18n-example</a>。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/React/" class="print-no-link">#React</a>
+      
+        <a href="/tags/F2E/" class="print-no-link">#F2E</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用 React Context API 實現 i18n 多國語言</div>
+      <div>https://chunkai.blog/2019/11/15/using-react-context-api-to-support-for-i18n/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2019年11月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/11/24/the-great-hack/" title="《個資風暴：劍橋分析事件》：數據權是人權">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">《個資風暴：劍橋分析事件》：數據權是人權</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/03/04/generating-change-log-with-git-commit-messages/" title="使用 Git 提交訊息產生 Change Log">
+                        <span class="hidden-mobile">使用 Git 提交訊息產生 Change Log</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2019/11/15/using-react-context-api-to-support-for-i18n/';
+          this.page.identifier = '/2019/11/15/using-react-context-api-to-support-for-i18n/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>
