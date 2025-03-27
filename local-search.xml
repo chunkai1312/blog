@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略</title>
+    <link href="/2025/03/18/redis-cache-eviction-lru-lfu/"/>
+    <url>/2025/03/18/redis-cache-eviction-lru-lfu/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p><strong>「記憶體有限，該留下誰、捨棄誰？」</strong><br>快取系統的本質，就是一場資料的生存競爭。</p></blockquote><p>在系統開發中，我們經常使用 Redis 作為快取層，以加速資料存取、減少資料庫壓力。但你是否曾思考過：<strong>當 Redis 記憶體爆滿時，該怎麼辦？新的資料進不來，又該移除哪些？</strong></p><p>這時就必須仰賴 Redis 的淘汰策略（Eviction Policy）。本文將從 Redis 快取運作的核心出發，深入介紹兩大常見策略 <strong>LRU（Least Recently Used）</strong> 和 <strong>LFU（Least Frequently Used）</strong>，並彙整 Redis 所支援的所有淘汰策略，幫助你依據系統需求做出最佳選擇。</p><p><img src="/2025/03/18/redis-cache-eviction-lru-lfu/cover.png"></p><span id="more"></span><h2 id="為什麼-Redis-需要淘汰策略？"><a href="#為什麼-Redis-需要淘汰策略？" class="headerlink" title="為什麼 Redis 需要淘汰策略？"></a>為什麼 Redis 需要淘汰策略？</h2><p>Redis 將所有資料存放在記憶體中，速度雖然極快，但記憶體空間卻是有限的。當資料量不斷累積，超過透過 <code>maxmemory</code> 所設定的記憶體上限後，新的資料就無法再寫入。</p><p>這時就需要 Redis 啟動淘汰策略，自動釋放記憶體空間。透過設定 <code>maxmemory-policy</code>，Redis 能根據不同的邏輯判斷哪些資料應該保留、哪些資料可以移除。</p><h2 id="LRU：最近最少使用，優先淘汰"><a href="#LRU：最近最少使用，優先淘汰" class="headerlink" title="LRU：最近最少使用，優先淘汰"></a>LRU：最近最少使用，優先淘汰</h2><p><strong>LRU（Least Recently Used）</strong> 是最常見的快取淘汰策略之一，其核心邏輯簡單直觀：如果某筆資料很久沒有被使用，代表它的價值可能較低，當空間不足時可以優先移除。</p><h3 id="適用情境"><a href="#適用情境" class="headerlink" title="適用情境"></a>適用情境</h3><ul><li>資料具有<strong>時間性熱度</strong>，例如使用者最近查詢、即時熱搜、熱門新聞等。</li><li>快取內容短期內可能重複存取。</li></ul><h3 id="Redis-的實作方式"><a href="#Redis-的實作方式" class="headerlink" title="Redis 的實作方式"></a>Redis 的實作方式</h3><p>Redis 採用<strong>近似 LRU（Approximate LRU）</strong> 演算法，以提升效能：</p><ul><li>每個 key 都記錄最近一次被存取的時間。</li><li>記憶體達上限時，Redis 隨機抽樣幾個 key（預設 5 個），從中選出最久未被使用的淘汰。</li></ul><p>這種方法不需要維護完整的 LRU 鏈結結構，效能與命中率之間達到不錯的平衡。</p><h2 id="LFU：使用次數最少，優先淘汰"><a href="#LFU：使用次數最少，優先淘汰" class="headerlink" title="LFU：使用次數最少，優先淘汰"></a>LFU：使用次數最少，優先淘汰</h2><p><strong>LFU（Least Frequently Used）</strong> 著重於資料的「存取次數」而非「最近存取時間」。即使某些資料近期未被使用，只要曾經經常被查詢，就會被保留下來。</p><h3 id="適用情境-1"><a href="#適用情境-1" class="headerlink" title="適用情境"></a>適用情境</h3><ul><li>資料具有<strong>長期熱門性</strong>，例如 API 回應快取、熱門商品、用戶設定等。</li><li>希望快取能根據資料的整體價值決定是否保留。</li></ul><h3 id="Redis-的實作方式-1"><a href="#Redis-的實作方式-1" class="headerlink" title="Redis 的實作方式"></a>Redis 的實作方式</h3><p>Redis 自 4.0 起支援 LFU，並設計了一套結合「計數」與「衰減」的高效機制：</p><ul><li>每個 key 維護一個頻率計數器 <code>freq</code>。</li><li>每次存取時，不是直接 +1，而是透過機率增量方式調整計數，避免極端資料壟斷空間。</li><li>Redis 定期讓計數自然衰減，讓過時的熱門資料逐漸退出舞台。</li></ul><p>這讓 LFU 策略既能保留高頻資料，又能避免快取老化。</p><h2 id="Redis-支援的所有淘汰策略總覽"><a href="#Redis-支援的所有淘汰策略總覽" class="headerlink" title="Redis 支援的所有淘汰策略總覽"></a>Redis 支援的所有淘汰策略總覽</h2><p>除了 LRU 與 LFU，Redis 還提供了多種彈性策略，針對不同場景進行優化選擇：</p><table><thead><tr><th>策略名稱</th><th>說明</th></tr></thead><tbody><tr><td><code>noeviction</code></td><td>預設策略。不進行淘汰，記憶體滿時回傳錯誤。</td></tr><tr><td><code>allkeys-lru</code></td><td>所有 key 均使用 LRU 策略進行淘汰。</td></tr><tr><td><code>volatile-lru</code></td><td>僅針對設有 TTL 的 key 使用 LRU。</td></tr><tr><td><code>allkeys-lfu</code></td><td>所有 key 均使用 LFU 策略。</td></tr><tr><td><code>volatile-lfu</code></td><td>僅淘汰設有 TTL 的 key，依據使用頻率。</td></tr><tr><td><code>allkeys-random</code></td><td>隨機淘汰任意 key，不考慮使用狀況。</td></tr><tr><td><code>volatile-random</code></td><td>隨機淘汰設有 TTL 的 key。</td></tr><tr><td><code>volatile-ttl</code></td><td>淘汰 TTL 剩餘時間最短的 key。</td></tr></tbody></table><h3 id="設定範例："><a href="#設定範例：" class="headerlink" title="設定範例："></a>設定範例：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 設定最大記憶體為 512MB</span><br>CONFIG SET maxmemory 512mb<br><br><span class="hljs-comment"># 設定淘汰策略為 LFU</span><br>CONFIG SET maxmemory-policy allkeys-lfu<br></code></pre></td></tr></table></figure><h2 id="LRU、LFU-或其他策略該怎麼選？"><a href="#LRU、LFU-或其他策略該怎麼選？" class="headerlink" title="LRU、LFU 或其他策略該怎麼選？"></a>LRU、LFU 或其他策略該怎麼選？</h2><table><thead><tr><th>策略</th><th>淘汰依據</th><th>適合場景</th></tr></thead><tbody><tr><td><code>allkeys-lru</code></td><td>最近最少被使用</td><td>熱門內容快速輪替、即時查詢</td></tr><tr><td><code>allkeys-lfu</code></td><td>使用次數最少</td><td>穩定熱門內容、避免快取污染</td></tr><tr><td><code>volatile-lru</code></td><td>設有 TTL 的 key + LRU</td><td>混合快取與常駐資料</td></tr><tr><td><code>volatile-ttl</code></td><td>TTL 最短的 key</td><td>控制資料生命週期、可預期過期行為</td></tr><tr><td><code>allkeys-random</code></td><td>隨機</td><td>資料價值不明確，或進行測試用途</td></tr><tr><td><code>noeviction</code></td><td>不淘汰</td><td>Redis 作為資料庫使用，需嚴格監控記憶體</td></tr></tbody></table><h2 id="快取效果觀察方式：使用-INFO-stats"><a href="#快取效果觀察方式：使用-INFO-stats" class="headerlink" title="快取效果觀察方式：使用 INFO stats"></a>快取效果觀察方式：使用 <code>INFO stats</code></h2><p>Redis 提供即時統計資訊，方便開發者了解快取命中與淘汰情況：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">INFO stats<br></code></pre></td></tr></table></figure><p>範例輸出：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">keyspace_hits</span>:<span class="hljs-number">45678</span><br><span class="hljs-attribute">keyspace_misses</span>:<span class="hljs-number">1234</span><br><span class="hljs-attribute">evicted_keys</span>:<span class="hljs-number">89</span><br></code></pre></td></tr></table></figure><p>說明：</p><ul><li><code>keyspace_hits</code>：快取命中的次數  </li><li><code>keyspace_misses</code>：未命中的次數  </li><li><code>evicted_keys</code>：因記憶體限制被淘汰的 key 數量  </li></ul><p>也可以搭配 <code>MEMORY STATS</code> 或 <code>MONITOR</code> 進一步觀察系統表現與空間使用效率。</p><h2 id="快取策略選用建議"><a href="#快取策略選用建議" class="headerlink" title="快取策略選用建議"></a>快取策略選用建議</h2><ol><li><strong>資料為短期熱點</strong> → 建議使用 <code>allkeys-lru</code></li><li><strong>資料具有長期使用價值</strong> → 適合選擇 <code>allkeys-lfu</code></li><li><strong>快取與常駐資料並存，部分有 TTL</strong> → 建議採用 <code>volatile-lru</code> 或 <code>volatile-lfu</code></li><li><strong>需要精確控制資料壽命</strong> → 可考慮使用 <code>volatile-ttl</code></li><li><strong>Redis 作為主要資料庫（非快取）</strong> → 使用 <code>noeviction</code>，並務必搭配記憶體監控</li></ol><h2 id="結語：選對策略，才能發揮快取真正價值"><a href="#結語：選對策略，才能發揮快取真正價值" class="headerlink" title="結語：選對策略，才能發揮快取真正價值"></a>結語：選對策略，才能發揮快取真正價值</h2><p>Redis 快取策略的重點不在於「放多少資料進來」，而是「放誰進來、讓誰出去」。  </p><p>LRU 反映短期熱度、LFU 保留高價值資料，其它策略則提供更細膩的選擇彈性。唯有深刻理解每一種淘汰策略的運作邏輯，才能打造出真正高效、穩定的快取系統。</p><p>記憶體有限，策略得當，快取才能發揮最大效益。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技術分享</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>redis</tag>
+      
+      <tag>cache-eviction</tag>
+      
+      <tag>lru</tag>
+      
+      <tag>lfu</tag>
+      
+      <tag>backend-engineering</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>《基礎架構即程式碼》：從基礎架構管理到軟體工程思維</title>
     <link href="/2025/02/26/infrastructure-as-code/"/>
     <url>/2025/02/26/infrastructure-as-code/</url>

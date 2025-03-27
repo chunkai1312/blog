@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chunkai.blog/2025/03/18/redis-cache-eviction-lru-lfu/</loc>
+    
+    <lastmod>2025-03-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chunkai.blog/2025/01/03/node-cluster-ipc/</loc>
     
     <lastmod>2025-03-01</lastmod>
@@ -1545,6 +1552,41 @@
   
   <url>
     <loc>https://chunkai.blog/tags/%E8%B2%9D%E6%AF%94%E9%AD%AF%E6%96%AF%E9%AD%94%E5%92%92/</loc>
+    <lastmod>2025-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/redis/</loc>
+    <lastmod>2025-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/cache-eviction/</loc>
+    <lastmod>2025-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/lru/</loc>
+    <lastmod>2025-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/lfu/</loc>
+    <lastmod>2025-03-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chunkai.blog/tags/backend-engineering/</loc>
     <lastmod>2025-03-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

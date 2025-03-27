@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="「記憶體有限，該留下誰、捨棄誰？」快取系統的本質，就是一場資料的生存競爭。  在系統開發中，我們經常使用 Redis 作為快取層，以加速資料存取、減少資料庫壓力。但你是否曾思考過：當 Redis 記憶體爆滿時，該怎麼辦？新的資料進不來，又該移除哪些？ 這時就必須仰賴 Redis 的淘汰策略（Eviction Policy）。本文將從 Redis 快取運作的核心出發，深入介紹兩大常見策略 LRU（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略">
+<meta property="og:url" content="https://chunkai.blog/2025/03/18/redis-cache-eviction-lru-lfu/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="「記憶體有限，該留下誰、捨棄誰？」快取系統的本質，就是一場資料的生存競爭。  在系統開發中，我們經常使用 Redis 作為快取層，以加速資料存取、減少資料庫壓力。但你是否曾思考過：當 Redis 記憶體爆滿時，該怎麼辦？新的資料進不來，又該移除哪些？ 這時就必須仰賴 Redis 的淘汰策略（Eviction Policy）。本文將從 Redis 快取運作的核心出發，深入介紹兩大常見策略 LRU（">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2025/03/18/redis-cache-eviction-lru-lfu/cover.png">
+<meta property="article:published_time" content="2025-03-18T08:19:35.000Z">
+<meta property="article:modified_time" content="2025-03-27T09:27:56.393Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="redis">
+<meta property="article:tag" content="cache-eviction">
+<meta property="article:tag" content="lru">
+<meta property="article:tag" content="lfu">
+<meta property="article:tag" content="backend-engineering">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2025/03/18/redis-cache-eviction-lru-lfu/cover.png">
+  
+  
+  
+  <title>Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-18 16:19" pubdate>
+          2025年3月18日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p><strong>「記憶體有限，該留下誰、捨棄誰？」</strong><br>快取系統的本質，就是一場資料的生存競爭。</p>
+</blockquote>
+<p>在系統開發中，我們經常使用 Redis 作為快取層，以加速資料存取、減少資料庫壓力。但你是否曾思考過：<strong>當 Redis 記憶體爆滿時，該怎麼辦？新的資料進不來，又該移除哪些？</strong></p>
+<p>這時就必須仰賴 Redis 的淘汰策略（Eviction Policy）。本文將從 Redis 快取運作的核心出發，深入介紹兩大常見策略 <strong>LRU（Least Recently Used）</strong> 和 <strong>LFU（Least Frequently Used）</strong>，並彙整 Redis 所支援的所有淘汰策略，幫助你依據系統需求做出最佳選擇。</p>
+<p><img src="/2025/03/18/redis-cache-eviction-lru-lfu/cover.png" srcset="/img/loading.gif" lazyload></p>
+<span id="more"></span>
+
+<h2 id="為什麼-Redis-需要淘汰策略？"><a href="#為什麼-Redis-需要淘汰策略？" class="headerlink" title="為什麼 Redis 需要淘汰策略？"></a>為什麼 Redis 需要淘汰策略？</h2><p>Redis 將所有資料存放在記憶體中，速度雖然極快，但記憶體空間卻是有限的。當資料量不斷累積，超過透過 <code>maxmemory</code> 所設定的記憶體上限後，新的資料就無法再寫入。</p>
+<p>這時就需要 Redis 啟動淘汰策略，自動釋放記憶體空間。透過設定 <code>maxmemory-policy</code>，Redis 能根據不同的邏輯判斷哪些資料應該保留、哪些資料可以移除。</p>
+<h2 id="LRU：最近最少使用，優先淘汰"><a href="#LRU：最近最少使用，優先淘汰" class="headerlink" title="LRU：最近最少使用，優先淘汰"></a>LRU：最近最少使用，優先淘汰</h2><p><strong>LRU（Least Recently Used）</strong> 是最常見的快取淘汰策略之一，其核心邏輯簡單直觀：如果某筆資料很久沒有被使用，代表它的價值可能較低，當空間不足時可以優先移除。</p>
+<h3 id="適用情境"><a href="#適用情境" class="headerlink" title="適用情境"></a>適用情境</h3><ul>
+<li>資料具有<strong>時間性熱度</strong>，例如使用者最近查詢、即時熱搜、熱門新聞等。</li>
+<li>快取內容短期內可能重複存取。</li>
+</ul>
+<h3 id="Redis-的實作方式"><a href="#Redis-的實作方式" class="headerlink" title="Redis 的實作方式"></a>Redis 的實作方式</h3><p>Redis 採用<strong>近似 LRU（Approximate LRU）</strong> 演算法，以提升效能：</p>
+<ul>
+<li>每個 key 都記錄最近一次被存取的時間。</li>
+<li>記憶體達上限時，Redis 隨機抽樣幾個 key（預設 5 個），從中選出最久未被使用的淘汰。</li>
+</ul>
+<p>這種方法不需要維護完整的 LRU 鏈結結構，效能與命中率之間達到不錯的平衡。</p>
+<h2 id="LFU：使用次數最少，優先淘汰"><a href="#LFU：使用次數最少，優先淘汰" class="headerlink" title="LFU：使用次數最少，優先淘汰"></a>LFU：使用次數最少，優先淘汰</h2><p><strong>LFU（Least Frequently Used）</strong> 著重於資料的「存取次數」而非「最近存取時間」。即使某些資料近期未被使用，只要曾經經常被查詢，就會被保留下來。</p>
+<h3 id="適用情境-1"><a href="#適用情境-1" class="headerlink" title="適用情境"></a>適用情境</h3><ul>
+<li>資料具有<strong>長期熱門性</strong>，例如 API 回應快取、熱門商品、用戶設定等。</li>
+<li>希望快取能根據資料的整體價值決定是否保留。</li>
+</ul>
+<h3 id="Redis-的實作方式-1"><a href="#Redis-的實作方式-1" class="headerlink" title="Redis 的實作方式"></a>Redis 的實作方式</h3><p>Redis 自 4.0 起支援 LFU，並設計了一套結合「計數」與「衰減」的高效機制：</p>
+<ul>
+<li>每個 key 維護一個頻率計數器 <code>freq</code>。</li>
+<li>每次存取時，不是直接 +1，而是透過機率增量方式調整計數，避免極端資料壟斷空間。</li>
+<li>Redis 定期讓計數自然衰減，讓過時的熱門資料逐漸退出舞台。</li>
+</ul>
+<p>這讓 LFU 策略既能保留高頻資料，又能避免快取老化。</p>
+<h2 id="Redis-支援的所有淘汰策略總覽"><a href="#Redis-支援的所有淘汰策略總覽" class="headerlink" title="Redis 支援的所有淘汰策略總覽"></a>Redis 支援的所有淘汰策略總覽</h2><p>除了 LRU 與 LFU，Redis 還提供了多種彈性策略，針對不同場景進行優化選擇：</p>
+<table>
+<thead>
+<tr>
+<th>策略名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>noeviction</code></td>
+<td>預設策略。不進行淘汰，記憶體滿時回傳錯誤。</td>
+</tr>
+<tr>
+<td><code>allkeys-lru</code></td>
+<td>所有 key 均使用 LRU 策略進行淘汰。</td>
+</tr>
+<tr>
+<td><code>volatile-lru</code></td>
+<td>僅針對設有 TTL 的 key 使用 LRU。</td>
+</tr>
+<tr>
+<td><code>allkeys-lfu</code></td>
+<td>所有 key 均使用 LFU 策略。</td>
+</tr>
+<tr>
+<td><code>volatile-lfu</code></td>
+<td>僅淘汰設有 TTL 的 key，依據使用頻率。</td>
+</tr>
+<tr>
+<td><code>allkeys-random</code></td>
+<td>隨機淘汰任意 key，不考慮使用狀況。</td>
+</tr>
+<tr>
+<td><code>volatile-random</code></td>
+<td>隨機淘汰設有 TTL 的 key。</td>
+</tr>
+<tr>
+<td><code>volatile-ttl</code></td>
+<td>淘汰 TTL 剩餘時間最短的 key。</td>
+</tr>
+</tbody></table>
+<h3 id="設定範例："><a href="#設定範例：" class="headerlink" title="設定範例："></a>設定範例：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 設定最大記憶體為 512MB</span><br>CONFIG SET maxmemory 512mb<br><br><span class="hljs-comment"># 設定淘汰策略為 LFU</span><br>CONFIG SET maxmemory-policy allkeys-lfu<br></code></pre></td></tr></table></figure>
+
+<h2 id="LRU、LFU-或其他策略該怎麼選？"><a href="#LRU、LFU-或其他策略該怎麼選？" class="headerlink" title="LRU、LFU 或其他策略該怎麼選？"></a>LRU、LFU 或其他策略該怎麼選？</h2><table>
+<thead>
+<tr>
+<th>策略</th>
+<th>淘汰依據</th>
+<th>適合場景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>allkeys-lru</code></td>
+<td>最近最少被使用</td>
+<td>熱門內容快速輪替、即時查詢</td>
+</tr>
+<tr>
+<td><code>allkeys-lfu</code></td>
+<td>使用次數最少</td>
+<td>穩定熱門內容、避免快取污染</td>
+</tr>
+<tr>
+<td><code>volatile-lru</code></td>
+<td>設有 TTL 的 key + LRU</td>
+<td>混合快取與常駐資料</td>
+</tr>
+<tr>
+<td><code>volatile-ttl</code></td>
+<td>TTL 最短的 key</td>
+<td>控制資料生命週期、可預期過期行為</td>
+</tr>
+<tr>
+<td><code>allkeys-random</code></td>
+<td>隨機</td>
+<td>資料價值不明確，或進行測試用途</td>
+</tr>
+<tr>
+<td><code>noeviction</code></td>
+<td>不淘汰</td>
+<td>Redis 作為資料庫使用，需嚴格監控記憶體</td>
+</tr>
+</tbody></table>
+<h2 id="快取效果觀察方式：使用-INFO-stats"><a href="#快取效果觀察方式：使用-INFO-stats" class="headerlink" title="快取效果觀察方式：使用 INFO stats"></a>快取效果觀察方式：使用 <code>INFO stats</code></h2><p>Redis 提供即時統計資訊，方便開發者了解快取命中與淘汰情況：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">INFO stats<br></code></pre></td></tr></table></figure>
+
+<p>範例輸出：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">keyspace_hits</span>:<span class="hljs-number">45678</span><br><span class="hljs-attribute">keyspace_misses</span>:<span class="hljs-number">1234</span><br><span class="hljs-attribute">evicted_keys</span>:<span class="hljs-number">89</span><br></code></pre></td></tr></table></figure>
+
+<p>說明：</p>
+<ul>
+<li><code>keyspace_hits</code>：快取命中的次數  </li>
+<li><code>keyspace_misses</code>：未命中的次數  </li>
+<li><code>evicted_keys</code>：因記憶體限制被淘汰的 key 數量  </li>
+</ul>
+<p>也可以搭配 <code>MEMORY STATS</code> 或 <code>MONITOR</code> 進一步觀察系統表現與空間使用效率。</p>
+<h2 id="快取策略選用建議"><a href="#快取策略選用建議" class="headerlink" title="快取策略選用建議"></a>快取策略選用建議</h2><ol>
+<li><strong>資料為短期熱點</strong> → 建議使用 <code>allkeys-lru</code></li>
+<li><strong>資料具有長期使用價值</strong> → 適合選擇 <code>allkeys-lfu</code></li>
+<li><strong>快取與常駐資料並存，部分有 TTL</strong> → 建議採用 <code>volatile-lru</code> 或 <code>volatile-lfu</code></li>
+<li><strong>需要精確控制資料壽命</strong> → 可考慮使用 <code>volatile-ttl</code></li>
+<li><strong>Redis 作為主要資料庫（非快取）</strong> → 使用 <code>noeviction</code>，並務必搭配記憶體監控</li>
+</ol>
+<h2 id="結語：選對策略，才能發揮快取真正價值"><a href="#結語：選對策略，才能發揮快取真正價值" class="headerlink" title="結語：選對策略，才能發揮快取真正價值"></a>結語：選對策略，才能發揮快取真正價值</h2><p>Redis 快取策略的重點不在於「放多少資料進來」，而是「放誰進來、讓誰出去」。  </p>
+<p>LRU 反映短期熱度、LFU 保留高價值資料，其它策略則提供更細膩的選擇彈性。唯有深刻理解每一種淘汰策略的運作邏輯，才能打造出真正高效、穩定的快取系統。</p>
+<p>記憶體有限，策略得當，快取才能發揮最大效益。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/redis/" class="print-no-link">#redis</a>
+      
+        <a href="/tags/cache-eviction/" class="print-no-link">#cache-eviction</a>
+      
+        <a href="/tags/lru/" class="print-no-link">#lru</a>
+      
+        <a href="/tags/lfu/" class="print-no-link">#lfu</a>
+      
+        <a href="/tags/backend-engineering/" class="print-no-link">#backend-engineering</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略</div>
+      <div>https://chunkai.blog/2025/03/18/redis-cache-eviction-lru-lfu/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2025年3月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/02/26/infrastructure-as-code/" title="《基礎架構即程式碼》：從基礎架構管理到軟體工程思維">
+                        <span class="hidden-mobile">《基礎架構即程式碼》：從基礎架構管理到軟體工程思維</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2025/03/18/redis-cache-eviction-lru-lfu/';
+          this.page.identifier = '/2025/03/18/redis-cache-eviction-lru-lfu/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>
