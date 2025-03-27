@@ -635,10 +635,10 @@ hexo-server@^2.0.0:
     open "^7.0.0"
     serve-static "^1.14.1"
 
-hexo-theme-fluid@^1.8.9-a:
-  version "1.8.9-a"
-  resolved "https://registry.yarnpkg.com/hexo-theme-fluid/-/hexo-theme-fluid-1.8.9-a.tgz#fb8e29163d9ff0edca9ae6c117f7efa9856d46a2"
-  integrity sha512-r715QJpYEDTVxi/Rlrf2tRPviFJ2OWNrqn8VJJwVLgQyYpHDW39R2m1eDD6a9GU5E+DmO7ySjQnhuVZBvF2JeQ==
+hexo-theme-fluid@^1.9.8:
+  version "1.9.8"
+  resolved "https://registry.yarnpkg.com/hexo-theme-fluid/-/hexo-theme-fluid-1.9.8.tgz#e61084f2075b2418e7fe96653257c9ac27d7ca0a"
+  integrity sha512-+HUx8xrBA2WWgJYMhlCy5L69LLgAL8PjsLIyIbh81Ftc0J71V69K04Zqv270VjRSs38rx9djeQPrgidtMdnh3g==
 
 hexo-util@^2.0.0, hexo-util@^2.1.0, hexo-util@^2.4.0:
   version "2.4.0"
