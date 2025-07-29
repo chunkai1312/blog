@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2025-03-27T09:27:56.393Z</updated>
+  <updated>2025-07-29T09:48:33.752Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 Firecrawl 產生網站的 llms.txt</title>
+    <link href="https://chunkai.blog/2025/07/29/firecrawl-generate-llms-txt/"/>
+    <id>https://chunkai.blog/2025/07/29/firecrawl-generate-llms-txt/</id>
+    <published>2025-07-29T08:10:02.000Z</published>
+    <updated>2025-07-29T09:48:33.752Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;當 AI 模型愈來愈常被應用於搜尋、問答與內容生成等場景，網站經營者也需思考：該如何讓 AI 更精確地理解網站內容？&lt;code&gt;llms.txt&lt;/code&gt; 正是一種針對大型語言模型設計的標準格式，能以簡潔、結構化的方式提供網站資訊，協助模型快速掌握網站架構與重點。透過 Firecrawl 所提供的開源工具與 API，產生這類檔案變得快速又直覺，無需撰寫爬蟲程式，即可將網站轉換成 AI 可理解的知識資源。本文將介紹 &lt;code&gt;llms.txt&lt;/code&gt; 的格式、用途，以及如何利用 Firecrawl 自動產生高品質的 AI 導向網站摘要檔。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2025/07/29/firecrawl-generate-llms-txt/cover.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技術分享" scheme="https://chunkai.blog/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="llms.txt" scheme="https://chunkai.blog/tags/llms-txt/"/>
+    
+    <category term="firecrawl" scheme="https://chunkai.blog/tags/firecrawl/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略</title>
@@ -484,32 +508,6 @@
     <category term="mongodump" scheme="https://chunkai.blog/tags/mongodump/"/>
     
     <category term="mongorestore" scheme="https://chunkai.blog/tags/mongorestore/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NestJS 官方課程：NestJS Fundamentals</title>
-    <link href="https://chunkai.blog/2020/08/14/nestjs-fundamentals/"/>
-    <id>https://chunkai.blog/2020/08/14/nestjs-fundamentals/</id>
-    <published>2020-08-14T14:11:44.000Z</published>
-    <updated>2021-09-05T09:21:18.004Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://nestjs.com/&quot;&gt;NestJS&lt;/a&gt; 是一個漸進式 (progressive) 的 NodeJS 框架，用於建構高效能、可靠性和可擴展的伺服端 (server-side) 應用程式。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/08/14/nestjs-fundamentals/cover.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="工具應用" scheme="https://chunkai.blog/categories/%E5%B7%A5%E5%85%B7%E6%87%89%E7%94%A8/"/>
-    
-    
-    <category term="NodeJS" scheme="https://chunkai.blog/tags/NodeJS/"/>
-    
-    <category term="NestJS" scheme="https://chunkai.blog/tags/NestJS/"/>
-    
-    <category term="Web Framework" scheme="https://chunkai.blog/tags/Web-Framework/"/>
     
   </entry>
   
