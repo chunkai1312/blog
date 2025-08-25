@@ -1020,11 +1020,11 @@
     
     <tags>
       
-      <tag>JavaScript</tag>
-      
       <tag>Rollup</tag>
       
       <tag>Webpack</tag>
+      
+      <tag>JavaScript</tag>
       
     </tags>
     
@@ -1352,9 +1352,9 @@
       
       <tag>GitLab</tag>
       
-      <tag>Docker</tag>
-      
       <tag>GitLab Pages</tag>
+      
+      <tag>Docker</tag>
       
       <tag>Traefik</tag>
       
@@ -1599,17 +1599,17 @@
     
     <tags>
       
+      <tag>Git</tag>
+      
+      <tag>NodeJS</tag>
+      
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
       
-      <tag>NodeJS</tag>
-      
-      <tag>Git</tag>
+      <tag>Drone</tag>
       
       <tag>CI</tag>
-      
-      <tag>Drone</tag>
       
     </tags>
     
@@ -1812,9 +1812,9 @@
       
       <tag>Docker</tag>
       
-      <tag>Docker Registry</tag>
-      
       <tag>DevOps</tag>
+      
+      <tag>Docker Registry</tag>
       
     </tags>
     
@@ -1841,9 +1841,9 @@
       
       <tag>NodeJS</tag>
       
-      <tag>Express</tag>
-      
       <tag>React</tag>
+      
+      <tag>Express</tag>
       
       <tag>Universal JavaScript</tag>
       
@@ -1870,11 +1870,11 @@
     
     <tags>
       
+      <tag>JavaScript</tag>
+      
       <tag>Third-Party JavaScript</tag>
       
       <tag>Node.js</tag>
-      
-      <tag>JavaScript</tag>
       
     </tags>
     
@@ -1899,9 +1899,9 @@
     
     <tags>
       
-      <tag>DevOps</tag>
-      
       <tag>Uptime Robot</tag>
+      
+      <tag>DevOps</tag>
       
     </tags>
     
@@ -2017,17 +2017,17 @@
     
     <tags>
       
-      <tag>GitLab CI</tag>
+      <tag>Git</tag>
+      
+      <tag>NodeJS</tag>
       
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
       
-      <tag>NodeJS</tag>
-      
-      <tag>Git</tag>
-      
       <tag>CI</tag>
+      
+      <tag>GitLab CI</tag>
       
     </tags>
     
