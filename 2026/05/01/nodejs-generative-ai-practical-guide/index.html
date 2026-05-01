@@ -1,0 +1,698 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="這本書，比較像是一段學習歷程的整理新書即將出版，這本書對我來說，更像是一段時間累積而來的學習歷程。 過去一年，我把大部分時間投入在生成式 AI 的探索上。從一開始呼叫 API，到逐漸理解模型的特性與限制，也開始嘗試不同框架、實作各種應用場景。過程中踩了不少坑，也留下了許多零散的筆記與實驗結果。 這些內容在反覆整理與驗證之後，慢慢形成一條相對清晰的學習脈絡，最後成為這本書的基礎。對我來說，它不只是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐">
+<meta property="og:url" content="https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="這本書，比較像是一段學習歷程的整理新書即將出版，這本書對我來說，更像是一段時間累積而來的學習歷程。 過去一年，我把大部分時間投入在生成式 AI 的探索上。從一開始呼叫 API，到逐漸理解模型的特性與限制，也開始嘗試不同框架、實作各種應用場景。過程中踩了不少坑，也留下了許多零散的筆記與實驗結果。 這些內容在反覆整理與驗證之後，慢慢形成一條相對清晰的學習脈絡，最後成為這本書的基礎。對我來說，它不只是">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/cover.png">
+<meta property="article:published_time" content="2026-05-01T13:21:18.000Z">
+<meta property="article:modified_time" content="2026-05-01T13:35:38.737Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/cover.png">
+  
+  
+  
+  <title>《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-01 21:21" pubdate>
+          2026年5月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2026/05/01/nodejs-generative-ai-practical-guide/cover.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="這本書，比較像是一段學習歷程的整理"><a href="#這本書，比較像是一段學習歷程的整理" class="headerlink" title="這本書，比較像是一段學習歷程的整理"></a>這本書，比較像是一段學習歷程的整理</h1><p>新書即將出版，這本書對我來說，更像是一段時間累積而來的學習歷程。</p>
+<p>過去一年，我把大部分時間投入在生成式 AI 的探索上。從一開始呼叫 API，到逐漸理解模型的特性與限制，也開始嘗試不同框架、實作各種應用場景。過程中踩了不少坑，也留下了許多零散的筆記與實驗結果。</p>
+<p>這些內容在反覆整理與驗證之後，慢慢形成一條相對清晰的學習脈絡，最後成為這本書的基礎。對我來說，它不只是知識的整理成果，更是一段持續試錯、逐步建立技術觀點的過程。</p>
+<p>如果你也正在學習生成式 AI，或正在摸索如何將它應用在實務場景中，也許其中的一些經驗，能提供你一些參考。</p>
+<h2 id="一開始，其實沒有那麼多規劃"><a href="#一開始，其實沒有那麼多規劃" class="headerlink" title="一開始，其實沒有那麼多規劃"></a>一開始，其實沒有那麼多規劃</h2><p>回頭看，整個過程其實沒有一個明確的起點。比較像是在某個時間點開始，意識到這個領域的重要性，然後就一路往下走。</p>
+<p>最初的嘗試其實很直覺，只是想確認這些模型在實際應用中可以做到什麼程度。但很快就會發現，問題不在於「能不能做」，而是在於「做到什麼程度之後，才算真的能用」。</p>
+<p>這個差異，在 demo 階段不明顯，但一旦開始嘗試把東西接進實際系統，就會變得非常具體。</p>
+<h2 id="當系統開始出現結構"><a href="#當系統開始出現結構" class="headerlink" title="當系統開始出現結構"></a>當系統開始出現結構</h2><p>隨著實作的內容逐漸增加，原本單一的功能會慢慢演變成一個有結構的流程。從單次回應，到需要維持對話脈絡；從單純生成內容，到必須結合既有資料；再到多個步驟之間的串接與控制。</p>
+<p>在這個過程中，會開始面對一些比較本質的問題。例如，模型輸出的不確定性該如何被控制，哪些邏輯應該交給系統處理，哪些部分才適合交給模型，或者在什麼情境下，引入外部資料（例如 RAG）才是合理的選擇。</p>
+<p>這些問題沒有一個標準答案，但在反覆嘗試之中，會逐漸形成一些相對穩定的做法。也讓整個開發過程，從單純「把功能做出來」，轉變為「如何讓這些功能在現實環境中運作」。</p>
+<h2 id="筆記與整理，變成過程的一部分"><a href="#筆記與整理，變成過程的一部分" class="headerlink" title="筆記與整理，變成過程的一部分"></a>筆記與整理，變成過程的一部分</h2><p>隨著嘗試的內容變多，另一個明顯的變化是，記錄開始變得不可或缺。</p>
+<p>許多問題會以不同形式反覆出現，而一些看似可行的設計，在不同情境下可能會失效。如果沒有留下過程，很容易在一段時間後再次回到同樣的起點。</p>
+<p>因此，後來的習慣變成在每一次嘗試之後，都試著把決策過程記錄下來。這些記錄不只是結果，也包含當時的假設、替代方案，以及最後選擇某種做法的原因。</p>
+<p>當這些筆記逐漸累積之後，其實會開始看到一些共通的模式。例如，有些問題其實不需要複雜的架構就能解決，而有些設計在抽象化之後，反而會增加理解與維護的成本。</p>
+<h2 id="從工具到問題本身"><a href="#從工具到問題本身" class="headerlink" title="從工具到問題本身"></a>從工具到問題本身</h2><p>在這段過程中，一個比較關鍵的轉變，是關注的重心從工具轉移到問題本身。</p>
+<p>一開始學習時，很容易把焦點放在框架或工具上，試圖理解它們能做什麼、該怎麼用。但隨著經驗累積，會慢慢意識到，工具只是其中一個面向，真正需要釐清的是問題本身的結構。</p>
+<p>在某些情境下，引入抽象層是有幫助的，但在另一些情況下，過度抽象反而會讓系統變得更難掌控。這些取捨，通常不會在工具文件中出現，而是需要透過實際經驗慢慢建立。</p>
+<p>這樣的思考方式，也影響了書中內容的安排。比起單純介紹工具，我更傾向整理在不同情境下的選擇方式，以及這些選擇背後的考量。</p>
+<h2 id="整理，比學習更困難"><a href="#整理，比學習更困難" class="headerlink" title="整理，比學習更困難"></a>整理，比學習更困難</h2><p>將這些內容整理成一個有結構的形式，其實比學習本身更花時間。</p>
+<p>許多原本只是直覺的理解，在試圖寫下來時，會被迫重新檢視。某些看似合理的結論，需要再做一次驗證，確認它不是來自於特定條件下的偶然結果。</p>
+<p>這個過程某種程度上，是把原本模糊的經驗，轉換成可以被他人理解與重現的內容。也讓一些原本沒有被意識到的問題，變得更加清楚。</p>
+<h2 id="關於這本書"><a href="#關於這本書" class="headerlink" title="關於這本書"></a>關於這本書</h2><p>如果要說這本書在做什麼，我比較傾向把它看成是一條學習路徑的整理。</p>
+<p>從最基礎的模型呼叫開始，逐漸延伸到如何建立穩定的流程，如何讓模型與外部資料互動，最後再到較為複雜的決策與任務處理。這些內容本來是分散的，但在整理之後，形成了一個相對連續的脈絡。</p>
+<p>這並不是唯一的路徑，但至少是在這段時間內，我認為相對可行、也比較容易落地的一種方式。</p>
+<h2 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h2><p>對我來說，這本書並不是一個完成的結果，而是一個階段性的整理。</p>
+<p>它記錄的是某一段時間的理解，以及在那個時間點，我對這個領域的看法。未來技術一定會持續變化，現在的做法也可能需要被調整。</p>
+<p>但至少在這個階段，這些經驗被系統性地整理下來了。</p>
+<p>如果你剛好也在這條路上，也許其中有一些片段，會對你有所幫助。</p>
+<p><img src="/2026/05/01/nodejs-generative-ai-practical-guide/MP22566_banner_1200-300.jpg" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>天瓏網路書店連結：<a target="_blank" rel="noopener" href="https://www.tenlong.com.tw/products/9786264144964">https://www.tenlong.com.tw/products/9786264144964</a></p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/" class="category-chain-item">生活札記</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐</div>
+      <div>https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2026年5月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/31/2025-year-in-review/" title="回顧 2025 年">
+                        <span class="hidden-mobile">回顧 2025 年</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/';
+          this.page.identifier = '/2026/05/01/nodejs-generative-ai-practical-guide/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2025-12-31T09:40:48.426Z</updated>
+  <updated>2026-05-01T13:35:38.737Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐</title>
+    <link href="https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/"/>
+    <id>https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/</id>
+    <published>2026-05-01T13:21:18.000Z</published>
+    <updated>2026-05-01T13:35:38.737Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2026/05/01/nodejs-generative-ai-practical-guide/cover.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;這本書，比較像是一段學習歷程的整理&quot;&gt;&lt;a href=&quot;#這本書，比較像是一段學習歷程的整理&quot; class=</summary>
+      
+    
+    
+    
+    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>回顧 2025 年</title>
@@ -482,26 +503,6 @@
     <category term="美元" scheme="https://chunkai.blog/tags/%E7%BE%8E%E5%85%83/"/>
     
     <category term="匯率" scheme="https://chunkai.blog/tags/%E5%8C%AF%E7%8E%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>回顧 2020 年</title>
-    <link href="https://chunkai.blog/2020/12/31/2020-year-in-review/"/>
-    <id>https://chunkai.blog/2020/12/31/2020-year-in-review/</id>
-    <published>2020-12-31T14:55:48.000Z</published>
-    <updated>2025-12-31T09:01:26.210Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/2020/12/31/2020-year-in-review/cover.jpg&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2020 年肯定是載入史冊的一年，在即將邁入新年的同時，又到了年終回顧的時刻。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
-    
     
   </entry>
   
