@@ -226,9 +226,9 @@
     
     <tags>
       
-      <tag>股市循環</tag>
-      
       <tag>景氣循環</tag>
+      
+      <tag>股市循環</tag>
       
       <tag>週期投資</tag>
       
@@ -627,11 +627,11 @@
     
     <tags>
       
-      <tag>順勢交易</tag>
-      
       <tag>技術分析</tag>
       
       <tag>亞當理論</tag>
+      
+      <tag>順勢交易</tag>
       
     </tags>
     
@@ -685,11 +685,11 @@
     
     <tags>
       
-      <tag>景氣循環</tag>
-      
       <tag>經濟指標</tag>
       
       <tag>商業循環</tag>
+      
+      <tag>景氣循環</tag>
       
       <tag>景氣循環投資</tag>
       
@@ -1637,15 +1637,15 @@
     
     <tags>
       
+      <tag>NodeJS</tag>
+      
+      <tag>CI</tag>
+      
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
       
-      <tag>NodeJS</tag>
-      
       <tag>Git</tag>
-      
-      <tag>CI</tag>
       
       <tag>Drone</tag>
       
@@ -2020,17 +2020,17 @@
     
     <tags>
       
-      <tag>NodeJS</tag>
-      
-      <tag>CI</tag>
-      
       <tag>Travis CI</tag>
       
       <tag>Codecov</tag>
       
+      <tag>NodeJS</tag>
+      
       <tag>GitHub</tag>
       
       <tag>Code Coverage</tag>
+      
+      <tag>CI</tag>
       
     </tags>
     
@@ -2055,17 +2055,17 @@
     
     <tags>
       
+      <tag>NodeJS</tag>
+      
+      <tag>CI</tag>
+      
       <tag>GitLab CI</tag>
       
       <tag>GitLab</tag>
       
       <tag>Docker</tag>
       
-      <tag>NodeJS</tag>
-      
       <tag>Git</tag>
-      
-      <tag>CI</tag>
       
     </tags>
     
