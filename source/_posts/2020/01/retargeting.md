@@ -1,5 +1,6 @@
 ---
 title: 數位廣告基礎入門：再行銷 Retargeting
+description: 數位廣告基礎系列文章，介紹再行銷的運作原理、cookie 追蹤、廣告投放邏輯與常見應用場景。
 tags: [Digital Advertising, Retargeting]
 categories: [數位廣告]
 index_img: /2020/01/30/retargeting/cover.jpg

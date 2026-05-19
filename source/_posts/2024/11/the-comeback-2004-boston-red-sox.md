@@ -1,5 +1,6 @@
 ---
 title: 《逆轉勝：2004波士頓紅襪傳奇之役》：見證棒球史上偉大的逆轉
+description: 觀後整理 Netflix《逆轉勝：2004波士頓紅襪傳奇之役》，回顧貝比魯斯魔咒、Theo Epstein 改革與 2004 ALCS 的歷史逆轉。
 tags: [美國職棒,波士頓紅襪,貝比魯斯魔咒]
 categories: 影片賞析
 index_img: /2024/11/03/the-comeback-2004-boston-red-sox/cover.jpg

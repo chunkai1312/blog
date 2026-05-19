@@ -1,5 +1,6 @@
 ---
 title: 美國航太暨國防產業 ETFs 整理
+description: 整理美國航太與國防產業 ETF，包括 ITA、XAR、PPA 的基本資料、持股結構與報酬表現，供產業型 ETF 投資比較參考。
 tags: [美股, Aerospace & Defense, ETF, ITA, XAR, PPA]
 categories: [投資理財]
 index_img: /2020/06/08/aerospace-and-defense-etfs/cover.jpg

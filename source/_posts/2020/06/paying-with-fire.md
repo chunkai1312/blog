@@ -1,5 +1,6 @@
 ---
 title: 《賺錢，更賺自由的 FIRE 理財族》：財務獨立，提早退休
+description: 整理《賺錢，更賺自由的 FIRE 理財族》的財務獨立觀點，討論節流、儲蓄、指數型基金與避免極端節儉失去生活彈性。
 tags: [FIRE, Financial Independence, Retire Early, 財務獨立, 提早退休]
 categories: [閱讀筆記]
 index_img: /2020/06/07/paying-with-fire/cover.jpg

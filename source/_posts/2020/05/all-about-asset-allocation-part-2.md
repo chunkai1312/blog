@@ -1,5 +1,6 @@
 ---
 title: 《資產配置投資策略》：資產類別的選擇
+description: 《資產配置投資策略》第二篇閱讀筆記，聚焦美國股票、國際股票、固定收益、不動產與另類投資等資產類別的選擇邏輯。
 tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2020/05/30/all-about-asset-allocation-part-2/cover.jpg

@@ -1,5 +1,6 @@
 ---
 title: Redbird：適用於 Node.js 的反向代理伺服器
+description: 介紹 Redbird 這套 Node.js 反向代理工具，示範基本安裝與路由設定，適合在單一主機管理多個網域與服務入口。
 tags: [NodeJS, Reverse Proxy]
 categories: [工具應用]
 index_img: /2019/12/11/redbird-reverse-proxy/cover.jpg

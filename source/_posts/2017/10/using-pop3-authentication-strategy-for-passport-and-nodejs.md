@@ -1,5 +1,6 @@
 ---
 title: 使用 Passport 和 Node.js 的 POP3 身份認證策略
+description: 介紹自訂 Passport POP3 authentication strategy 的安裝與使用方式，適合需要整合學校或公司既有 email 帳號登入的 Node.js 系統。
 tags: [NodeJS, Passport, POP3, Authentication]
 categories: [技術分享]
 index_img: /2017/10/16/using-pop3-authentication-strategy-for-passport-and-nodejs/cover.jpg

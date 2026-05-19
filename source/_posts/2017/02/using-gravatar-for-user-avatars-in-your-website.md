@@ -1,5 +1,6 @@
 ---
 title: 在網站中使用 Gravatar 顯示使用者頭像
+description: 說明 Gravatar 的跨站頭像機制，並以 Node.js 範例示範如何根據使用者 email 產生雜湊網址，在網站中顯示對應的大頭照。
 tags: [Gravatar, NodeJS]
 categories: [技術分享]
 index_img: /2017/02/01/using-gravatar-for-user-avatars-in-your-website/cover.jpg

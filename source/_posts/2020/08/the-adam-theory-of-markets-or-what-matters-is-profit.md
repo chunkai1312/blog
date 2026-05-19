@@ -1,5 +1,6 @@
 ---
 title: 《亞當理論》：要在市場上成功，我們就必須屈服
+description: 整理《亞當理論》的順勢交易觀點，包含第二映像圖、進場時機、基本交易守則與面對市場不確定性的操作心法。
 tags: [亞當理論, 順勢交易, 技術分析]
 categories: 閱讀筆記
 index_img: /2020/08/10/the-adam-theory-of-markets-or-what-matters-is-profit/cover.jpg

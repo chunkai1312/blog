@@ -1,5 +1,6 @@
 ---
 title: 數位廣告基礎入門：轉換追蹤 Conversion Tracking
+description: 數位廣告基礎系列文章，介紹轉換追蹤的定義、常見衡量指標與使用價值，說明 tracking pixels 如何衡量廣告後續成效。
 tags: [Digital Advertising, Conversion Tracking]
 categories: [數位廣告]
 index_img: /2020/01/21/conversion-tracking/cover.jpg

@@ -1,5 +1,6 @@
 ---
 title: 《護城河投資優勢》：挑選具有經濟護城河的優質企業
+description: 整理《護城河投資優勢》的價值投資觀點，說明經濟護城河的類型、如何辨識具長期優勢的企業，以及何時應考慮賣出。
 tags: [經濟護城河, 價值投資, 主動投資]
 categories: 閱讀筆記
 index_img: /2020/06/29/the-little-book-that-builds-wealth/cover.jpg

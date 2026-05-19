@@ -1,5 +1,6 @@
 ---
 title: 《大賣空》：回顧次級房貸危機
+description: 觀後整理《大賣空》，回顧次級房貸危機、CDO 與 CDS 等金融商品如何推動金融海嘯，並理解危機背後的市場結構問題。
 tags: [次級房貸危機, 環球金融危機, 金融海嘯]
 categories: 影片賞析
 index_img: /2020/06/25/the-big-short/cover.jpg

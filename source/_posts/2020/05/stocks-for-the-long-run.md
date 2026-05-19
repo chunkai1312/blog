@@ -1,5 +1,6 @@
 ---
 title: 《長線獲利之道：散戶投資正典》：堅守長期投資策略
+description: 整理《長線獲利之道》的長期股票投資觀點，從歷史報酬、投資指南與市場風險思考為何股票適合作為長期資產配置核心。
 tags: [股票, 長期投資]
 categories: [閱讀筆記]
 index_img: /2020/05/24/stocks-for-the-long-run/cover.jpg

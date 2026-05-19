@@ -1,5 +1,6 @@
 ---
 title: 《約翰伯格投資常識》：指數化投資從單純與簡約中取勝
+description: 整理《約翰伯格投資常識》的指數化投資觀點，從市場賽局、長期正和報酬、成本複利影響到 TIF 與 ETF 比較，說明簡約投資的力量。
 tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2019/02/03/the-little-book-of-common-sense-investing/cover.jpg

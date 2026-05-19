@@ -1,5 +1,6 @@
 ---
 title: MongoDB 備份與還原
+description: 說明 MongoDB 4.2 之後備份與還原資料庫的做法，使用 mongodump 與 mongorestore 取代已移除的 copydb 相關命令。
 tags: [MongoDB, mongodump, mongorestore]
 categories: 工具應用
 index_img: /2020/09/28/mongodump-and-mongorestore/cover.jpg

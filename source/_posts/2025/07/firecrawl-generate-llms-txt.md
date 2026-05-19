@@ -1,5 +1,6 @@
 ---
 title: 使用 Firecrawl 產生網站的 llms.txt
+description: 介紹 llms.txt 與 llms-full.txt 的用途與格式，示範如何透過 Firecrawl 產生 AI 友善的網站內容摘要，讓模型更容易理解網站結構。
 date: 2025-07-29 16:10:02
 tags: [llms.txt, firecrawl]
 categories: 技術分享

@@ -1,5 +1,6 @@
 ---
 title: 在本地端模擬多個網域名稱以用於第三方 JavaScript 開發
+description: 從第三方 JavaScript 的跨網域限制出發，示範如何在本地端設定多個模擬網域、測試頁與 Node.js server，降低正式環境整合風險。
 tags: [Third-Party JavaScript, Node.js, JavaScript]
 categories: [技術分享]
 index_img: /2017/04/03/simulating-multiple-domains-at-local-for-third-party-javascript-development/cover.jpg

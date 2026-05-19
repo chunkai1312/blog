@@ -1,5 +1,6 @@
 ---
 title: TAAI 2017 會後感想
+description: 以 TAAI 2017 參會經驗為起點，回顧雲端運算、大數據到人工智慧的技術演進，並從 AlphaGo 與產業變化思考 AI 的未來影響。
 tags: [TAAI, AI, Artificial Intelligence]
 categories: [生活札記]
 index_img: /2017/12/04/conference-review-taai-2017/cover.png

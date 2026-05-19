@@ -1,5 +1,6 @@
 ---
 title: 《我用死薪水輕鬆理財賺千萬》：你應該知道的九項理財投資法則
+description: 整理《我用死薪水輕鬆理財賺千萬》的九項理財法則，比較主動型基金與指數型基金，並介紹懶骨頭投資組合的觀念。
 tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2018/12/20/millionaire-teacher/cover.jpg

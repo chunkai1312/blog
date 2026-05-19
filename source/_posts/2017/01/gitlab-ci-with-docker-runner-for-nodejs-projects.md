@@ -1,5 +1,6 @@
 ---
 title: 使用 Docker Runner 建立 GitLab CI 為 Node.js 專案進行持續整合
+description: 示範如何安裝與註冊 GitLab Runner，使用 Docker Runner 為 Node.js 專案建立測試、CI 設定、建置狀態與覆蓋率報告。
 tags: [GitLab CI, GitLab, Docker, NodeJS, Git, CI]
 categories: [技術分享]
 index_img: /2017/01/07/gitlab-ci-with-docker-runner-for-nodejs-projects/cover.jpg

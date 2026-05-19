@@ -1,5 +1,6 @@
 ---
 title: 回顧 2020 年
+description: 回顧 2020 年的職涯轉換、新工作挑戰、COVID-19 影響、台股交易制度變化與金融證照準備，整理個人成長與隔年規劃。
 categories: [生活札記]
 index_img: /2020/12/31/2020-year-in-review/cover.jpg
 date: 2020-12-31 22:55:48

@@ -1,5 +1,6 @@
 ---
 title: 使用 Rollup 打包 JavaScript 模組
+description: 介紹 Rollup 打包 JavaScript 模組的基本流程，包含設定檔、插件使用、官方範例，以及與 Webpack 在定位上的差異。
 tags: [Rollup, Webpack, JavaScript]
 categories: [工具應用]
 index_img: /2020/03/11/using-rollup-to-bundle-javascript-modules/cover.jpg

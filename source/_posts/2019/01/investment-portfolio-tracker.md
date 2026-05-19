@@ -1,5 +1,6 @@
 ---
 title: Investment Portfolio Tracker：使用 Google 試算表管理投資組合
+description: 介紹使用 Google 試算表追蹤投資組合的做法，協助長期投資者計算報酬、掌握資產配置與記錄投資計畫執行情況。
 tags: [資產配置, 投資組合]
 categories: [投資理財]
 index_img: /2019/01/06/investment-portfolio-tracker/cover.jpg

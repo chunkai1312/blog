@@ -1,5 +1,6 @@
 ---
 title: 《資產配置投資策略》：投資組合管理
+description: 《資產配置投資策略》第三篇閱讀筆記，討論市場期望、投資組合建立、投資人行為、再平衡時機與費用對資產配置的影響。
 tags: [資產配置, 投資組合]
 categories: [閱讀筆記]
 index_img: /2020/05/31/all-about-asset-allocation-part-3/cover.jpg

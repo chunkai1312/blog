@@ -1,5 +1,6 @@
 ---
 title: 回顧 2023 年
+description: 回顧 2023 年出版第一本個人著作、從鐵人賽文章整理成書、工作內容反省，以及生成式 AI 發展帶來的技術觀察。
 categories: [生活札記]
 index_img: /2023/12/31/2023-year-in-review/cover.png
 date: 2023-12-31 00:26:46

@@ -1,5 +1,6 @@
 ---
 title: 回顧 2022 年
+description: 回顧 2022 年的工作內容、行情系統開發挑戰、公司成長，以及參加 iThome 鐵人賽的寫作歷程與隔年展望。
 categories: [生活札記]
 index_img: /2022/12/31/2022-year-in-review/cover.jpg
 date: 2022-12-31 22:41:22

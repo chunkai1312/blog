@@ -1,5 +1,6 @@
 ---
 title: 解除 Nintendo Account 兩步驟驗證
+description: 記錄在遺失 Google Authenticator 與備用碼後，如何解除 Nintendo Account 兩步驟驗證並恢復帳號存取。
 tags: [Nintendo, Nintendo Account, Nintendo Switch]
 categories: [生活札記]
 index_img: /2019/02/10/removing-nintendo-account-two-step-verification/cover.jpg

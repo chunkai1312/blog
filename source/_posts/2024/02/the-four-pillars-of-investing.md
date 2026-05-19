@@ -1,5 +1,6 @@
 ---
 title: 再讀《投資金律》：建立必勝投資組合的四大關鍵和十八堂必修課
+description: 再讀新版《投資金律》的閱讀筆記，從投資理論、歷史、心理學與金融產業四大支柱，整理建立長期投資組合的核心課題。
 tags: [指數投資, 投資金律]
 categories: 閱讀筆記
 index_img: /2024/02/14/the-four-pillars-of-investing/cover.png

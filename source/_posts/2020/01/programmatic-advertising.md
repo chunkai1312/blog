@@ -1,5 +1,6 @@
 ---
 title: 數位廣告基礎入門：程式化廣告 Programmatic Advertising
+description: 數位廣告基礎系列文章，說明程式化廣告的定義、平台角色、自動化投放特點，以及對廣告主與出版商帶來的效率與效益。
 tags: [Digital Advertising, Programmatic Advertising]
 categories: [數位廣告]
 index_img: /2020/01/10/programmatic-advertising/cover.jpg

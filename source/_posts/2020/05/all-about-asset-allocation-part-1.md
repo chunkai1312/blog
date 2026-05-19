@@ -1,5 +1,6 @@
 ---
 title: 《資產配置投資策略》：資產配置的基本概念
+description: 《資產配置投資策略》第一篇閱讀筆記，整理投資計畫、風險、資產配置與多元資產類別，建立長期投資組合的基本框架。
 tags: [資產配置, 投資組合]
 categories: [閱讀筆記]
 index_img: /2020/05/29/all-about-asset-allocation-part-1/cover.jpg

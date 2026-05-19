@@ -1,5 +1,6 @@
 ---
 title: 使用 React Context API 實現 i18n 多國語言
+description: 透過簡易 i18n 功能實作，示範 React Context API、Provider、Consumer 與 custom hook 的使用方式，管理多國語系狀態。
 tags: [React, F2E]
 categories: [技術分享]
 index_img: /2019/11/15/using-react-context-api-to-support-for-i18n/cover.jpg

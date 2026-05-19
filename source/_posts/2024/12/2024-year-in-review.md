@@ -1,5 +1,6 @@
 ---
 title: 回顧 2024 年
+description: 回顧 2024 年買下預售屋、美股投資績效、公司瓶頸與個人成長壓力，整理財務、工作與生活規劃上的重要轉折。
 categories: [生活札記]
 index_img: /2024/12/31/2024-year-in-review/cover.png
 date: 2024-12-31 23:12:39

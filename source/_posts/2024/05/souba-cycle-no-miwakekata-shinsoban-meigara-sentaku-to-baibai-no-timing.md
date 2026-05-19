@@ -1,5 +1,6 @@
 ---
 title: 《股市循環的選股時機》：從利率、經濟和市場的角度解讀股市循環
+description: 整理《股市循環的選股時機》的週期投資框架，從景氣循環、股市四階段與各階段選股邏輯思考市場輪動。
 tags: [股市循環, 景氣循環, 週期投資]
 categories: 閱讀筆記
 index_img: /2024/05/19/souba-cycle-no-miwakekata-shinsoban-meigara-sentaku-to-baibai-no-timing/cover.png

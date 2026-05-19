@@ -1,5 +1,6 @@
 ---
 title: 使用 React 作為 Express 的樣板引擎建構 Universal 應用程式
+description: 示範如何在 Express 中使用 React 作為 server-side template engine，搭配 Babel、Browserify 與 client-side mounting 建立 universal JavaScript 應用。
 tags: [React, Express, NodeJS, Universal JavaScript]
 categories: [技術分享]
 index_img: /2017/05/01/using-react-as-template-engine-for-universal-express-applications/cover.jpg

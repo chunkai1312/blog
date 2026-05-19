@@ -1,5 +1,6 @@
 ---
 title: 配置 Drone 與 GitLab 整合
+description: 介紹 Drone 這套基於 Docker 的 CI/CD 平台，記錄如何安裝 Drone 並與 GitLab 整合，建立自動化建置流程。
 tags: [Drone, GitLab, Docker, NodeJS, Git, CI]
 categories: [技術分享]
 index_img: /2018/06/18/setting-up-drone-for-gitlab-integration/cover.png

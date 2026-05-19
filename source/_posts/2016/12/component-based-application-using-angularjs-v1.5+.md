@@ -1,5 +1,6 @@
 ---
 title: 使用 AngularJS v1.5+ 建立 component-based 應用程式
+description: 以 Todo App 為例說明 AngularJS 1.5 component API 的使用方式，示範如何拆分 template、controller 與資料流，建立更接近現代元件化架構的 Angular 應用。
 tags: [AngularJS, 前端工程]
 categories: [技術分享]
 index_img: /2016/12/24/component-based-application-using-angularjs-v1.5+/cover.jpg

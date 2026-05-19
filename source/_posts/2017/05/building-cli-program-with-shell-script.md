@@ -1,5 +1,6 @@
 ---
 title: 使用 Shell Script 建立命令列程式
+description: 整理 shell script 建立命令列工具的基本流程，包含檔案格式、執行權限、PATH 位置與簡單 CLI 指令設計。
 tags: [Shell, Bash]
 categories: [技術分享]
 index_img: /2017/05/30/building-cli-program-with-shell-script/cover.jpg

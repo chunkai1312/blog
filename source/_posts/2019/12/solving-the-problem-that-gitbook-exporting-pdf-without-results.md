@@ -1,5 +1,6 @@
 ---
 title: 解決 Gitbook 匯出 PDF 檔案時沒有產出的問題
+description: 記錄 GitBook 匯出 PDF 沒有產出且無錯誤訊息的排查過程，說明 Calibre 版本相容性問題與解決方式。
 tags: [Gitbook, PDF, Calibre]
 categories: [工具應用]
 index_img: /2019/12/16/solving-the-problem-that-gitbook-exporting-pdf-without-results/cover.png

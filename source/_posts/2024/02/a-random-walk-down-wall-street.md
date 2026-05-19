@@ -1,5 +1,6 @@
 ---
 title: 再讀《漫步華爾街》：超越股市漲跌的成功投資策略
+description: 再讀《漫步華爾街》的投資筆記，整理磐石理論、空中樓閣理論、技術面與基本面分析、現代投資組合理論與指數化投資。
 tags: [指數投資, 磐石理論, 空中樓閣理論, 基本面分析, 技術面分析]
 categories: 閱讀筆記
 index_img: /2024/02/12/a-random-walk-down-wall-street/cover.png

@@ -1,5 +1,6 @@
 ---
 title: 《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐
+description: 記錄《Node.js生成式AI應用開發實戰》的成書脈絡，從生成式 AI API 探索、框架實作、筆記整理到形成系統化學習路徑的過程。
 index_img: /2026/05/01/nodejs-generative-ai-practical-guide/cover.png
 date: 2026-05-01 21:21:18
 categories: [生活札記]

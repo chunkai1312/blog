@@ -1,5 +1,6 @@
 ---
 title: 使用 Git 提交訊息產生 Change Log
+description: 介紹 Conventional Commits、Commitizen、Commitlint 與 standard-version 的整合方式，透過規範化 git commit 自動產生 changelog 與版本號。
 tags: [Git, Conventional Commits, Semantic Versioning]
 categories: [技術分享]
 index_img: /2019/03/04/generating-change-log-with-git-commit-messages/cover.jpg

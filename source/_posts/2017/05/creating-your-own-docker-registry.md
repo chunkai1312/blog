@@ -1,5 +1,6 @@
 ---
 title: 建立自己的 Docker Registry
+description: 示範如何架設私有 Docker Registry，加入 Web UI、處理 insecure registry 設定，並測試 image push 與 pull 流程。
 tags: [Docker, Docker Registry, DevOps]
 categories: [技術分享]
 index_img: /2017/05/24/creating-your-own-docker-registry/cover.jpg

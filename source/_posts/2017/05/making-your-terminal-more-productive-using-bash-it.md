@@ -1,5 +1,6 @@
 ---
 title: 使用 Bash-it 讓 Terminal 更具生產力
+description: 介紹 Bash-it 的安裝、更新、help screens、佈景主題客製化與移除方式，協助 Bash 使用者改善 terminal 工作效率。
 tags: [Bash-it, Bash, Shell]
 categories: [工具應用]
 index_img: /2017/05/27/making-your-terminal-more-productive-using-bash-it/cover.jpg

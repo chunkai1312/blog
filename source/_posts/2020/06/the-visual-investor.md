@@ -1,5 +1,6 @@
 ---
 title: 《約翰墨菲視覺分析》：運用技術分析，看圖書故事
+description: 整理《約翰墨菲視覺分析》的技術分析觀點，討論圖形分析、趨勢觀察與市場視覺化工具在投資決策中的應用。
 tags: [視覺分析, 技術分析, 圖形分析]
 categories: 閱讀筆記
 index_img: /2020/06/21/the-visual-investor/cover.jpg

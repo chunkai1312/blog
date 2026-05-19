@@ -1,5 +1,6 @@
 ---
 title: 《智慧型資產配置》：建構最大報酬與最低風險的投資組合
+description: 整理《智慧型資產配置》的核心概念，說明為何需要資產配置，以及如何依風險、報酬與相關性建立更穩健的投資組合。
 tags: [資產配置, 投資組合]
 categories: [閱讀筆記]
 index_img: /2020/06/14/the-intelligent-asset-allocator/cover.jpg

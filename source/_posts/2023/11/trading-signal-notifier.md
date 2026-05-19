@@ -1,5 +1,6 @@
 ---
 title: NestJS x Fugle API x LINE Notify：打造股票交易訊號通知系統
+description: 以 NestJS、Fugle API 與 LINE Notify 建立股票交易訊號通知系統，從環境準備、API 金鑰、應用設定到行情監控功能逐步實作。
 tags: [NodeJS, NestJS, Fugle API, LINE Notify]
 categories: [技術分享]
 index_img: /2023/11/28/trading-signal-notifier/cover.png

@@ -1,5 +1,6 @@
 ---
 title: 《心態致勝》：談心態如何影響人類行為
+description: 閱讀《心態致勝》的筆記，聚焦固定型與成長型心態如何影響學習、工作、人際關係與面對挫折時的行為選擇。
 tags: [Mindset, Psychology, 心理學]
 categories: [閱讀筆記]
 index_img: /2017/12/10/mindset-the-new-psychology-of-success/cover.jpg

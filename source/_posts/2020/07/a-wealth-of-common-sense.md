@@ -1,5 +1,6 @@
 ---
 title: 《投資前最重要的事》：致富的常識
+description: 整理《投資前最重要的事》的投資哲學，從投資人特質、資產配置、分散投資與十個常識概念，建立可長期執行的投資原則。
 tags: [投資哲學, 資產配置, 分散投資]
 categories: 閱讀筆記
 index_img: /2020/07/17/a-wealth-of-common-sense/cover.jpg

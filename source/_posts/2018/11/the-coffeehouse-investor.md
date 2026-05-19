@@ -1,5 +1,6 @@
 ---
 title: 《不看盤，我才賺到大錢》：咖啡館投資哲學
+description: 整理《不看盤，我才賺到大錢》的咖啡館投資哲學，說明資產配置、追平市場指數、持續儲蓄與降低投資複雜度的重要性。
 tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2018/11/01/the-coffeehouse-investor/cover.jpg

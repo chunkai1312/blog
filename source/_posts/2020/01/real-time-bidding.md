@@ -1,5 +1,6 @@
 ---
 title: 數位廣告基礎入門：即時競價 Real-Time Bidding
+description: 數位廣告基礎系列文章，拆解即時競價 RTB 的市場機制與關鍵角色，包含 DSP、Ad Exchange、SSP、DMP、出版商與廣告主。
 tags: [Digital Advertising, Real-Time Bidding]
 categories: [數位廣告]
 index_img: /2020/01/17/real-time-bidding/cover.jpg

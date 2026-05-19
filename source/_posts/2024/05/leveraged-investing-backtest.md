@@ -1,5 +1,6 @@
 ---
 title: 槓桿 ETF 投資法：回測實證 00631L 槓桿投資策略
+description: 以 0050 與 00631L 回測槓桿 ETF 投資策略，分析曝險比例、資金配置、再平衡方式與不同策略的長期報酬差異。
 tags: [槓桿投資法, 槓桿ETF, 元大台灣50正二, 元大台灣50, 00631L, "0050"]
 categories: 投資理財
 index_img: /2024/05/13/leveraged-investing-backtest/cover.png

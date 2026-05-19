@@ -1,5 +1,6 @@
 ---
 title: Node Cluster IPC：讓 Node.js 行程間通訊更簡單
+description: 介紹自製套件 Node Cluster IPC 的設計動機與使用場景，說明如何簡化 Node.js cluster 行程間通訊、請求回應模式與高併發任務處理。
 tags: [NodeJS, Cluster, IPC, Process]
 categories: 技術分享
 date: 2025-01-03 23:30:00

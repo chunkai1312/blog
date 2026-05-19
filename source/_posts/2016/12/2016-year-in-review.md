@@ -1,5 +1,6 @@
 ---
 title: 回顧 2016 年
+description: 回顧 2016 年在 Node.js、前端框架、建置工具、DevOps 與開源專案上的學習軌跡，整理從職場實作中累積出的技術方向與 2017 年展望。
 categories: [生活札記]
 index_img: /2016/12/31/2016-year-in-review/cover.jpg
 date: 2016-12-31 20:20:44

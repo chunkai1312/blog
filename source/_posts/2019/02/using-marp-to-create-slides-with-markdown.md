@@ -1,5 +1,6 @@
 ---
 title: Marp：寫 Markdown 製作投影片
+description: 介紹 Marp 的 Markdown 投影片製作流程，包含特色、安裝方式與基本語法，適合想用文字檔管理簡報內容的使用者。
 tags: [Marp, Markdown, Slides]
 categories: [工具應用]
 index_img: /2019/02/27/using-marp-to-create-slides-with-markdown/cover.jpg

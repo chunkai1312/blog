@@ -1,5 +1,6 @@
 ---
 title: 使用 Docker 安裝 GitLab CE 並啟用 GitLab Pages
+description: 示範如何用 Docker 安裝 GitLab CE，啟用 GitLab Pages，設定 DNS 與 Traefik 反向代理，建立可發布靜態網站的 GitLab 環境。
 tags: [GitLab, GitLab Pages, Docker, Traefik]
 categories: [技術分享]
 index_img: /2019/02/12/installing-gitlab-ce-and-enabling-gitlab-pages-with-docker/cover.jpg

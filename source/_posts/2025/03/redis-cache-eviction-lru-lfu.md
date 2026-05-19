@@ -1,5 +1,6 @@
 ---
 title: Redis 記憶體不夠用怎麼辦？瞭解 LRU、LFU 與快取淘汰策略
+description: 深入介紹 Redis 快取淘汰策略，說明 maxmemory、LRU、LFU 與各種 eviction policy 的差異，協助後端系統選擇合適的記憶體管理方式。
 date: 2025-03-18 16:19:35
 tags: [redis, cache-eviction, lru, lfu, backend-engineering]
 categories: 技術分享

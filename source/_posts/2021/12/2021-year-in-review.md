@@ -1,5 +1,6 @@
 ---
 title: 回顧 2021 年
+description: 回顧 2021 年在遠距工作、行情系統開發、金融證照、主動投資部位放大與職涯節奏上的變化，並整理下一年度目標。
 categories: [生活札記]
 index_img: /2021/12/31/2021-year-in-review/cover.jpg
 date: 2021-12-31 19:58:37

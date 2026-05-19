@@ -1,5 +1,6 @@
 ---
 title: 使用 Uptime Robot 監控你的網站
+description: 介紹 Uptime Robot 的網站監控與公開狀態頁功能，說明如何建立監控項目、接收異常通知，並提供服務可用性資訊。
 tags: [Uptime Robot, DevOps]
 categories: [工具應用]
 index_img: /2017/03/03/monitoring-your-websites-with-uptime-robot/cover.jpg

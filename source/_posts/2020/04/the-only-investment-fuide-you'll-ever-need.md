@@ -1,5 +1,6 @@
 ---
 title: 《你唯一需要的投資指南》：掌握大局，從小錢開始
+description: 整理《你唯一需要的投資指南》的理財觀點，從股票市場、長期投資與個人財務決策出發，強調掌握大局與從小錢開始的重要性。
 tags: [投資, 理財]
 categories: [閱讀筆記]
 index_img: /2020/04/05/the-only-investment-fuide-you'll-ever-need/cover.jpg

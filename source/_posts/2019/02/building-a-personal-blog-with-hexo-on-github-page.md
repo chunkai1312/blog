@@ -1,5 +1,6 @@
 ---
 title: 使用 Hexo 及 GitHub Page 建立個人部落格
+description: 從安裝 Hexo、建立專案、套用主題、撰寫文章到部署 GitHub Pages，完整記錄建立個人部落格的流程與設定。
 tags: [Hexo, GitHub Pages, Blog]
 categories: [技術分享]
 index_img: /2019/02/12/building-a-personal-blog-with-hexo-on-github-page/cover.png

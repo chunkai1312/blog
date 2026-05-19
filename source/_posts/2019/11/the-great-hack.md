@@ -1,5 +1,6 @@
 ---
 title: 《個資風暴：劍橋分析事件》：數據權是人權
+description: 觀後整理《個資風暴：劍橋分析事件》，回顧 Cambridge Analytica 如何利用社群平台資料進行政治操作，並反思數據權與隱私議題。
 tags: [劍橋分析事件]
 categories: 影片賞析
 index_img: /2019/11/24/the-great-hack/cover.jpg

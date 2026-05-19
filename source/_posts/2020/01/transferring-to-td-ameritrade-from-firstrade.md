@@ -1,5 +1,6 @@
 ---
 title: 從 Firstrade 移轉帳戶至 TD Ameritrade
+description: 記錄從 Firstrade 轉戶至 TD Ameritrade 的考量、開戶過程與轉戶流程，整理美股券商轉移帳戶的實務經驗。
 tags: [Firstrade, TD Ameritrade]
 categories: [投資理財]
 index_img: /2020/01/31/transferring-to-td-ameritrade-from-firstrade/cover.jpg

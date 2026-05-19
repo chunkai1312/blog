@@ -1,5 +1,6 @@
 ---
 title: HonKit：GitBook 的替代方案
+description: 介紹 HonKit 作為 GitBook 2 替代方案的特色，說明它保留的文件產生能力、插件與主題客製化，適合既有 GitBook 使用者遷移。
 tags: [GitBook, HonKit]
 categories: [技術分享]
 index_img: /2023/04/20/honkit-a-gitbook-alternative/cover.png

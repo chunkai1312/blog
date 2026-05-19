@@ -1,5 +1,6 @@
 ---
 title: 《投資人宣言》：建構無懼風浪的終身投資計畫
+description: 整理《投資人宣言》的投資框架，從金融危機教訓、資產配置前提到投資組合規劃，說明如何建立能承受市場波動的長期計畫。
 tags: [Investment]
 categories: [閱讀筆記]
 index_img: /2018/10/30/the-investor-s-manifesto/cover.jpg

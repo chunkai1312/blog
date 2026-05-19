@@ -1,5 +1,6 @@
 ---
 title: NestJS 官方課程：NestJS Fundamentals
+description: 記錄 NestJS 官方課程 NestJS Fundamentals 的學習內容，整理這個 Node.js server-side framework 的核心概念與應用開發方向。
 tags: [NodeJS, NestJS, Web Framework]
 categories: 工具應用
 index_img: /2020/08/14/nestjs-fundamentals/cover.jpg

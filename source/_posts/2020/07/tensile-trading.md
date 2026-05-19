@@ -1,5 +1,6 @@
 ---
 title: 《股票交易精鍊手冊》：掌握股票市場的十個階段
+description: 整理《股票交易精鍊手冊》的張力交易法，從資金管理、投資事業、市場分析、例行程序到買賣規則，建立交易系統思維。
 tags: [張力交易法, Tensile Trading]
 categories: 閱讀筆記
 index_img: /2020/07/06/tensile-trading/cover.jpg

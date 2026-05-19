@@ -1,5 +1,6 @@
 ---
 title: 《基礎架構即程式碼》：從基礎架構管理到軟體工程思維
+description: 整理《基礎架構即程式碼》的閱讀心得，從腳本管理走向系統化 IaC，思考如何用軟體工程方法維護可測試、可重複的基礎架構。
 tags: [Infrastructure, IaC, DevOps]
 categories: 閱讀筆記
 date: 2025-02-26 00:59:46

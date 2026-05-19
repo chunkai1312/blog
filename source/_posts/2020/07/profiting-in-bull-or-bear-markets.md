@@ -1,5 +1,6 @@
 ---
 title: 《經濟指標教你加減碼》：景氣循環投資
+description: 整理《經濟指標教你加減碼》的景氣循環投資方法，說明經濟指標、股市循環四階段與不同市場階段的投資判斷。
 tags: [經濟指標, 商業循環, 景氣循環, 景氣循環投資]
 categories: 閱讀筆記
 index_img: /2020/07/12/profiting-in-bull-or-bear-markets/cover.jpg

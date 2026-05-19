@@ -1,5 +1,6 @@
 ---
 title: 《順勢交易：多空策略實作指引》：專業交易員如何複利致富和管理風險
+description: 整理《順勢交易：多空策略實作指引》的交易方法，涵蓋順勢觀念、虧損控制、耐心、複利、風險管理與多空操作優勢。
 tags: [順勢交易]
 categories: 閱讀筆記
 index_img: /2022/03/28/the-trend-following-bible/cover.jpg

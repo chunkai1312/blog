@@ -1,5 +1,6 @@
 ---
 title: 國際匯款至 Firstrade：以台新銀行網銀匯出為例 (2018/09/28)
+description: 以台新銀行網銀為例，記錄國際匯款至 Firstrade 帳戶的操作流程、填寫資訊與注意事項，供台灣投資人參考。
 tags: [Firstrade, 美國券商, 台新銀行, 網路銀行, 國際匯款]
 categories: [投資理財]
 index_img: /2018/10/10/wire-funds-into-your-firstrade-account/cover.jpg

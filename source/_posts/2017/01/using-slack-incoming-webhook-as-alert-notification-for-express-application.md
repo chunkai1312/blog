@@ -1,5 +1,6 @@
 ---
 title: 使用 Slack Incoming Webhook 為 Express 應用程式建立警報通知
+description: 介紹 Slack Incoming Webhooks API 的設定方式，並示範如何把 Express 應用程式的 4xx、5xx 錯誤即時送到 Slack 頻道作為警報通知。
 tags: [Slack, NodeJS, Express]
 categories: [技術分享]
 index_img: /2017/01/21/using-slack-incoming-webhook-as-alert-notification-for-express-application/cover.jpg

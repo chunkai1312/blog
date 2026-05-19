@@ -1,5 +1,6 @@
 ---
 title: 回顧 2025 年
+description: 回顧 2025 年的職涯轉折、待業期間生活調整、加入永豐金控數位科技處、寫作累積，以及生成式 AI 時代下軟體工程師的角色變化。
 categories: [生活札記]
 index_img: /2025/12/31/2025-year-in-review/cover.png
 date: 2025-12-31 18:00:00

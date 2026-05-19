@@ -1,5 +1,6 @@
 ---
 title: 穿越三國戰場：《三國志戰役事典：魏蜀吳最著名的74場戰役》閱讀筆記
+description: 整理《三國志戰役事典》的閱讀心得，從 74 場關鍵戰役理解三國時代的軍事演變、人物決策與歷史脈絡。
 tags: [歷史, 三國, 三國志, 三國演義]
 categories: 閱讀筆記
 index_img: /2024/05/05/the-battle-encyclopedia-of-the-three-kingdoms/cover.png

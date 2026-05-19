@@ -1,5 +1,6 @@
 ---
 title: 將 Travis CI 和 Codecov 整合至 Node.js 專案
+description: 記錄將 GitHub 上的 Node.js 開源專案接上 Travis CI 與 Codecov 的流程，包含 CI 設定、測試覆蓋率上傳與 README badge 整合。
 tags: [Travis CI, Codecov, NodeJS, GitHub, Code Coverage, CI]
 categories: [技術分享]
 index_img: /2017/01/15/integrating-travis-ci-and-codecov-into-your-nodejs-projects/cover.jpg
