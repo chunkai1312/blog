@@ -4,6 +4,7 @@
 
 ## Article List
 
+- [Ghost 自架筆記：Zeabur 部署與 Resend SMTP 設定](https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/): 記錄使用 Zeabur 部署 Ghost 並串接 Resend SMTP，整理 mail 環境變數設定與系統信件驗證流程。
 - [《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐](https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/): 記錄《Node.js生成式AI應用開發實戰》的成書脈絡，從生成式 AI API 探索、框架實作、筆記整理到形成系統化學習路徑的過程。
 - [回顧 2025 年](https://chunkai.blog/2025/12/31/2025-year-in-review/): 回顧 2025 年的職涯轉折、待業期間生活調整、加入永豐金控數位科技處、寫作累積，以及生成式 AI 時代下軟體工程師的角色變化。
 - [使用 Firecrawl 產生網站的 llms.txt](https://chunkai.blog/2025/07/29/firecrawl-generate-llms-txt/): 介紹 llms.txt 與 llms-full.txt 的用途與格式，示範如何透過 Firecrawl 產生 AI 友善的網站內容摘要，讓模型更容易理解網站結構。

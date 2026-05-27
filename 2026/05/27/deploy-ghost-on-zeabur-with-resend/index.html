@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chun-Kai Wang">
+  <meta name="keywords" content="blog">
+  
+    <meta name="description" content="記錄使用 Zeabur 部署 Ghost 並串接 Resend SMTP，整理 mail 環境變數設定與系統信件驗證流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ghost 自架筆記：Zeabur 部署與 Resend SMTP 設定">
+<meta property="og:url" content="https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/index.html">
+<meta property="og:site_name" content="Chunkai&#39;s 網記網錄">
+<meta property="og:description" content="記錄使用 Zeabur 部署 Ghost 並串接 Resend SMTP，整理 mail 環境變數設定與系統信件驗證流程。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/cover.png">
+<meta property="article:published_time" content="2026-05-27T01:28:29.000Z">
+<meta property="article:modified_time" content="2026-05-27T02:36:34.387Z">
+<meta property="article:author" content="Chun-Kai Wang">
+<meta property="article:tag" content="Ghost">
+<meta property="article:tag" content="Zeabur">
+<meta property="article:tag" content="Resend">
+<meta property="article:tag" content="SMTP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/cover.png">
+  
+  
+  
+  <title>Ghost 自架筆記：Zeabur 部署與 Resend SMTP 設定 - Chunkai&#39;s 網記網錄</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"chunkai.blog","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-8RVRZNZSQE"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Chunkai's 網記網錄" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chunkai&#39;s 網記網錄</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首頁</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>歸檔</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分類</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>標籤</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>關於</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ghost 自架筆記：Zeabur 部署與 Resend SMTP 設定"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-27 09:28" pubdate>
+          2026年5月27日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分鐘
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ghost 自架筆記：Zeabur 部署與 Resend SMTP 設定</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/2026/05/27/deploy-ghost-on-zeabur-with-resend/cover.png" srcset="/img/loading.gif" lazyload></p>
+<p>最近在評估公司部門的內容發佈平台時，除了既有的 Medium，也順手試了一下 Ghost 的自架流程。這次的目標沒有要馬上替換現有平台，主要是想先把 Ghost 跑起來，看看如果未來想要有一個自有網域、可控性更高的內容網站，實際部署時會碰到哪些問題。</p>
+<p>原本以為 Ghost 這類成熟 CMS 應該很快就能完成部署，但實際測試後發現，網站本身跑起來不難，真正比較容易卡住的是 Email 設定。Ghost 後台邀請使用者、會員登入、密碼重設等流程，都需要能正常寄送系統信件。如果 SMTP 沒有設定好，網站雖然可以打開，但後台與會員相關功能就會不完整。</p>
+<p>這篇主要記錄使用 Zeabur 部署 Ghost，並搭配 Resend 設定 SMTP 的過程。內容會以實作筆記的方式整理，從服務建立、環境變數設定到寄信設定，保留實際架設時需要注意的細節，方便之後需要重新檢查設定時回頭參考。</p>
+<h2 id="為什麼用-Zeabur-架-Ghost？"><a href="#為什麼用-Zeabur-架-Ghost？" class="headerlink" title="為什麼用 Zeabur 架 Ghost？"></a>為什麼用 Zeabur 架 Ghost？</h2><p>Ghost 可以部署在 VPS、Docker Compose 或其他雲端平台上。不過這次只是先做可行性測試，所以不想一開始就花太多時間處理主機維護、Nginx、SSL、資料庫連線與部署流程。</p>
+<p><img src="./zeabur.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://zeabur.com/">Zeabur</a> 的好處是可以用比較低的成本快速把服務跑起來，部署後也能直接調整環境變數與服務設定。對這次測試來說，Zeabur 主要負責處理部署基礎，讓我可以把重點放在 Ghost 本身能不能順利運作，以及 SMTP 能不能正常寄信。</p>
+<h2 id="為什麼選擇使用-Resend？"><a href="#為什麼選擇使用-Resend？" class="headerlink" title="為什麼選擇使用 Resend？"></a>為什麼選擇使用 Resend？</h2><p>Ghost 架起來之後，接下來要處理的就是寄信問題。一開始其實很容易想到 Gmail SMTP，畢竟手邊通常已經有 Gmail 帳號，也能透過應用程式密碼來寄信。不過，個人信箱服務比較適合日常收發信，拿來支撐自架服務的系統信件時，後續維護與問題排查會比較麻煩。因此這次還是選擇使用專門處理交易型信件的 <a target="_blank" rel="noopener" href="https://resend.com/">Resend</a>。</p>
+<p><img src="./resend.png" srcset="/img/loading.gif" lazyload></p>
+<p>對 Ghost 這種需要寄送後台邀請、登入連結、密碼重設與會員確認信的服務來說，使用 transactional email provider 會比較合適。Resend 的設定方式相對單純，Ghost 只要透過 SMTP 設定，就能把系統信件交給 Resend。</p>
+<p>費用也是這次會選 Resend 的原因之一。以目前這種測試環境或小規模內容平台來說，系統信件量通常不會太大，大多只是處理後台邀請、登入連結與會員確認信。Resend 提供的免費額度已經足夠支撐初期測試，不需要一開始就導入付費方案。等到未來真的開始有大量會員、訂閱或正式營運需求，再重新評估是否升級或改用其他寄信服務也比較務實。</p>
+<p>Resend 的 SMTP 設定也很直覺。SMTP host 是 <code>smtp.resend.com</code>，username 固定使用 <code>resend</code>，password 則使用 API Key。對這次的自架測試來說，Resend 剛好可以補上 Ghost 所需的交易型信件寄送能力，也讓後續寄信設定與問題排查比較容易掌握。</p>
+<h2 id="Resend-在這裡負責什麼？"><a href="#Resend-在這裡負責什麼？" class="headerlink" title="Resend 在這裡負責什麼？"></a>Resend 在這裡負責什麼？</h2><p>這裡先把 Email 的範圍釐清一下。Resend 在這次設定中，主要處理 Ghost 的交易型信件。像是後台邀請、登入連結、密碼重設、會員註冊確認，這些都屬於使用者操作後觸發的系統通知。</p>
+<p>Ghost 的寄信功能可以先拆成兩個情境來看。第一個是後台邀請、登入連結、密碼重設、會員確認這類系統信件；第二個是把文章寄給大量訂閱者的 newsletter。這次使用 Resend SMTP，主要處理的是前者，也就是讓 Ghost 的基本系統流程可以正常寄信。至於 newsletter 的大量寄送，後續如果真的要啟用，再另外評估對應的寄信方案會比較合適。</p>
+<h2 id="建立-Ghost-服務"><a href="#建立-Ghost-服務" class="headerlink" title="建立 Ghost 服務"></a>建立 Ghost 服務</h2><p>在 Zeabur 建立 Ghost 服務的流程不複雜，可以直接從 template 搜尋 Ghost，依照畫面建立服務。如果想要更明確控制版本，也可以使用 Ghost Docker image 自行建立服務。</p>
+<p><img src="./ghost-on-zeabur.png" srcset="/img/loading.gif" lazyload></p>
+<p>建立完成後，建議先不要急著設定 SMTP。可以先確認 Ghost 網站前台可以正常打開，Ghost Admin 也可以正常進入。這一步看起來很基本，但很重要，因為如果網站本身還沒有正常啟動，就直接開始調整 Email，很容易讓問題混在一起。</p>
+<p>我會建議先把部署問題與寄信問題拆開處理。第一階段只確認 Ghost 能不能正常跑起來，第二階段再確認 SMTP。這樣之後如果 log 裡出現錯誤，才比較容易判斷到底是 Ghost 啟動問題、環境變數問題，還是 SMTP 連線問題。</p>
+<h2 id="建立-Resend-API-Key"><a href="#建立-Resend-API-Key" class="headerlink" title="建立 Resend API Key"></a>建立 Resend API Key</h2><p>Ghost 服務能正常開啟後，就可以回到 Resend 設定寄信。這裡需要先建立 Resend 帳號，並設定寄件網域。正式使用時，寄件網域通常需要完成 DNS 驗證，例如 SPF、DKIM、DMARC 相關設定，這樣信件送出去後才比較不容易被收件端判定為可疑來源。</p>
+<p>完成網域驗證後，在 Resend 後台建立一組 API Key。這組 API Key 之後會放到 Ghost 的 SMTP password 裡面。</p>
+<p>Resend 的 SMTP 設定大致如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs txt">Host: smtp.resend.com<br>Port: 465<br>Username: resend<br>Password: YOUR_RESEND_API_KEY<br>Secure: true<br></code></pre></td></tr></table></figure>
+
+<h2 id="在-Zeabur-設定-Ghost-SMTP"><a href="#在-Zeabur-設定-Ghost-SMTP" class="headerlink" title="在 Zeabur 設定 Ghost SMTP"></a>在 Zeabur 設定 Ghost SMTP</h2><p>接著回到 Zeabur 的 Ghost 服務設定頁，加入 Ghost 需要的 mail 環境變數。這次使用 <code>465</code> port，並搭配 <code>secure=true</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs env">mail__transport&#x3D;SMTP<br>mail__options__host&#x3D;smtp.resend.com<br>mail__options__port&#x3D;465<br>mail__options__secure&#x3D;true<br>mail__options__auth__user&#x3D;resend<br>mail__options__auth__pass&#x3D;YOUR_RESEND_API_KEY<br>mail__from&#x3D;&quot;Your Site &lt;noreply@your-domain.com&gt;&quot;<br></code></pre></td></tr></table></figure>
+
+<p>這裡有幾個地方要注意。<code>mail__options__auth__user</code> 不是 Resend 登入信箱，也不是公司信箱，而是固定填 <code>resend</code>。<code>mail__options__auth__pass</code> 則是剛剛建立的 Resend API Key。<code>mail__from</code> 建議使用已經在 Resend 驗證過的網域信箱，例如 <code>noreply@your-domain.com</code>。</p>
+<p>使用 SMTP 時，port 與加密方式要一起看。這次採用 <code>465</code>，所以 <code>mail__options__secure</code> 需要設為 <code>true</code>，讓 Ghost 透過 SSL 連線到 Resend。如果之後改用其他 port，例如 <code>587</code>，就要重新確認對應的 secure 設定，避免 port 與加密方式不一致，導致寄信時連線失敗。</p>
+<h2 id="修改環境變數後要重新部署"><a href="#修改環境變數後要重新部署" class="headerlink" title="修改環境變數後要重新部署"></a>修改環境變數後要重新部署</h2><p>設定完環境變數後，記得重新部署或重新啟動 Ghost 服務。這一步很容易漏掉，因為環境變數通常是在服務啟動時讀取。如果只是改了 Zeabur 後台設定，但服務沒有重新啟動，Ghost 不一定會馬上套用新的 SMTP 設定。</p>
+<p>重新啟動後，可以先從 Ghost Admin 測試邀請一位管理者，或測試會員登入流程。這類操作會觸發 Ghost 寄出系統信，是確認 SMTP 是否真的成功的最直接方式。</p>
+<h2 id="SMTP-成功不代表-Newsletter-成功"><a href="#SMTP-成功不代表-Newsletter-成功" class="headerlink" title="SMTP 成功不代表 Newsletter 成功"></a>SMTP 成功不代表 Newsletter 成功</h2><p>Ghost 的 SMTP 設定成功後，系統信件通常就能正常寄送。不過，如果要使用 Ghost 內建 newsletter 把文章大量寄給訂閱者，還需要另外處理 bulk email provider。</p>
+<p>交易型信件是登入、邀請、密碼重設這類系統流程，這次用 Resend SMTP 主要就是處理這一塊。Newsletter 則是把文章寄給大量訂閱者，這部分在自架 Ghost 裡需要另外設定。以目前測試階段來說，我會先把系統信件處理好，電子報功能等到真的需要時再評估 Mailgun 或其他方案。</p>
+<h2 id="簡單檢查清單"><a href="#簡單檢查清單" class="headerlink" title="簡單檢查清單"></a>簡單檢查清單</h2><p>這次整理下來，可以用下面這份清單快速確認 Ghost + Resend 是否設定完成：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs txt">[ ] Ghost 網站前台可以正常開啟<br>[ ] Ghost Admin 可以正常登入<br>[ ] Resend 已完成寄件網域驗證<br>[ ] Resend API Key 已建立<br>[ ] Zeabur 已設定 Ghost mail 環境變數<br>[ ] mail__transport 設定為 SMTP<br>[ ] mail__options__host 設定為 smtp.resend.com<br>[ ] mail__options__port 設定為 465<br>[ ] mail__options__secure 設定為 true<br>[ ] mail__options__auth__user 設定為 resend<br>[ ] mail__options__auth__pass 使用 Resend API Key<br>[ ] mail__from 使用已驗證網域<br>[ ] 修改環境變數後已重新部署 Ghost<br>[ ] Ghost 管理者邀請信可以正常寄出<br>[ ] 會員登入或確認信可以正常寄出<br></code></pre></td></tr></table></figure>
+
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這次架設下來，Ghost 本身部署並不複雜，主要需要注意的是寄信設定。只要 SMTP 的 host、port、secure、帳號、API Key 與寄件地址都設定正確，Ghost 就能透過 Resend 正常寄出系統信件。</p>
+<p>以這次測試來說，Zeabur 負責快速把 Ghost 跑起來，Resend 則補上後台邀請、登入連結、密碼重設等交易型信件能力。這樣的組合很適合作為自架內容平台的初步測試環境。</p>
+<p>另外，Ghost 的 SMTP 設定主要處理系統信件；如果之後要使用內建 newsletter 大量寄送文章，還需要再評估 Mailgun 或其他寄信方案。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zeabur.com/zh-TW/templates/SHEU50">Ghost 部署教學</a></li>
+<li><a target="_blank" rel="noopener" href="https://resend.com/docs/send-with-smtp">Send emails with SMTP - Resend</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/" class="category-chain-item">技術分享</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Ghost/" class="print-no-link">#Ghost</a>
+      
+        <a href="/tags/Zeabur/" class="print-no-link">#Zeabur</a>
+      
+        <a href="/tags/Resend/" class="print-no-link">#Resend</a>
+      
+        <a href="/tags/SMTP/" class="print-no-link">#SMTP</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ghost 自架筆記：Zeabur 部署與 Resend SMTP 設定</div>
+      <div>https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chun-Kai Wang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>發布於</div>
+          <div>2026年5月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>許可協議</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/05/01/nodejs-generative-ai-practical-guide/" title="《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐">
+                        <span class="hidden-mobile">《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/';
+          this.page.identifier = '/2026/05/27/deploy-ghost-on-zeabur-with-resend/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'chunkai-blog' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目錄</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜尋</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">關鍵字</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允許 JavaScript 運行的環境下瀏覽效果更佳</div>
+  </noscript>
+</body>
+</html>

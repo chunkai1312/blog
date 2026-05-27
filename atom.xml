@@ -6,7 +6,7 @@
   <link href="https://chunkai.blog/atom.xml" rel="self"/>
   
   <link href="https://chunkai.blog/"/>
-  <updated>2026-05-19T04:12:02.226Z</updated>
+  <updated>2026-05-27T02:36:34.387Z</updated>
   <id>https://chunkai.blog/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ghost 自架筆記：Zeabur 部署與 Resend SMTP 設定</title>
+    <link href="https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/"/>
+    <id>https://chunkai.blog/2026/05/27/deploy-ghost-on-zeabur-with-resend/</id>
+    <published>2026-05-27T01:28:29.000Z</published>
+    <updated>2026-05-27T02:36:34.387Z</updated>
+    
+    
+    <summary type="html">記錄使用 Zeabur 部署 Ghost 並串接 Resend SMTP，整理 mail 環境變數設定與系統信件驗證流程。</summary>
+    
+    
+    
+    <category term="技術分享" scheme="https://chunkai.blog/categories/%E6%8A%80%E8%A1%93%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="Ghost" scheme="https://chunkai.blog/tags/Ghost/"/>
+    
+    <category term="Zeabur" scheme="https://chunkai.blog/tags/Zeabur/"/>
+    
+    <category term="Resend" scheme="https://chunkai.blog/tags/Resend/"/>
+    
+    <category term="SMTP" scheme="https://chunkai.blog/tags/SMTP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《Node.js生成式AI應用開發實戰》：從探索到落地的生成式 AI 開發實踐</title>
     <link href="https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/"/>
     <id>https://chunkai.blog/2026/05/01/nodejs-generative-ai-practical-guide/</id>
     <published>2026-05-01T13:21:18.000Z</published>
-    <updated>2026-05-19T04:12:02.226Z</updated>
+    <updated>2026-05-27T02:27:05.458Z</updated>
     
     
     <summary type="html">記錄《Node.js生成式AI應用開發實戰》的成書脈絡，從生成式 AI API 探索、框架實作、筆記整理到形成系統化學習路徑的過程。</summary>
@@ -424,29 +449,6 @@
     
     <category term="生活札記" scheme="https://chunkai.blog/categories/%E7%94%9F%E6%B4%BB%E6%9C%AD%E8%A8%98/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>取得美元兌新台幣歷史匯率</title>
-    <link href="https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/"/>
-    <id>https://chunkai.blog/2021/09/05/fetching-usd-to-twd-exchange-rate-history/</id>
-    <published>2021-09-05T08:12:22.000Z</published>
-    <updated>2026-05-19T04:12:02.223Z</updated>
-    
-    
-    <summary type="html">比較中央銀行與臺灣期貨交易所提供的美元兌新台幣歷史匯率資料，說明如何取得適合研究與回測使用的匯率數據。</summary>
-    
-    
-    
-    <category term="工具應用" scheme="https://chunkai.blog/categories/%E5%B7%A5%E5%85%B7%E6%87%89%E7%94%A8/"/>
-    
-    
-    <category term="新台幣" scheme="https://chunkai.blog/tags/%E6%96%B0%E5%8F%B0%E5%B9%A3/"/>
-    
-    <category term="美元" scheme="https://chunkai.blog/tags/%E7%BE%8E%E5%85%83/"/>
-    
-    <category term="匯率" scheme="https://chunkai.blog/tags/%E5%8C%AF%E7%8E%87/"/>
     
   </entry>
   
